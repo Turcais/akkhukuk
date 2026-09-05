@@ -17,8 +17,12 @@ export function Tanitim({
     <Bolum className="doku-kagit">
       <div className="grid gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
         <div className="lg:sticky lg:top-32 lg:self-start">
-          <p className="ustbaslik">{ustBaslik}</p>
-          <h2 className="mt-4 text-[2rem] sm:text-[2.5rem]">{baslik}</h2>
+          <div className="flex items-center gap-4">
+            <span className="font-display text-[1.05rem] leading-none text-altin">01</span>
+            <span className="h-px w-9 bg-cizgi-koyu" aria-hidden="true" />
+            <p className="ustbaslik">{ustBaslik}</p>
+          </div>
+          <h2 className="mt-5 text-[2rem] leading-[1.1] sm:text-[2.6rem]">{baslik}</h2>
           <Motif className="mt-8 max-w-[9rem]" />
           <div className="mt-8 space-y-5 text-metin-soluk">
             {paragraflar.map((paragraf) => (

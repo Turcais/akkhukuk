@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { Bordur, Oruntu } from "@/components/brand/motif";
+import { Nisan } from "@/components/brand/nisan";
 import { sosyalIkonlar } from "@/components/brand/sosyal-ikonlar";
 import { Kapsayici } from "@/components/ui/bolum";
 import type { Ayarlar } from "@/lib/ayarlar";
@@ -16,6 +17,12 @@ export function AltBilgi({ ayarlar, alanlar }: { ayarlar: Ayarlar; alanlar: Alan
     <footer className="relative overflow-hidden bg-koyu-zemin text-white/70">
       <Oruntu className="text-white opacity-[0.035]" />
       <Bordur className="relative text-altin/55" ters />
+
+      {/* Mühür filigranı — alt bilginin sağ omzunda, neredeyse görünmez */}
+      <Nisan
+        className="pointer-events-none absolute -right-16 bottom-[-4rem] h-[26rem] w-[19rem] text-altin opacity-[0.055]"
+        harfSinifi="hidden"
+      />
 
       <Kapsayici className="relative pb-16 pt-14 sm:pb-20 sm:pt-16">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr]">

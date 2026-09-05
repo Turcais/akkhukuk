@@ -53,6 +53,11 @@ export const anaSayfa = {
     ],
   },
 
+  levha: {
+    soz: "Bir dosyanın nasıl biteceğini çoğu zaman dava dilekçesi değil, yıllar önce imzalanan sözleşme ve o gün tutulan kayıt belirler.",
+    kunye: "AKK Hukuk ve Danışmanlık",
+  },
+
   alanlarBolumu: {
     ustBaslik: "Çalışma Alanlarımız",
     baslik: "Hangi konuda destek arıyorsunuz?",

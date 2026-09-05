@@ -88,7 +88,7 @@ export default async function YaziSayfasi({ params }: { params: Promise<{ slug: 
             />
           ) : null}
 
-          <div className="olcu">
+          <div className="yazi-govde olcu">
             <Metin govde={yazi.govde} />
           </div>
 

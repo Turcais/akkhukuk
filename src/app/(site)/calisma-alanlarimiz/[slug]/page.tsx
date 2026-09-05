@@ -83,7 +83,7 @@ export default async function AlanSayfasi({ params }: { params: Promise<{ slug: 
         <div className="grid gap-14 lg:grid-cols-[1.25fr_0.75fr] lg:gap-20">
           <div>
             {alan.giris ? (
-              <p className="olcu font-display text-[1.28rem] leading-[1.65] text-murekkep">{alan.giris}</p>
+              <p className="basharf olcu font-display text-[1.28rem] leading-[1.7] text-murekkep">{alan.giris}</p>
             ) : null}
 
             {alan.hizmetler.length > 0 ? (

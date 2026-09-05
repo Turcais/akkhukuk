@@ -22,6 +22,7 @@ export const sayfaMetni = defineType({
           { title: "Ana sayfa — üst bölüm", value: "anasayfa-hero" },
           { title: "Ana sayfa — güven şeridi", value: "anasayfa-guven" },
           { title: "Ana sayfa — büro tanıtımı", value: "anasayfa-tanitim" },
+          { title: "Ana sayfa — levha (tek cümlelik ilke)", value: "anasayfa-levha" },
           { title: "Ana sayfa — çalışma alanları başlığı", value: "anasayfa-alanlar" },
           { title: "Ana sayfa — çalışma yöntemi", value: "anasayfa-yontem" },
           { title: "Ana sayfa — ekip başlığı", value: "anasayfa-ekip" },

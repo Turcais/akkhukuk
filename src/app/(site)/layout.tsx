@@ -1,5 +1,6 @@
 import { AltBilgi } from "@/components/layout/alt-bilgi";
 import { KemerTanimi } from "@/components/brand/motif";
+import { Cetvel } from "@/components/ui/bolum";
 import { UstMenu } from "@/components/layout/ust-menu";
 import { WhatsappButonu } from "@/components/layout/whatsapp-butonu";
 import { BuroVerisi } from "@/components/yapisal-veri";
@@ -19,6 +20,7 @@ export default async function SiteYerlesimi({ children }: { children: React.Reac
 
       {/* Mihrap kemeri kirpma tanimi belgede bir kez bulunur. */}
       <KemerTanimi />
+      <Cetvel />
 
       <UstMenu
         buroAdi={ayarlar.buroAdi}

@@ -47,8 +47,8 @@ export default async function CalismaAlanlari() {
 
       <Bolum>
         <div className="grid gap-px border border-cizgi bg-cizgi sm:grid-cols-2 lg:grid-cols-3">
-          {alanlar.map((alan) => (
-            <AlanKarti key={alan.slug} alan={alan} />
+          {alanlar.map((alan, sira) => (
+            <AlanKarti key={alan.slug} alan={alan} sira={sira + 1} />
           ))}
           <IzgaraDolgusu adet={alanlar.length} />
         </div>

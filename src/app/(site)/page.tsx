@@ -1,6 +1,7 @@
 import { Alanlar } from "@/components/anasayfa/alanlar";
 import { Cagri } from "@/components/anasayfa/cagri";
 import { Giris } from "@/components/anasayfa/giris";
+import { Levha } from "@/components/anasayfa/levha";
 import { GuvenSeridi } from "@/components/anasayfa/guven-seridi";
 import { Tanitim } from "@/components/anasayfa/tanitim";
 import { Yontem } from "@/components/anasayfa/yontem";
@@ -23,7 +24,21 @@ export const revalidate = 300;
  * varsayilan kullanilir.
  */
 export default async function AnaSayfa() {
-  const [ayarlar, alanlar, ekip, yazilar, hero, guven, tanitim, alanBaslik, yontem, ekipBaslik, yayinBaslik, cagri] =
+  const [
+    ayarlar,
+    alanlar,
+    ekip,
+    yazilar,
+    hero,
+    guven,
+    tanitim,
+    levha,
+    alanBaslik,
+    yontem,
+    ekipBaslik,
+    yayinBaslik,
+    cagri,
+  ] =
     await Promise.all([
       ayarlariGetir(),
       calismaAlanlariGetir(),
@@ -32,6 +47,7 @@ export default async function AnaSayfa() {
       sayfaMetniGetir("anasayfa-hero"),
       sayfaMetniGetir("anasayfa-guven"),
       sayfaMetniGetir("anasayfa-tanitim"),
+      sayfaMetniGetir("anasayfa-levha"),
       sayfaMetniGetir("anasayfa-alanlar"),
       sayfaMetniGetir("anasayfa-yontem"),
       sayfaMetniGetir("anasayfa-ekip"),
@@ -84,6 +100,11 @@ export default async function AnaSayfa() {
         maddeler={tanitimMaddeleri}
       />
 
+      <Levha
+        soz={sec(levha.baslik, anaSayfa.levha.soz)}
+        kunye={sec(levha.ustBaslik, anaSayfa.levha.kunye)}
+      />
+
       <Alanlar
         ustBaslik={sec(alanBaslik.ustBaslik, anaSayfa.alanlarBolumu.ustBaslik)}
         baslik={sec(alanBaslik.baslik, anaSayfa.alanlarBolumu.baslik)}
@@ -101,6 +122,7 @@ export default async function AnaSayfa() {
         <Bolum className="border-y border-cizgi bg-kagit-koyu/40">
           <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
             <BolumBasligi
+              sira="04"
               ustBaslik={sec(ekipBaslik.ustBaslik, anaSayfa.ekipBolumu.ustBaslik)}
               baslik={sec(ekipBaslik.baslik, anaSayfa.ekipBolumu.baslik)}
               aciklama={sec(ekipBaslik.altBaslik, anaSayfa.ekipBolumu.aciklama)}
@@ -128,6 +150,7 @@ export default async function AnaSayfa() {
         <Bolum>
           <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
             <BolumBasligi
+              sira="05"
               ustBaslik={sec(yayinBaslik.ustBaslik, anaSayfa.yayinBolumu.ustBaslik)}
               baslik={sec(yayinBaslik.baslik, anaSayfa.yayinBolumu.baslik)}
               aciklama={sec(yayinBaslik.altBaslik, anaSayfa.yayinBolumu.aciklama)}

@@ -109,8 +109,9 @@ export function UstMenu({
                   <Link
                     href={oge.adres}
                     aria-expanded={alanlarAcik}
+                    data-aktif={aktifMi(oge.adres)}
                     className={cn(
-                      "inline-flex items-center gap-1.5 whitespace-nowrap px-2.5 py-2 text-[0.86rem] transition-colors",
+                      "menu-baglantisi inline-flex items-center gap-1.5 whitespace-nowrap px-2.5 py-2.5 text-[0.86rem] transition-colors",
                       aktifMi(oge.adres) ? "text-kirmizi" : "text-metin hover:text-kirmizi",
                     )}
                   >
@@ -142,9 +143,10 @@ export function UstMenu({
                   key={oge.adres}
                   href={oge.adres}
                   className={cn(
-                    "whitespace-nowrap px-2.5 py-2 text-[0.86rem] transition-colors",
+                    "menu-baglantisi whitespace-nowrap px-2.5 py-2.5 text-[0.86rem] transition-colors",
                     aktifMi(oge.adres) ? "text-kirmizi" : "text-metin hover:text-kirmizi",
                   )}
+                  data-aktif={aktifMi(oge.adres)}
                 >
                   {oge.kisa}
                 </Link>

@@ -60,7 +60,45 @@ ve hem kırpma hem altın iç hat aynı yolu kullanır; oran değişse de form b
 Kural: motifler hiçbir zaman metnin okunabilirliğini düşürecek yoğunlukta
 kullanılmaz ve `aria-hidden` ile ekran okuyuculardan gizlenir.
 
-## Düzen
+## Sayfa yapısı
+
+Osmanlı tarafı yalnızca bezemede değil, sayfanın kuruluşunda da vardır.
+
+**Cetvel.** Tezhipli sayfalarda metni çevreleyen ince kenar hattı. Sitede
+1440 pikselin üzerindeki ekranlarda, sayfanın iki yanından geçen altın bir
+hairline ve dört köşe işareti olarak belirir. Dar ekranlarda hiç çizilmez —
+bir gösteri değil, geniş ekranın hakkını veren bir çerçevedir.
+
+**Bölüm numaraları.** Her ana bölüm kitabe satırı gibi açılır:
+`01 —— BÜRO HAKKINDA`. Numara, altın cetvel çizgisi, sonra üst başlık.
+Sayfa böylece bir cilt gibi okunur; okur hangi bölümde olduğunu bilir.
+
+**Levha.** Sayfanın ortasında, hat levhası düzeninde tek cümlelik bir durak:
+köşebentli çerçeve, girih filigranı, Bodoni ile büyük punto tespit, altında
+künye. İddia değil, bakış açısı bildirir. Metni panelden değiştirilir.
+
+**Işık ritmi.** Sayfa tek renkte akmaz; koyu ve açık bantlar sırayla gelir:
+
+```
+koyu açılış → açık güven şeridi → açık tanıtım → levha
+→ açık fihrist → KOYU çalışma yöntemi → açık ekip
+→ açık yayınlar → koyu çağrı → koyu alt bilgi
+```
+
+Ortadaki koyu "çalışma yöntemi" bandı, sayfanın nefes aldığı yerdir; içi
+boş altın rakamlar (yalnızca kontur) ve dikey altın hatlarla kurulur.
+
+**Fihrist kartları.** Çalışma alanları numaralı bir fihrist gibi dizilir:
+solda sıra numarası, sağda konunun simgesi, altta başlık, altın kesme
+çizgisi ve tek cümlelik özet. Üzerine gelindiğinde girih örüntüsü %5,5
+opaklıkta belirir — kart bir çini karoya dönüşür.
+
+**Başharf.** Uzun metinlerin ilk harfi, müzehhep başharflerin modern
+karşılığı olarak Edirne kırmızısında ve Bodoni ile büyütülür. Yalnızca
+çalışma alanı giriş paragrafında ve yayın gövdesinde kullanılır; kısa
+bloklarda dengeyi bozar.
+
+## Düzen ve ayrıntı
 
 - Kart ızgaralarında hücre çizgileri, 1 px boşluklardan kapsayıcının arka
   planının görünmesiyle elde edilir. Son satır eksik kaldığında
@@ -68,6 +106,8 @@ kullanılmaz ve `aria-hidden` ile ekran okuyuculardan gizlenir.
 - Köşeler keskindir (`--radius-soft: 2px`). Yuvarlatılmış köşe, bu markanın
   kurmak istediği ciddiyetle çelişir.
 - Gölge neredeyse yoktur; katman hissi çizgiyle kurulur.
+- Üst menü bağlantılarının altında, üzerine gelindiğinde soldan çizilen bir
+  altın hat belirir; bulunulan sayfada bu hat çizili kalır.
 - Hareket: sayfa girişinde animasyon yoktur. Yalnızca üzerine gelme
   durumlarında 200–700 ms arası geçişler kullanılır. Bunun nedeni yalnızca
   estetik değildir: giriş animasyonu içeriği geçici olarak görünmez
