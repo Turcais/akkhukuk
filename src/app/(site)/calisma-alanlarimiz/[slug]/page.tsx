@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, Check } from "lucide-react";
 import { SayfaBasligi } from "@/components/layout/sayfa-basligi";
 import { Cagri } from "@/components/anasayfa/cagri";
+import { SurecSemasi } from "@/components/surec-semasi";
 import { Kosebent } from "@/components/brand/motif";
 import { AlanIkonu } from "@/components/ui/alan-ikonu";
 import { HizmetVerisi, SoruVerisi, YolVerisi } from "@/components/yapisal-veri";
@@ -101,6 +102,10 @@ export default async function AlanSayfasi({ params }: { params: Promise<{ slug: 
                   ))}
                 </ul>
               </div>
+            ) : null}
+
+            {alan.surec && alan.surec.length > 0 ? (
+              <SurecSemasi baslik={alan.surecBasligi ?? "Süreç nasıl ilerler?"} adimlar={alan.surec} />
             ) : null}
 
             {alan.sorular.length > 0 ? (

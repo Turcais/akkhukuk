@@ -36,6 +36,16 @@ export const yazi = defineType({
       validation: (kural) => kural.required().max(300),
     }),
     defineField({
+      name: "kisaCevap",
+      title: "Kısa cevap",
+      type: "text",
+      rows: 4,
+      group: "icerik",
+      description:
+        "Yazının sorduğu soruya iki-üç cümlede doğrudan cevap. Yazının en üstünde çerçeveli olarak görünür ve arama motorlarıyla yapay zekâ cevaplarında alıntılanan bölüm çoğunlukla budur. Kendi başına ayakta durmalı; \"yukarıda anlatıldığı gibi\" türü ifadeler kullanılmamalıdır.",
+      validation: (kural) => kural.max(600),
+    }),
+    defineField({
       name: "kapak",
       title: "Kapak görseli",
       type: "image",
@@ -86,6 +96,30 @@ export const yazi = defineType({
       ],
     }),
 
+    defineField({
+      name: "kaynaklar",
+      title: "Dayanak mevzuat ve kaynaklar",
+      type: "array",
+      group: "icerik",
+      description:
+        "Yazının dayandığı kanun maddeleri ve kaynaklar. Yazının sonunda listelenir. Madde numaralarını yayından önce teyit edin.",
+      of: [
+        defineArrayMember({
+          type: "object",
+          fields: [
+            defineField({
+              name: "baslik",
+              title: "Kaynak",
+              type: "string",
+              description: "Örnek: 4857 sayılı İş Kanunu m.18–21 — feshin geçerli sebebe dayandırılması",
+              validation: (k) => k.required(),
+            }),
+            defineField({ name: "adres", title: "Bağlantı (isteğe bağlı)", type: "url" }),
+          ],
+          preview: { select: { title: "baslik" } },
+        }),
+      ],
+    }),
     defineField({
       name: "yazar",
       title: "Yazar",

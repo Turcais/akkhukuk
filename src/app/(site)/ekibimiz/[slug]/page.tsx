@@ -77,6 +77,8 @@ export default async function EkipUyesiSayfasi({ params }: { params: Promise<{ s
         buroAdi={ayarlar.buroAdi}
         gorsel={portre}
         uzmanliklar={uye.uzmanlikAlanlari.map((alan) => alan.baslik)}
+        baglantilar={[uye.linkedin].filter((adres): adres is string => Boolean(adres))}
+        diller={uye.diller}
       />
 
       <Bolum className="doku-kagit">

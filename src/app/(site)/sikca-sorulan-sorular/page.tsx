@@ -65,7 +65,9 @@ export default async function SikcaSorulanSorular() {
                         aria-hidden="true"
                       />
                     </summary>
-                    <p className="olcu mt-4 leading-[1.8] text-metin-soluk">{kayit.cevap}</p>
+                    <p className="olcu mt-4 leading-[1.8] text-metin-soluk" data-konusulabilir>
+                      {kayit.cevap}
+                    </p>
                   </details>
                 ))}
               </div>

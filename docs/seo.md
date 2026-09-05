@@ -32,45 +32,76 @@ yayın sonrasında yapılması gerekenler ayrı ayrı listelenmiştir.
   (her çalışma alanı sayfası ortalama 400+ kelime özgün içerik)
 
 ### Yapısal veri (JSON-LD)
-| Şema | Nerede |
+| Şema | Nerede | Ne sağlar |
+|---|---|---|
+| `LegalService` | Her sayfa | Büro kimliği, `knowsAbout` (12 çalışma alanı), çalışma saatleri, iletişim noktası, bağlı olunan baro, hizmet dili |
+| `WebSite` | Her sayfa | Site kimliği |
+| `BreadcrumbList` | Tüm iç sayfalar | Sonuçlarda yol izi |
+| `ItemList` | Çalışma alanları ve ekip dizinleri | 12 alanın tek liste olarak anlaşılması |
+| `Service` | Çalışma alanı sayfaları | Hizmetin adı, sağlayıcısı, hizmet bölgesi |
+| `FAQPage` + `speakable` | Alan sayfaları ve S.S.S. | Sorunun altında cevabın görünmesi; sesli asistanların okuyabilmesi |
+| `Attorney` | Ekip profilleri | Avukat kimliği, uzmanlık, dil, dış bağlantılar |
+| `Article` + `abstract` + `citation` | Yayınlar | Yazının özeti ve dayandığı mevzuat |
+
+### Makine okunur çıktılar
+| Adres | Ne için |
 |---|---|
-| `LegalService` + `OfferCatalog` | Her sayfa (site kabuğu) |
-| `WebSite` | Her sayfa |
-| `BreadcrumbList` | Tüm iç sayfalar |
-| `Service` | Çalışma alanı sayfaları |
-| `FAQPage` | Çalışma alanı sayfaları ve S.S.S. sayfası |
-| `Attorney` (Person) | Ekip profilleri |
-| `Article` | Yayın sayfaları |
+| `/sitemap.xml` | Tüm sayfaların listesi. `lastmod` uydurulmaz: yazılar için gerçek yayın tarihi kullanılır. Yanlış bir `lastmod`, arama motorunun bu alanı tümden yok saymasına yol açar. |
+| `/rss.xml` | Yayın akışı. Meslektaşlar, haber toplayıcılar ve içerik tarayıcıları için. |
+| `/llms.txt` | Dil modelleri için düz metin büro künyesi: kimlik, iletişim, 12 çalışma alanının kapsamı ve sık sorulanları, ekip, yayınlar. |
+| `/robots.txt` | Arama motorlarının yanında yapay zekâ tarayıcılarına da **açık izin**. |
 
-`FAQPage` işaretlemesi, arama sonuçlarında sorunun altında cevabın da
-görünmesini sağlayan yapıdır; hukuk aramalarında tıklama oranını en çok
-artıran unsurlardan biridir.
+Üçü de aynı kaynaktan (`src/lib/seo.ts`) beslenir; birinin güncellenip
+diğerinin unutulması mümkün değildir.
 
-### İç bağlantı mimarisi
-```
-Ana Sayfa
- ├─ Çalışma Alanları (12) ──┬─ ilgili avukat profiline
- │                          ├─ diğer alanlara (yatay bağlantı)
- │                          └─ iletişime
- ├─ Ekip ────────────────────── her profil kendi uzmanlık alanlarına
- └─ Yayınlar ───────────────── her yazı yazarına ve ilgili alana
-```
-Her sayfa en az üç iç bağlantı alır; hiçbir sayfa yalıtılmış değildir.
+### Yapay zekâ cevaplarında çıkmak
+
+Bir kullanıcı arama yerine bir dil modeline sorduğunda, cevabın kaynağı
+olmak için gereken şey anahtar kelime değil **çıkarılabilir içeriktir.**
+Sitede bunun için yapılanlar:
+
+1. **Kısa cevap bloğu.** Her yayının en üstünde, sorulan soruya iki-üç
+   cümlede doğrudan cevap veren çerçeveli bir bölüm. Kendi başına ayakta
+   durur — "yukarıda anlatıldığı gibi" demez. Aynı metin `Article`
+   şemasında `abstract` olarak da verilir. Özetleyen sistemlerin
+   alıntıladığı bölüm çoğunlukla budur.
+2. **Soru biçiminde başlıklar.** Ara başlıklar ("İşe iade davası açmak
+   için süre ne kadar?") kullanıcının yazdığı soruyla birebir eşleşir.
+3. **Dayanak mevzuat.** Her yazının sonunda kanun ve madde numaraları
+   listelenir; `citation` olarak da işaretlenir. Kaynaklı metin hem okur
+   hem sistemler için daha güvenilirdir.
+4. **Süreç şemaları.** Adımlar, tipik süreler ve sıra; "vakıf kuruluşu
+   kaç aşamadır" türü sorulara doğrudan cevap verir.
+5. **Sunucuda üretilen HTML.** İçeriğin tamamı ilk yanıtta gelir;
+   JavaScript çalıştırmayan tarayıcılar da tam metni görür.
+6. **`llms.txt`.** Modelin siteyi tek dosyadan doğru anlaması için.
+7. **Varlık tutarlılığı.** Büro adı, adres ve telefon sitede, yapısal
+   veride ve `llms.txt`'te birebir aynıdır; farklı yazımlar modelin iki
+   ayrı büro olduğunu düşünmesine yol açar.
+
+> Bunların hiçbiri bir garanti değildir; hiçbir teknik de değildir.
+> Yapay zekâ cevabında kaynak gösterilmenin tek yolu, o soruya internetteki
+> en açık cevabı vermiş olmaktır. Altyapı bunu görünür kılar, içeriğin
+> yerine geçmez.
 
 ## Yapılmayanlar ve nedeni
 
 **Gizli anahtar kelime / cümle listesi sayfası yapılmamıştır.**
 
-Bu teknik iki ayrı nedenle sitenin aleyhinedir:
+Bu teknik üç ayrı nedenle sitenin aleyhinedir:
 
-1. **Google Spam Politikaları** gizli metni ve anahtar kelime yığınını
+1. **Artık çalışmıyor.** Meta anahtar kelime etiketi 2009'dan beri Google
+   sıralamasında kullanılmıyor; görünmez metin ise sayfanın tamamının
+   değerlendirme dışı bırakılmasına yol açıyor.
+2. **Google Spam Politikaları** gizli metni ve anahtar kelime yığınını
    açıkça yasaklar. Yaptırımı algoritmik bir sıra kaybı değil, elle
    uygulanan (manual action) tam kaldırmadır. Bir hukuk bürosu için alan
    adının arama sonuçlarından çıkması, kazanılacak her trafiğin çok
    üzerinde bir kayıptır ve geri alınması aylar sürer.
-2. **TBB Reklam Yasağı Yönetmeliği**, arama motorunda öne çıkmak amacıyla
+3. **TBB Reklam Yasağı Yönetmeliği**, arama motorunda öne çıkmak amacıyla
    ilgisiz anahtar kelime ve meta etiket kullanımını doğrudan disiplin
-   konusu yapar (bkz. `docs/mevzuat.md`).
+   konusu yapar (bkz. `docs/mevzuat.md`). Yaptırım siteye değil, avukatın
+   siciline işler.
 
 Aynı hedefe (yüksek ve **kalıcı** organik trafik) götüren meşru yol,
 aşağıdaki içerik programıdır.

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SayfaBasligi } from "@/components/layout/sayfa-basligi";
 import { Cagri } from "@/components/anasayfa/cagri";
 import { EkipKarti } from "@/components/ekip-karti";
-import { YolVerisi } from "@/components/yapisal-veri";
+import { ListeVerisi, YolVerisi } from "@/components/yapisal-veri";
 import { Bolum, IzgaraDolgusu } from "@/components/ui/bolum";
 import { ayarlariGetir } from "@/lib/ayarlar";
 import { cn } from "@/lib/utils";
@@ -40,6 +40,14 @@ export default async function Ekibimiz() {
         yolIzi={yolIzi}
       />
       <YolVerisi basamaklar={yolIzi} />
+      <ListeVerisi
+        ad="Ekibimiz"
+        ogeler={ekip.map((uye) => ({
+          ad: uye.ad,
+          adres: `/ekibimiz/${uye.slug}`,
+          aciklama: uye.kisaTanitim,
+        }))}
+      />
 
       <Bolum>
         {/* Üç kişiden azken üç sütunluk ızgara boş hücre bırakır;

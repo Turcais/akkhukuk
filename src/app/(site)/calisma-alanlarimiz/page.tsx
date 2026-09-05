@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SayfaBasligi } from "@/components/layout/sayfa-basligi";
 import { AlanKarti } from "@/components/anasayfa/alanlar";
 import { Cagri } from "@/components/anasayfa/cagri";
-import { YolVerisi } from "@/components/yapisal-veri";
+import { ListeVerisi, YolVerisi } from "@/components/yapisal-veri";
 import { Bolum, IzgaraDolgusu } from "@/components/ui/bolum";
 import { ayarlariGetir } from "@/lib/ayarlar";
 import { anaSayfa } from "@/lib/icerik";
@@ -44,6 +44,14 @@ export default async function CalismaAlanlari() {
         yolIzi={yolIzi}
       />
       <YolVerisi basamaklar={yolIzi} />
+      <ListeVerisi
+        ad="Çalışma alanlarımız"
+        ogeler={alanlar.map((alan) => ({
+          ad: alan.baslik,
+          adres: `/calisma-alanlarimiz/${alan.slug}`,
+          aciklama: alan.ozet,
+        }))}
+      />
 
       <Bolum>
         <div className="grid gap-px border border-cizgi bg-cizgi sm:grid-cols-2 lg:grid-cols-3">

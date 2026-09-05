@@ -24,6 +24,15 @@ export type CalismaAlani = {
   hizmetler: string[];
   /** "Kimler icin" maddeleri */
   kimlerIcin: string[];
+  /**
+   * Surec semasi.
+   *
+   * Yalnizca adimlari onceden bilinebilen isler icin doldurulur; her alanin
+   * surec semasi olmaz. Sureler taahhut degil, tipik seyirdir — bu yuzden
+   * hepsi aralik olarak yazilir.
+   */
+  surecBasligi?: string;
+  surec?: { baslik: string; metin: string; sure?: string }[];
   /** Sayfa sonundaki sik sorulanlar */
   sorular: { soru: string; cevap: string }[];
   /** Arama motoru aciklamasi */
@@ -54,6 +63,33 @@ export const calismaAlanlari: CalismaAlani[] = [
       "Ortak alacak ya da ortaktan ayrılacak şirketler",
       "Yatırım alma sürecine giren işletmeler",
       "Ortakları arasında anlaşmazlık yaşayan şirketler",
+    ],
+    surecBasligi: "Şirket kuruluşu nasıl ilerler?",
+    surec: [
+      {
+        baslik: "Yapı kararı",
+        metin:
+          "Anonim mi limited mi, ortaklık payları ve yönetim yapısı nasıl kurulacak — bunlar vergi ve sorumluluk sonuçlarıyla birlikte konuşulur.",
+        sure: "1–2 gün",
+      },
+      {
+        baslik: "Belgelerin hazırlanması",
+        metin:
+          "Ana sözleşme ve varsa ortaklık sözleşmesi yazılır; imza beyannamesi ve kuruluş evrakı toplanır.",
+        sure: "2–5 gün",
+      },
+      {
+        baslik: "Tescil ve ilan",
+        metin:
+          "MERSİS başvurusu yapılır, ticaret siciline tescil ve Türkiye Ticaret Sicili Gazetesi'nde ilan tamamlanır.",
+        sure: "1–3 gün",
+      },
+      {
+        baslik: "Faaliyet altyapısı",
+        metin:
+          "Vergi dairesi açılışı, defter tasdiki, e-imza ve banka hesabı; ardından ilk genel kurul takvimi belirlenir.",
+        sure: "3–7 gün",
+      },
     ],
     sorular: [
       {
@@ -94,6 +130,39 @@ export const calismaAlanlari: CalismaAlani[] = [
       "Denetim yazısı almış veya idari yaptırımla karşılaşmış kuruluşlar",
       "Vergi muafiyeti ya da kamu yararı statüsü hedefleyen kuruluşlar",
       "İktisadi işletme kurmak isteyen dernek ve vakıflar",
+    ],
+    surecBasligi: "Vakıf kuruluşu nasıl ilerler?",
+    surec: [
+      {
+        baslik: "Amaç ve malvarlığı",
+        metin:
+          "Vakfın amacı, faaliyet alanı ve tahsis edilecek malvarlığı belirlenir. Asgari tutar her yıl yeniden açıklanır.",
+        sure: "1–2 hafta",
+      },
+      {
+        baslik: "Vakıf senedi",
+        metin:
+          "Senet metni yazılır: amaç, organlar, mütevelli heyetinin oluşumu, denetim ve tasfiye hükümleri.",
+        sure: "1–3 hafta",
+      },
+      {
+        baslik: "Noter ve başvuru",
+        metin:
+          "Senet noterde düzenlenir, asliye hukuk mahkemesinde tescil davası açılır.",
+        sure: "1 hafta",
+      },
+      {
+        baslik: "Genel Müdürlük görüşü",
+        metin:
+          "Vakıflar Genel Müdürlüğü'nün görüşü alınır; gerekirse senette düzeltme yapılır.",
+        sure: "Değişken",
+      },
+      {
+        baslik: "Tescil ve ilan",
+        metin:
+          "Mahkeme kararıyla tüzel kişilik kazanılır, sicile kayıt ve Resmî Gazete ilanı yapılır.",
+        sure: "Mahkemenin takvimine bağlı",
+      },
     ],
     sorular: [
       {
@@ -176,6 +245,33 @@ export const calismaAlanlari: CalismaAlani[] = [
       "İş kazası geçiren çalışanlar ve yakınları",
       "SGK teftişi geçiren işyerleri",
     ],
+    surecBasligi: "İşe iade süreci nasıl ilerler?",
+    surec: [
+      {
+        baslik: "Fesih bildiriminin incelenmesi",
+        metin:
+          "Bildirimin tebliğ tarihi, sebebin açık ve kesin gösterilip gösterilmediği ve savunma alınıp alınmadığı incelenir.",
+        sure: "İlk görüşme",
+      },
+      {
+        baslik: "Arabuluculuk başvurusu",
+        metin:
+          "Tebliğden itibaren bir ay içinde başvurulur. Bu bir dava şartıdır.",
+        sure: "1 ay içinde",
+      },
+      {
+        baslik: "Arabuluculuk görüşmesi",
+        metin:
+          "Anlaşma sağlanırsa süreç burada biter ve tutanak ilam niteliğindedir.",
+        sure: "3–4 hafta",
+      },
+      {
+        baslik: "Dava",
+        metin:
+          "Anlaşmazlıkla sonuçlanırsa son tutanaktan itibaren iki hafta içinde iş mahkemesinde dava açılır.",
+        sure: "2 hafta içinde",
+      },
+    ],
     sorular: [
       {
         soru: "İşe iade davası açmak için süre ne kadar?",
@@ -251,6 +347,33 @@ export const calismaAlanlari: CalismaAlani[] = [
       "Vadesi geçmiş alacağını tahsil edemeyen işletmeler",
       "Hakkında haksız icra takibi başlatılan kişi ve şirketler",
       "Mali güçlük içindeki ve yeniden yapılanma arayan şirketler",
+    ],
+    surecBasligi: "Alacak takibi nasıl ilerler?",
+    surec: [
+      {
+        baslik: "Belgenin değerlendirilmesi",
+        metin:
+          "Elinizdeki belge çek/senet mi, fatura mı, yoksa yalnızca yazışma mı — bu, hangi takip yolunun açık olduğunu belirler.",
+        sure: "İlk görüşme",
+      },
+      {
+        baslik: "Takibin başlatılması",
+        metin:
+          "Uygun takip türü seçilerek icra dairesinde takip açılır, ödeme emri tebliğe çıkarılır.",
+        sure: "1–2 hafta",
+      },
+      {
+        baslik: "İtiraz süreci",
+        metin:
+          "Borçlu süresi içinde itiraz ederse takip durur; itirazın iptali veya kaldırılması yoluna gidilir.",
+        sure: "İtiraza bağlı",
+      },
+      {
+        baslik: "Haciz ve satış",
+        metin:
+          "Takip kesinleştiğinde haciz uygulanır, satış talep edilir ve tahsilat yapılır.",
+        sure: "Değişken",
+      },
     ],
     sorular: [
       {
@@ -407,6 +530,33 @@ export const calismaAlanlari: CalismaAlani[] = [
       "Veri ihlali yaşayan ya da Kurul incelemesiyle karşılaşan şirketler",
       "İnternette kişilik hakkı ihlaline uğrayan kişi ve kurumlar",
     ],
+    surecBasligi: "KVKK uyum projesi nasıl ilerler?",
+    surec: [
+      {
+        baslik: "Mevcut durum analizi",
+        metin:
+          "Birimlerle görüşülerek hangi verinin nereden geldiği, nerede tutulduğu ve kimlerle paylaşıldığı çıkarılır.",
+        sure: "2–4 hafta",
+      },
+      {
+        baslik: "Veri envanteri",
+        metin:
+          "Her işleme faaliyeti için amaç, hukuki sebep, saklama süresi ve alıcı grubu belirlenir.",
+        sure: "2–3 hafta",
+      },
+      {
+        baslik: "Belgelerin hazırlanması",
+        metin:
+          "Aydınlatma metinleri, açık rıza formları, saklama-imha politikası ve veri işleyen sözleşmeleri yazılır.",
+        sure: "2–3 hafta",
+      },
+      {
+        baslik: "VERBİS ve sürdürme",
+        metin:
+          "Kayıt yapılır veya güncellenir; başvuru yanıtlama ve periyodik imha süreçleri takvime bağlanır.",
+        sure: "1 hafta + süreklilik",
+      },
+    ],
     sorular: [
       {
         soru: "Küçük bir işletmeyim, KVKK beni de bağlar mı?",
@@ -445,6 +595,33 @@ export const calismaAlanlari: CalismaAlani[] = [
       "Markası taklit edilen hak sahipleri",
       "Yayına itirazla karşılaşan başvuru sahipleri",
       "Yazılım, tasarım ve içerik üreten işletmeler",
+    ],
+    surecBasligi: "Marka tescili nasıl ilerler?",
+    surec: [
+      {
+        baslik: "Benzerlik araştırması",
+        metin:
+          "Aynı ve benzer markalar taranır, tescil edilecek sınıflar belirlenir. Bu adım ileride çıkacak itirazın en büyük önleyicisidir.",
+        sure: "3–5 gün",
+      },
+      {
+        baslik: "Başvuru",
+        metin:
+          "TÜRKPATENT'e başvuru yapılır ve şekli inceleme tamamlanır.",
+        sure: "1 gün",
+      },
+      {
+        baslik: "Yayın",
+        metin:
+          "Başvuru Resmî Marka Bülteni'nde yayımlanır ve iki aylık itiraz süresi işler.",
+        sure: "2 ay",
+      },
+      {
+        baslik: "Tescil",
+        metin:
+          "İtiraz gelmezse veya itiraz reddedilirse belge düzenlenir.",
+        sure: "Değişken",
+      },
     ],
     sorular: [
       {

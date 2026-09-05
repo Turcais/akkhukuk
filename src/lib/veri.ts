@@ -215,6 +215,8 @@ export type YaziOzeti = {
 
 export type YaziDetayi = YaziOzeti & {
   seoAciklama?: string;
+  kisaCevap?: string;
+  kaynaklar?: { baslik: string; adres?: string }[];
   govde: Govde<YaziBlogu>;
   ilgiliAlan?: { slug: string; baslik: string };
 };
@@ -267,6 +269,8 @@ export async function yaziGetir(slug: string): Promise<YaziDetayi | null> {
 
   return {
     ...yerelYaziOzeti(yazi),
+    kisaCevap: yazi.kisaCevap,
+    kaynaklar: yazi.kaynaklar,
     govde: { kaynak: "yerel", bloklar: yazi.govde },
   };
 }

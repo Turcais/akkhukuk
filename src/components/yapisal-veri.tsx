@@ -28,6 +28,7 @@ export function BuroVerisi({
   adresSatirlari,
   sosyal,
   alanBasliklari,
+  baro,
 }: {
   buroAdi: string;
   aciklama: string;
@@ -36,6 +37,7 @@ export function BuroVerisi({
   adresSatirlari: string[];
   sosyal: string[];
   alanBasliklari: string[];
+  baro?: string;
 }) {
   const adres = {
     "@type": "PostalAddress",
@@ -58,9 +60,31 @@ export function BuroVerisi({
           email: eposta,
           telephone: telefon,
           address: adres,
-          areaServed: { "@type": "Country", name: "Türkiye" },
+          areaServed: [
+            { "@type": "Country", name: "Türkiye" },
+            { "@type": "City", name: "Ankara" },
+          ],
           priceRange: "$$",
           knowsLanguage: ["tr", "en"],
+          availableLanguage: ["Türkçe", "İngilizce"],
+          /* Bu alan, bir dil modeline "ne konuda calisiyorlar" diye
+             soruldugunda dogrudan okunan yerdir. */
+          knowsAbout: alanBasliklari,
+          memberOf: baro ? { "@type": "Organization", name: baro } : undefined,
+          contactPoint: {
+            "@type": "ContactPoint",
+            contactType: "Müvekkil başvuruları",
+            telephone: telefon,
+            email: eposta,
+            areaServed: "TR",
+            availableLanguage: ["Turkish", "English"],
+          },
+          openingHoursSpecification: {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            opens: "09:00",
+            closes: "18:00",
+          },
           sameAs: sosyal,
           hasOfferCatalog: {
             "@type": "OfferCatalog",
@@ -112,6 +136,12 @@ export function SoruVerisi({ sorular }: { sorular: { soru: string; cevap: string
       veri={{
         "@context": "https://schema.org",
         "@type": "FAQPage",
+        inLanguage: "tr-TR",
+        /* Sesli asistanlarin okuyabilecegi bolumler */
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["h1", "[data-konusulabilir]"],
+        },
         mainEntity: sorular.map(({ soru, cevap }) => ({
           "@type": "Question",
           name: soru,
@@ -157,6 +187,8 @@ export function AvukatVerisi({
   buroAdi,
   gorsel,
   uzmanliklar,
+  baglantilar = [],
+  diller = [],
 }: {
   ad: string;
   unvan: string;
@@ -165,6 +197,8 @@ export function AvukatVerisi({
   buroAdi: string;
   gorsel?: string | null;
   uzmanliklar: string[];
+  baglantilar?: string[];
+  diller?: string[];
 }) {
   return (
     <Betik
@@ -177,6 +211,8 @@ export function AvukatVerisi({
         url: `${site.url}${adres}`,
         image: gorsel ?? undefined,
         knowsAbout: uzmanliklar,
+        knowsLanguage: diller.length > 0 ? diller : undefined,
+        sameAs: baglantilar.length > 0 ? baglantilar : undefined,
         worksFor: { "@type": "LegalService", name: buroAdi, "@id": `${site.url}/#buro` },
         address: { "@type": "PostalAddress", addressLocality: site.city, addressCountry: "TR" },
       }}
@@ -187,6 +223,9 @@ export function AvukatVerisi({
 export function YaziVerisi({
   baslik,
   aciklama,
+  ozetCevap,
+  bolum,
+  kaynaklar,
   adres,
   tarih,
   yazar,
@@ -195,6 +234,9 @@ export function YaziVerisi({
 }: {
   baslik: string;
   aciklama: string;
+  ozetCevap?: string;
+  bolum?: string;
+  kaynaklar?: string[];
   adres: string;
   tarih: string;
   yazar?: string;
@@ -208,13 +250,51 @@ export function YaziVerisi({
         "@type": "Article",
         headline: baslik,
         description: aciklama,
+        /* Yazinin sordugu soruya dogrudan cevap; ozetleyen sistemlerin
+           alintiladigi alan burasidir. */
+        abstract: ozetCevap,
+        articleSection: bolum,
+        citation: kaynaklar,
         datePublished: tarih,
         dateModified: tarih,
         inLanguage: "tr-TR",
+        isAccessibleForFree: true,
         image: gorsel ?? undefined,
         author: yazar ? { "@type": "Person", name: yazar } : { "@type": "Organization", name: buroAdi },
         publisher: { "@type": "Organization", name: buroAdi, "@id": `${site.url}/#buro` },
         mainEntityOfPage: { "@type": "WebPage", "@id": `${site.url}${adres}` },
+      }}
+    />
+  );
+}
+
+/**
+ * Sayfadaki sirali listeyi arama motoruna bildirir.
+ * Calisma alanlari dizininde kullanilir: 12 alan tek bir liste olarak
+ * anlasilir, tek tek kesfedilmeyi beklemez.
+ */
+export function ListeVerisi({
+  ad,
+  ogeler,
+}: {
+  ad: string;
+  ogeler: { ad: string; adres: string; aciklama?: string }[];
+}) {
+  return (
+    <Betik
+      veri={{
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: ad,
+        numberOfItems: ogeler.length,
+        itemListOrder: "https://schema.org/ItemListOrderAscending",
+        itemListElement: ogeler.map((oge, sira) => ({
+          "@type": "ListItem",
+          position: sira + 1,
+          name: oge.ad,
+          description: oge.aciklama,
+          url: `${site.url}${oge.adres}`,
+        })),
       }}
     />
   );

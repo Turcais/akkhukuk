@@ -45,6 +45,7 @@ export default async function SiteYerlesimi({ children }: { children: React.Reac
         adresSatirlari={ayarlar.adresSatirlari}
         sosyal={ayarlar.sosyal.map((hesap) => hesap.adres)}
         alanBasliklari={alanlar.map((alan) => alan.baslik)}
+        baro={ayarlar.baro}
       />
     </>
   );

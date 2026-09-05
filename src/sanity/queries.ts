@@ -32,7 +32,8 @@ export const calismaAlanlariSorgusu = groq`
 export const calismaAlaniSorgusu = groq`
   *[_type == "calismaAlani" && slug.current == $slug][0] {
     "slug": slug.current, baslik, kisaBaslik, ikon, ozet, giris,
-    hizmetler, kimlerIcin, seoAciklama,
+    hizmetler, kimlerIcin, seoAciklama, surecBasligi,
+    surec[]{ baslik, metin, sure },
     sorular[]{ soru, cevap }
   }
 `;
@@ -74,7 +75,8 @@ export const yazilarSorgusu = groq`
 /** Tek yayin — govde dahil. */
 export const yaziSorgusu = groq`
   *[_type == "yazi" && slug.current == $slug][0] {
-    "slug": slug.current, baslik, ozet, seoAciklama, yayinTarihi, kapak, govde,
+    "slug": slug.current, baslik, ozet, kisaCevap, seoAciklama, yayinTarihi, kapak, govde,
+    kaynaklar[]{ baslik, adres },
     "yazar": yazar->{ "slug": slug.current, ad, unvan, gorsel },
     "kategoriler": kategoriler[]->{ baslik, "slug": slug.current },
     "ilgiliAlan": ilgiliAlan->{ "slug": slug.current, baslik }

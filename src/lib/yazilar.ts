@@ -16,7 +16,24 @@ export type Yazi = {
   slug: string;
   baslik: string;
   ozet: string;
+  /**
+   * Yazinin sordugu soruya iki-uc cumlede verilen dogrudan cevap.
+   *
+   * Hem okur icin (sayfanin en ustunde durur, tikladigi anda cevabini
+   * alir) hem de arama ve yapay zeka cevaplari icin yazilir: bir dil
+   * modeli sayfayi ozetlerken buradaki cumleyi alintilar. Bu yuzden
+   * kendi basina ayakta durmali, "yukarida anlatildigi gibi" dememeli.
+   */
+  kisaCevap: string;
   kategori: string;
+  /**
+   * Yazinin dayandigi mevzuat.
+   *
+   * Hukuk metninde kaynagin gorunur olmasi, okurun metni dogrulayabilmesini
+   * saglar; arama ve ozetleme sistemleri de kaynakli metni daha guvenilir
+   * degerlendirir. Madde numaralari yayindan once teyit edilmelidir.
+   */
+  kaynaklar?: { baslik: string; adres?: string }[];
   yazarSlug: string;
   tarih: string;
   govde: YaziBlogu[];
@@ -28,7 +45,14 @@ export const yazilar: Yazi[] = [
     baslik: "İşe İade Davasında Süreler: Bir Ayı Kaçırmamak",
     ozet:
       "İşe iade davalarının önemli bir bölümü esasa girilmeden reddediliyor. Nedeni çoğu zaman haksızlık değil, kaçırılmış bir süre.",
+    kisaCevap:
+      "İşe iade davasında birbirini izleyen iki katı süre vardır: fesih bildiriminin tebliğinden itibaren bir ay içinde arabulucuya başvurulmalı, arabuluculuk anlaşmazlıkla sonuçlanırsa son tutanağın düzenlendiği tarihten itibaren iki hafta içinde iş mahkemesinde dava açılmalıdır. Her iki süre de hak düşürücüdür; kaçırıldığında dava esasa girilmeden reddedilir ve hâkim bu süreleri kendiliğinden gözetir.",
     kategori: "İş Hukuku",
+    kaynaklar: [
+      { baslik: "4857 sayılı İş Kanunu m.18–21 — feshin geçerli sebebe dayandırılması ve işe iade" },
+      { baslik: "7036 sayılı İş Mahkemeleri Kanunu m.3 — dava şartı olarak arabuluculuk" },
+      { baslik: "4857 sayılı İş Kanunu m.20 — ispat yükü" },
+    ],
     yazarSlug: "atakan-demirkan",
     tarih: "2026-08-18",
     govde: [
@@ -89,7 +113,15 @@ export const yazilar: Yazi[] = [
     baslik: "Vakıf mı, Dernek mi? Kuruluş Öncesi Karar Rehberi",
     ozet:
       "İkisi de kâr amacı gütmez, ikisi de tüzel kişiliğe sahiptir. Ancak kuruluş şartları, denetim rejimi ve karar organları birbirinden ayrılır.",
+    kisaCevap:
+      "Vakıf bir mal topluluğu, dernek bir kişi topluluğudur. Belirli bir malvarlığını kalıcı olarak bir amaca tahsis edecekseniz vakıf, üyelerin katılımıyla süreklilik kazanacak bir faaliyet yürütecekseniz dernek uygundur. Dernek kuruluşu mülki idare amirliğine başvuruyla haftalar içinde tamamlanır ve asgari malvarlığı aranmaz; vakıf kuruluşu ise mahkeme kararı ve asgari malvarlığı gerektirir, aylar sürer ve amaç maddesinin sonradan değiştirilmesi güçtür.",
     kategori: "Vakıflar ve Dernekler",
+    kaynaklar: [
+      { baslik: "4721 sayılı Türk Medeni Kanunu m.56–100 — dernekler" },
+      { baslik: "4721 sayılı Türk Medeni Kanunu m.101–117 — vakıflar" },
+      { baslik: "5253 sayılı Dernekler Kanunu" },
+      { baslik: "5737 sayılı Vakıflar Kanunu" },
+    ],
     yazarSlug: "ali-kaan-kilicoglu",
     tarih: "2026-07-29",
     govde: [
@@ -147,7 +179,14 @@ export const yazilar: Yazi[] = [
     baslik: "Kat Karşılığı İnşaat Sözleşmesinde Arsa Sahibini Koruyan Beş Madde",
     ozet:
       "Arsa sahibi için asıl risk inşaatın gecikmesi değil; arsa payının, karşılığı alınmadan devredilmiş olmasıdır.",
+    kisaCevap:
+      "Kat karşılığı inşaat sözleşmesinde arsa sahibini koruyan en kritik madde, arsa payının tamamının ruhsat aşamasında değil imalat seviyesine bağlı olarak kademeli devredilmesidir. Bunun yanında teslim tarihi ile gecikme yaptırımı, hangi bağımsız bölümün kime ait olacağı, müteahhidin devir yasağı ve fesih hâlinde tapunun akıbeti açıkça yazılmalıdır. Sözleşmenin tapu kütüğüne şerh edilmesi, hakkın üçüncü kişilere karşı ileri sürülebilmesini sağlar.",
     kategori: "Gayrimenkul",
+    kaynaklar: [
+      { baslik: "6098 sayılı Türk Borçlar Kanunu m.470 vd. — eser sözleşmesi" },
+      { baslik: "4721 sayılı Türk Medeni Kanunu m.1009 — şahsi hakların tapuya şerhi" },
+      { baslik: "634 sayılı Kat Mülkiyeti Kanunu" },
+    ],
     yazarSlug: "atakan-demirkan",
     tarih: "2026-06-11",
     govde: [
@@ -198,7 +237,16 @@ export const yazilar: Yazi[] = [
     baslik: "KVKK Uyumunda İşletmelerin Sık Yaptığı Yedi Hata",
     ozet:
       "Aydınlatma metni yayımlamak uyum değildir. Kurul kararlarında en sık karşılaşılan eksiklikler ve bunların pratik karşılıkları.",
+    kisaCevap:
+      "KVKK uyumu bir belge seti değil, sürdürülebilir bir düzendir. Uygulamada en sık yapılan yedi hata şunlardır: her veri işlemeyi açık rızaya dayandırmak, aydınlatma ile açık rızayı tek kutucukta birleştirmek, veri envanteri çıkarmadan metin yazmak, saklama ve imha politikasını fiilen uygulamamak, veri işleyenlerle yazılı sözleşme yapmamak, ilgili kişi başvurularını otuz gün içinde yanıtlamamak ve veri ihlalinde yetmiş iki saatlik bildirim süresini kaçırmak.",
     kategori: "KVKK ve Bilişim",
+    kaynaklar: [
+      { baslik: "6698 sayılı Kişisel Verilerin Korunması Kanunu m.5 — işleme şartları" },
+      { baslik: "6698 sayılı KVKK m.10 — aydınlatma yükümlülüğü" },
+      { baslik: "6698 sayılı KVKK m.11 ve m.13 — ilgili kişinin hakları ve başvuru" },
+      { baslik: "6698 sayılı KVKK m.12 — veri güvenliği ve ihlal bildirimi" },
+      { baslik: "Veri Sorumlusuna Başvuru Usul ve Esasları Hakkında Tebliğ" },
+    ],
     yazarSlug: "ali-kaan-kilicoglu",
     tarih: "2026-05-20",
     govde: [
@@ -261,7 +309,15 @@ export const yazilar: Yazi[] = [
     baslik: "Ortaklık Sözleşmesi Olmadan Kurulan Şirketlerin Ödediği Bedel",
     ozet:
       "Ana sözleşme şirketin kanuna karşı yüzüdür. Ortakların birbirine karşı yüzü ise çoğu şirkette hiç yazılmaz.",
+    kisaCevap:
+      "Ana sözleşme şirketin kanuna karşı yüzü, ortaklık sözleşmesi ise ortakların birbirine karşı yüzüdür. Pay devri kısıtlamaları, ayrılma hâlinde payın nasıl değerleneceği, rekabet etmeme taahhüdü, kâr dağıtım politikası ve iki eşit ortağın anlaşamaması hâlinde uygulanacak kilitlenme çözümü ancak bu ikinci belgede yazar. Yazılması için en doğru zaman, kimsenin sayısal üstünlüğü olmadığı kuruluş anıdır.",
     kategori: "Şirketler Hukuku",
+    kaynaklar: [
+      { baslik: "6102 sayılı Türk Ticaret Kanunu m.339 — anonim şirket esas sözleşmesi" },
+      { baslik: "6102 sayılı TTK m.493 — pay devrinin sınırlandırılması" },
+      { baslik: "6102 sayılı TTK m.531 — haklı sebeple fesih" },
+      { baslik: "6102 sayılı TTK m.575 ve m.638 — limited şirkette pay devri, çıkma ve çıkarılma" },
+    ],
     yazarSlug: "ali-kaan-kilicoglu",
     tarih: "2026-04-09",
     govde: [

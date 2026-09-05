@@ -99,6 +99,37 @@ export const calismaAlani = defineType({
       group: "icerik",
     }),
     defineField({
+      name: "surecBasligi",
+      title: "Süreç şeması başlığı",
+      type: "string",
+      group: "icerik",
+      description: "Örnek: Vakıf kuruluşu nasıl ilerler? Boş bırakılırsa şema gösterilmez.",
+    }),
+    defineField({
+      name: "surec",
+      title: "Süreç adımları",
+      type: "array",
+      group: "icerik",
+      description:
+        "Yalnızca adımları önceden bilinebilen işler için doldurun. Süreler taahhüt değil tipik seyirdir; aralık olarak yazın.",
+      of: [
+        defineArrayMember({
+          type: "object",
+          fields: [
+            defineField({ name: "baslik", title: "Adım", type: "string", validation: (k) => k.required() }),
+            defineField({ name: "metin", title: "Açıklama", type: "text", rows: 3 }),
+            defineField({
+              name: "sure",
+              title: "Tipik süre",
+              type: "string",
+              description: "Örnek: 2–4 hafta, Değişken, Mahkemenin takvimine bağlı",
+            }),
+          ],
+          preview: { select: { title: "baslik", subtitle: "sure" } },
+        }),
+      ],
+    }),
+    defineField({
       name: "sorular",
       title: "Sık sorulan sorular",
       type: "array",

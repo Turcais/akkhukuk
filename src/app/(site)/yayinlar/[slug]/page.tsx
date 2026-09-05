@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { SayfaBasligi } from "@/components/layout/sayfa-basligi";
 import { Cagri } from "@/components/anasayfa/cagri";
+import { Kosebent } from "@/components/brand/motif";
 import { Metin } from "@/components/metin";
 import { YaziKarti } from "@/components/yazi-karti";
 import { YaziVerisi, YolVerisi } from "@/components/yapisal-veri";
@@ -68,6 +69,9 @@ export default async function YaziSayfasi({ params }: { params: Promise<{ slug: 
       <YaziVerisi
         baslik={yazi.baslik}
         aciklama={yazi.seoAciklama || yazi.ozet}
+        ozetCevap={yazi.kisaCevap}
+        bolum={yazi.kategoriler[0]?.baslik}
+        kaynaklar={yazi.kaynaklar?.map((kaynak) => kaynak.baslik)}
         adres={`/yayinlar/${yazi.slug}`}
         tarih={yazi.yayinTarihi}
         yazar={yazi.yazar?.ad}
@@ -88,9 +92,51 @@ export default async function YaziSayfasi({ params }: { params: Promise<{ slug: 
             />
           ) : null}
 
+          {/* Kısa cevap: okurun aradığı yanıt sayfanın en üstünde durur.
+              Arama sonuçlarında ve yapay zekâ cevaplarında alıntılanan
+              bölüm de çoğunlukla budur. */}
+          {yazi.kisaCevap ? (
+            <div className="olcu relative mb-14 border border-cizgi bg-yuzey px-7 py-7 sm:px-9">
+              <Kosebent className="text-altin/40" />
+              <p className="ustbaslik">Kısa cevap</p>
+              <p className="mt-4 font-display text-[1.1rem] leading-[1.65] text-murekkep">{yazi.kisaCevap}</p>
+            </div>
+          ) : null}
+
           <div className="yazi-govde olcu">
             <Metin govde={yazi.govde} />
           </div>
+
+          {/* Dayanak mevzuat: okurun metni doğrulayabilmesi için */}
+          {yazi.kaynaklar && yazi.kaynaklar.length > 0 ? (
+            <section className="olcu mt-16">
+              <h2 className="text-[1.5rem]">
+                <span className="block h-px w-10 bg-altin/60" aria-hidden="true" />
+                <span className="mt-4 block">Dayanak mevzuat</span>
+              </h2>
+              <ol className="mt-6 space-y-3">
+                {yazi.kaynaklar.map((kaynak, sira) => (
+                  <li key={kaynak.baslik} className="flex gap-4 text-[0.92rem] leading-relaxed text-metin-soluk">
+                    <span className="shrink-0 font-display text-[0.9rem] text-altin">
+                      {String(sira + 1).padStart(2, "0")}
+                    </span>
+                    {kaynak.adres ? (
+                      <a
+                        href={kaynak.adres}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline decoration-cizgi-koyu underline-offset-4 transition-colors hover:text-kirmizi hover:decoration-kirmizi"
+                      >
+                        {kaynak.baslik}
+                      </a>
+                    ) : (
+                      <span>{kaynak.baslik}</span>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </section>
+          ) : null}
 
           <div className="olcu mt-14 border-t border-cizgi pt-8">
             {yazi.yazar ? (
