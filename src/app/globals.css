@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+/* ============================================================
+   AKK Hukuk ve Danismanlik — tasarim sistemi
+
+   Palet uc renkten kuruludur: Edirne kirmizisi (otorite),
+   kagit beyazi (okunabilirlik) ve altin (nadir kullanilan vurgu).
+   Altin yalnizca sac teli kalinliginda cizgilerde, kucuk
+   basliklarda ve motiflerde gorunur; genis yuzeylerde asla.
+   ============================================================ */
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-bodoni), ui-serif, Georgia, "Times New Roman", serif;
+
+  --radius-none: 0px;
+  --radius-soft: 2px;
+
+  --shadow-kart: 0 1px 2px rgba(23, 19, 15, 0.04), 0 8px 24px -12px rgba(23, 19, 15, 0.12);
+  --shadow-yukselti: 0 2px 4px rgba(23, 19, 15, 0.05), 0 18px 40px -18px rgba(23, 19, 15, 0.22);
+}
+
+:root {
+  /* Zeminler */
+  --kagit: #fbf8f3;
+  --kagit-koyu: #f4efe5;
+  --yuzey: #ffffff;
+  --koyu-zemin: #16110d;
+  --koyu-zemin-ust: #221a14;
+
+  /* Metin */
+  --murekkep: #17130f;
+  --metin: #3a322c;
+  --metin-soluk: #665c53;
+  --metin-silik: #8a7d70;
+
+  /* Cizgiler */
+  --cizgi: #e7dfd1;
+  --cizgi-koyu: #d5c7b0;
+
+  /* Edirne kirmizisi */
+  --kirmizi: #9e1b32;
+  --kirmizi-koyu: #7c1226;
+  --kirmizi-acik: #b8283f;
+  --kirmizi-yumusak: #f8ecee;
+
+  /* Altin */
+  --altin: #a8873c;
+  --altin-parlak: #c9a961;
+  --altin-metin: #7a6224; /* metinde AA kontrasti icin koyulastirilmis altin */
+  --altin-yumusak: #f7f0df;
+
+  --ring: #9e1b32;
+}
+
+@theme inline {
+  --color-kagit: var(--kagit);
+  --color-kagit-koyu: var(--kagit-koyu);
+  --color-yuzey: var(--yuzey);
+  --color-koyu-zemin: var(--koyu-zemin);
+  --color-koyu-zemin-ust: var(--koyu-zemin-ust);
+
+  --color-murekkep: var(--murekkep);
+  --color-metin: var(--metin);
+  --color-metin-soluk: var(--metin-soluk);
+  --color-metin-silik: var(--metin-silik);
+
+  --color-cizgi: var(--cizgi);
+  --color-cizgi-koyu: var(--cizgi-koyu);
+
+  --color-kirmizi: var(--kirmizi);
+  --color-kirmizi-koyu: var(--kirmizi-koyu);
+  --color-kirmizi-acik: var(--kirmizi-acik);
+  --color-kirmizi-yumusak: var(--kirmizi-yumusak);
+
+  --color-altin: var(--altin);
+  --color-altin-parlak: var(--altin-parlak);
+  --color-altin-metin: var(--altin-metin);
+  --color-altin-yumusak: var(--altin-yumusak);
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-color: var(--cizgi);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--kagit);
+    color: var(--metin);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--murekkep);
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+    text-underline-offset: 0.25em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background-color: var(--kirmizi);
+    color: #ffffff;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Bolum ustundeki kucuk, harf araligi acilmis baslik */
+  .ustbaslik {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--altin-metin);
+  }
+
+  /* Iki ucu altin cizgiyle biten ortalanmis motif ayraci */
+  .ayrac {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    color: var(--altin);
+  }
+  .ayrac::before,
+  .ayrac::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(to right, transparent, var(--cizgi-koyu), transparent);
+  }
+
+  /* Kagit dokusu: cok hafif, yalnizca genis zeminlerde */
+  .doku-kagit {
+    background-image:
+      radial-gradient(circle at 20% 12%, rgba(168, 135, 60, 0.05), transparent 42%),
+      radial-gradient(circle at 84% 0%, rgba(158, 27, 50, 0.045), transparent 46%);
+  }
+
+  /* Koyu bolumlerde kullanilan ince altin cerceve */
+  .cerceve-altin {
+    box-shadow: inset 0 0 0 1px rgba(201, 169, 97, 0.28);
+  }
+}
+
+@layer utilities {
+  .olcu {
+    max-width: 68ch;
+  }
+
+  .atlama-baglantisi {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+  }
+  .atlama-baglantisi:focus {
+    left: 1rem;
+    top: 1rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--yuzey);
+    color: var(--murekkep);
+    border: 2px solid var(--ring);
+  }
+}

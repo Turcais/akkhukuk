@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 64" width="48" height="64">
+  <rect width="48" height="64" fill="#16110d"/>
+  <path d="M24 5C32.5 12 40.5 20.6 40.5 32S32.5 52 24 59C15.5 52 7.5 43.4 7.5 32S15.5 12 24 5Z" fill="none" stroke="#c9a961" stroke-width="1.6"/>
+  <text x="24" y="37" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#ffffff" letter-spacing="0.5">AKK</text>
+</svg>
