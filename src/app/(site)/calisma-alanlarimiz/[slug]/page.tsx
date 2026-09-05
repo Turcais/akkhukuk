@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, Check } from "lucide-react";
 import { SayfaBasligi } from "@/components/layout/sayfa-basligi";
 import { Cagri } from "@/components/anasayfa/cagri";
+import { Kosebent } from "@/components/brand/motif";
 import { AlanIkonu } from "@/components/ui/alan-ikonu";
 import { HizmetVerisi, SoruVerisi, YolVerisi } from "@/components/yapisal-veri";
 import { Bolum, Kapsayici } from "@/components/ui/bolum";
@@ -128,7 +129,8 @@ export default async function AlanSayfasi({ params }: { params: Promise<{ slug: 
 
           <aside className="space-y-10 lg:sticky lg:top-32 lg:self-start">
             {alan.kimlerIcin.length > 0 ? (
-              <div className="border border-cizgi bg-yuzey p-7">
+              <div className="relative border border-cizgi bg-yuzey p-7">
+                <Kosebent className="text-altin/40" />
                 <p className="ustbaslik">Kimler için?</p>
                 <ul className="mt-5 space-y-3">
                   {alan.kimlerIcin.map((madde) => (
@@ -161,7 +163,8 @@ export default async function AlanSayfasi({ params }: { params: Promise<{ slug: 
               </div>
             ) : null}
 
-            <div className="border border-kirmizi/25 bg-kirmizi-yumusak p-7">
+            <div className="relative border border-kirmizi/25 bg-kirmizi-yumusak p-7">
+              <Kosebent className="text-kirmizi/25" />
               <p className="font-display text-[1.15rem] leading-snug text-murekkep">
                 Konunuz bu alana mı giriyor, emin değil misiniz?
               </p>

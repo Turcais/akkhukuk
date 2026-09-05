@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { Oruntu } from "@/components/brand/motif";
+import { Bordur, Oruntu } from "@/components/brand/motif";
 import { Kapsayici } from "@/components/ui/bolum";
 
 /**
@@ -72,6 +72,9 @@ export function SayfaBasligi({
           {yan ? <div className="shrink-0">{yan}</div> : null}
         </div>
       </Kapsayici>
+
+      {/* Koyu başlık bandından kâğıt zemine geçiş */}
+      <Bordur className="relative text-altin/70" />
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { EkipKarti } from "@/components/ekip-karti";
 import { YolVerisi } from "@/components/yapisal-veri";
 import { Bolum, IzgaraDolgusu } from "@/components/ui/bolum";
 import { ayarlariGetir } from "@/lib/ayarlar";
+import { cn } from "@/lib/utils";
 import { anaSayfa } from "@/lib/icerik";
 import { ekipGetir, sayfaMetniGetir, sec } from "@/lib/veri";
 
@@ -41,11 +42,18 @@ export default async function Ekibimiz() {
       <YolVerisi basamaklar={yolIzi} />
 
       <Bolum>
-        <div className="grid gap-px border border-cizgi bg-cizgi sm:grid-cols-2 lg:grid-cols-3">
+        {/* Üç kişiden azken üç sütunluk ızgara boş hücre bırakır;
+            o durumda iki sütuna düşülür. */}
+        <div
+          className={cn(
+            "grid gap-px border border-cizgi bg-cizgi sm:grid-cols-2",
+            ekip.length > 2 ? "lg:grid-cols-3" : "max-w-3xl",
+          )}
+        >
           {ekip.map((uye) => (
             <EkipKarti key={uye.slug} uye={uye} />
           ))}
-          <IzgaraDolgusu adet={ekip.length} />
+          <IzgaraDolgusu adet={ekip.length} sutun={ekip.length > 2 ? 3 : 2} />
         </div>
 
         <p className="mt-10 max-w-2xl text-[0.88rem] leading-relaxed text-metin-silik">

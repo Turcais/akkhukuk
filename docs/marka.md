@@ -39,14 +39,23 @@ tipleri projeyle birlikte sunulur; harici font isteği yapılmaz.
 
 ## Motif
 
-Osmanlı bezeme geleneğinden üç unsur alınmıştır; hiçbiri süs olarak
+Osmanlı bezeme geleneğinden beş unsur alınmıştır; hiçbiri süs olarak
 serbest bırakılmamış, her biri bir işleve bağlanmıştır.
 
 | Unsur | Nerede | İşlev |
 |---|---|---|
-| **Nişan** — şemse (madalyon) formundan türetilmiş sivri oval mühür | Logo, ekip kartlarında fotoğrafsız profil, 404 | Kimlik işareti |
-| **Motif** — dört yapraklı hatayi çekirdeği ve iki yana uzanan altın çizgi | Bölüm ayracı, kapanış çağrısı | Ritim ve nefes |
-| **Örüntü** — sekiz kollu yıldız ve baklava ağı | Koyu bölümlerin zemininde %6 opaklıkta | Derinlik, dokunun hissedilmesi |
+| **Nişan** — şemse (madalyon) formundan türetilmiş sivri oval mühür | Logo, fotoğrafsız profiller, 404 | Kimlik işareti |
+| **Mihrap kemeri** — sivri kemer siluetli niş | Açılıştaki mühür panosu, ekip portreleri, avukat profili | Portreyi ve mührü çerçeveleyen niş; sitenin en belirleyici formu |
+| **Zencerek bordür** — birbirini kesen iki dalga ve kesişme baklavaları | Koyu ve açık bölümlerin buluştuğu her sınır | "Su yolu" şeridi: geçişi kesilmiş değil, çerçeveye alınmış gösterir |
+| **Köşebent** — kutuların dört köşesine oturan çerçeve parçaları | Kenar sütunundaki kutular, iletişim sayfası | Cilt ve kitabe düzeninin köşe bezemesi |
+| **Girih örüntüsü** — sekiz kollu yıldız (mühr-ü Süleyman) ve baklava ağı | Koyu bölümlerin zemininde %6–9 opaklıkta | Derinlik, dokunun hissedilmesi |
+
+Buna ek olarak sayfa zemininde ince taneli bir **kâğıt dokusu** vardır
+(SVG `feTurbulence`, ~%3 algılanan yoğunluk). Ebru ve aharlı kâğıdın yüzey
+hissini verir; hiçbir görsel dosyası yüklemez.
+
+Kemer yolu tek bir yerde tanımlanır (`KEMER_YOLU`, `components/brand/motif.tsx`)
+ve hem kırpma hem altın iç hat aynı yolu kullanır; oran değişse de form bozulmaz.
 
 Kural: motifler hiçbir zaman metnin okunabilirliğini düşürecek yoğunlukta
 kullanılmaz ve `aria-hidden` ile ekran okuyuculardan gizlenir.

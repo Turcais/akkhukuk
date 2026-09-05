@@ -1,5 +1,5 @@
 import { Nisan } from "@/components/brand/nisan";
-import { Oruntu } from "@/components/brand/motif";
+import { Bordur, KemerCercevesi, Oruntu } from "@/components/brand/motif";
 import { ButonBaglanti } from "@/components/ui/buton";
 import { Kapsayici } from "@/components/ui/bolum";
 
@@ -62,31 +62,39 @@ export function Giris({
           </p>
         </div>
 
-        {/* Mühür panosu */}
+        {/* Mihrap nişi — mühür, kemerin içine oturur */}
         <div className="relative hidden justify-self-center lg:block">
-          <div className="cerceve-altin relative flex h-[22rem] w-[17rem] flex-col items-center justify-center gap-8 bg-koyu-zemin-ust/60 px-8 py-10 backdrop-blur-sm">
-            <span className="absolute left-3 top-3 h-6 w-6 border-l border-t border-altin/45" aria-hidden="true" />
-            <span className="absolute right-3 top-3 h-6 w-6 border-r border-t border-altin/45" aria-hidden="true" />
-            <span className="absolute bottom-3 left-3 h-6 w-6 border-b border-l border-altin/45" aria-hidden="true" />
-            <span className="absolute bottom-3 right-3 h-6 w-6 border-b border-r border-altin/45" aria-hidden="true" />
+          <div className="relative h-[25rem] w-[17.5rem]">
+            <div className="kemer absolute inset-0 overflow-hidden bg-koyu-zemin-ust/70 backdrop-blur-sm">
+              <Oruntu className="text-altin opacity-[0.09]" />
+              <div className="relative flex h-full flex-col items-center justify-center gap-7 px-8 pt-10">
+                <Nisan className="h-32 w-24 text-altin-parlak" harfSinifi="text-[1.25rem] font-medium text-white" />
 
-            <Nisan
-              className="h-32 w-24 text-altin-parlak"
-              harfSinifi="text-[1.25rem] font-medium text-white"
-            />
-
-            <div className="text-center">
-              <p className="font-display text-[1.1rem] leading-snug text-white">
-                Hukuk ve
-                <br />
-                Danışmanlık
-              </p>
-              <span className="mx-auto mt-4 block h-px w-12 bg-altin/60" aria-hidden="true" />
-              <p className="mt-4 text-[0.66rem] uppercase tracking-[0.24em] text-altin-parlak/80">Ankara</p>
+                <div className="text-center">
+                  <p className="font-display text-[1.12rem] leading-snug text-white">
+                    Hukuk ve
+                    <br />
+                    Danışmanlık
+                  </p>
+                  <span className="mx-auto mt-4 block h-px w-12 bg-altin/60" aria-hidden="true" />
+                  <p className="mt-4 text-[0.66rem] uppercase tracking-[0.24em] text-altin-parlak/80">Ankara</p>
+                </div>
+              </div>
             </div>
+
+            <KemerCercevesi className="text-altin/55" />
+
+            {/* Nişin oturduğu altın eşik */}
+            <span
+              className="absolute inset-x-[-1.25rem] bottom-[-0.75rem] h-px bg-gradient-to-r from-transparent via-altin/60 to-transparent"
+              aria-hidden="true"
+            />
           </div>
         </div>
       </Kapsayici>
+
+      {/* Koyu açılıştan kâğıt zemine geçişi belirleyen su yolu şeridi */}
+      <Bordur className="relative text-altin/70" />
     </section>
   );
 }

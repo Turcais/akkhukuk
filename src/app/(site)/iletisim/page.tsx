@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Kosebent } from "@/components/brand/motif";
 import { SayfaBasligi } from "@/components/layout/sayfa-basligi";
 import { YolVerisi } from "@/components/yapisal-veri";
 import { Bolum } from "@/components/ui/bolum";
@@ -91,7 +92,8 @@ export default async function Iletisim() {
               ))}
             </dl>
 
-            <div className="border border-cizgi bg-yuzey p-7">
+            <div className="relative border border-cizgi bg-yuzey p-7">
+              <Kosebent className="text-altin/40" />
               <h2 className="font-display text-[1.15rem] leading-snug text-murekkep">Görüşme öncesinde</h2>
               <ul className="mt-5 space-y-3">
                 {[

@@ -1,4 +1,5 @@
 import { AltBilgi } from "@/components/layout/alt-bilgi";
+import { KemerTanimi } from "@/components/brand/motif";
 import { UstMenu } from "@/components/layout/ust-menu";
 import { WhatsappButonu } from "@/components/layout/whatsapp-butonu";
 import { BuroVerisi } from "@/components/yapisal-veri";
@@ -15,6 +16,9 @@ export default async function SiteYerlesimi({ children }: { children: React.Reac
       <a href="#icerik" className="atlama-baglantisi">
         İçeriğe geç
       </a>
+
+      {/* Mihrap kemeri kirpma tanimi belgede bir kez bulunur. */}
+      <KemerTanimi />
 
       <UstMenu
         buroAdi={ayarlar.buroAdi}

@@ -10,6 +10,7 @@ import { Bolum, BolumBasligi, IzgaraDolgusu } from "@/components/ui/bolum";
 import { ButonBaglanti } from "@/components/ui/buton";
 import { ayarlariGetir } from "@/lib/ayarlar";
 import { anaSayfa } from "@/lib/icerik";
+import { cn } from "@/lib/utils";
 import { calismaAlanlariGetir, ekipGetir, sayfaMetniGetir, sec, yazilarGetir } from "@/lib/veri";
 
 export const revalidate = 300;
@@ -109,11 +110,16 @@ export default async function AnaSayfa() {
             </ButonBaglanti>
           </div>
 
-          <div className="mt-14 grid gap-px border border-cizgi bg-cizgi sm:grid-cols-2 lg:grid-cols-3">
+          <div
+            className={cn(
+              "mt-14 grid gap-px border border-cizgi bg-cizgi sm:grid-cols-2",
+              ekip.length > 2 ? "lg:grid-cols-3" : "max-w-3xl",
+            )}
+          >
             {ekip.slice(0, 3).map((uye) => (
               <EkipKarti key={uye.slug} uye={uye} />
             ))}
-            <IzgaraDolgusu adet={Math.min(ekip.length, 3)} />
+            <IzgaraDolgusu adet={Math.min(ekip.length, 3)} sutun={ekip.length > 2 ? 3 : 2} />
           </div>
         </Bolum>
       ) : null}

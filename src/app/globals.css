@@ -93,6 +93,9 @@
 
   body {
     background-color: var(--kagit);
+    /* El yapimi kagit dokusu: ince taneli, olculu. Ebru ve aharli kagidin
+       yuzey hissini verir; okunabilirligi etkilemeyecek yogunluktadir. */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23t)' opacity='0.09'/%3E%3C/svg%3E");
     color: var(--metin);
     font-family: var(--font-sans);
     font-size: 1.0625rem;
@@ -187,6 +190,11 @@
 @layer utilities {
   .olcu {
     max-width: 68ch;
+  }
+
+  /* Mihrap kemeri kirpmasi — bkz. components/brand/motif.tsx */
+  .kemer {
+    clip-path: url(#akk-kemer);
   }
 
   .atlama-baglantisi {

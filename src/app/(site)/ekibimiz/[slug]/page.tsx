@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Mail } from "lucide-react";
+import { KemerCercevesi } from "@/components/brand/motif";
 import { Nisan } from "@/components/brand/nisan";
 import { SayfaBasligi } from "@/components/layout/sayfa-basligi";
 import { Cagri } from "@/components/anasayfa/cagri";
@@ -81,25 +82,28 @@ export default async function EkipUyesiSayfasi({ params }: { params: Promise<{ s
       <Bolum className="doku-kagit">
         <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <aside className="lg:sticky lg:top-32 lg:self-start">
-            <div className="relative aspect-[4/5] overflow-hidden border border-cizgi bg-koyu-zemin">
-              {portre ? (
-                <Image
-                  src={portre}
-                  alt={uye.gorsel?.alt || uye.ad}
-                  fill
-                  sizes="(min-width: 1024px) 24rem, 90vw"
-                  priority
-                  className="object-cover"
-                />
-              ) : (
-                <div className="flex h-full w-full items-center justify-center">
-                  <Nisan
-                    className="h-48 w-36 text-altin/50"
-                    harfSinifi="font-display text-[2rem] text-white/85"
-                    harfler={monogram(uye.ad)}
+            <div className="relative aspect-[4/5]">
+              <div className="kemer absolute inset-[7px] overflow-hidden bg-koyu-zemin">
+                {portre ? (
+                  <Image
+                    src={portre}
+                    alt={uye.gorsel?.alt || uye.ad}
+                    fill
+                    sizes="(min-width: 1024px) 24rem, 90vw"
+                    priority
+                    className="object-cover"
                   />
-                </div>
-              )}
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center pt-12">
+                    <Nisan
+                      className="h-44 w-33 text-altin/45"
+                      harfSinifi="font-display text-[1.9rem] text-white/85"
+                      harfler={monogram(uye.ad)}
+                    />
+                  </div>
+                )}
+              </div>
+              <KemerCercevesi className="text-altin/65" />
             </div>
 
             <div className="mt-8 space-y-6">

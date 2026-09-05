@@ -1,4 +1,4 @@
-import { Motif, Oruntu } from "@/components/brand/motif";
+import { Bordur, Motif, Oruntu } from "@/components/brand/motif";
 import { ButonBaglanti } from "@/components/ui/buton";
 import { Kapsayici } from "@/components/ui/bolum";
 
@@ -28,7 +28,9 @@ export function Cagri({
         aria-hidden="true"
       />
 
-      <Kapsayici className="relative py-20 text-center sm:py-24">
+      <Bordur className="relative text-altin/70" ters />
+
+      <Kapsayici className="relative pb-20 pt-16 text-center sm:pb-24 sm:pt-20">
         <Motif className="mx-auto max-w-[12rem] text-altin/70" />
         <h2 className="mt-8 text-[2rem] text-white sm:text-[2.6rem]">{baslik}</h2>
         <p className="mx-auto mt-6 max-w-xl leading-relaxed text-white/65">{metin}</p>

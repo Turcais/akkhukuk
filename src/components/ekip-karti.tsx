@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { KemerCercevesi } from "@/components/brand/motif";
 import { Nisan } from "@/components/brand/nisan";
 import { monogram } from "@/lib/ekip";
 import { gorselAdresi } from "@/sanity/client";
@@ -18,28 +19,31 @@ export function EkipKarti({ uye }: { uye: EkipOzeti }) {
       href={`/ekibimiz/${uye.slug}`}
       className="group flex h-full flex-col bg-kagit transition-colors duration-300 hover:bg-yuzey"
     >
-      <div className="relative aspect-[4/5] overflow-hidden bg-koyu-zemin">
-        {portre ? (
-          <Image
-            src={portre}
-            alt={uye.gorsel?.alt || uye.ad}
-            fill
-            sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 90vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-          />
-        ) : (
-          <div className="flex h-full w-full items-center justify-center">
-            <Nisan
-              className="h-40 w-30 text-altin/50"
-              harfSinifi="font-display text-[1.6rem] text-white/85"
-              harfler={monogram(uye.ad)}
+      {/* Portre, mihrap kemeri formunda kirpilir; fotograf yoksa ayni
+          kemerin icinde muhur monogrami durur. */}
+      <div className="relative m-5 mb-0 aspect-[4/5]">
+        {/* Kirpma ve altin ic hat ayri katmanlarda durur: cerceve kirpilan
+            kutunun icinde olsaydi cizgisinin yarisi kesilirdi. */}
+        <div className="kemer absolute inset-[6px] overflow-hidden bg-koyu-zemin">
+          {portre ? (
+            <Image
+              src={portre}
+              alt={uye.gorsel?.alt || uye.ad}
+              fill
+              sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 90vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
             />
-          </div>
-        )}
-        <span
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-altin/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-          aria-hidden="true"
-        />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center pt-10">
+              <Nisan
+                className="h-36 w-27 text-altin/45"
+                harfSinifi="font-display text-[1.5rem] text-white/85"
+                harfler={monogram(uye.ad)}
+              />
+            </div>
+          )}
+        </div>
+        <KemerCercevesi className="text-altin/60 transition-colors duration-300 group-hover:text-altin-parlak" />
       </div>
 
       <div className="flex flex-1 flex-col p-6">
