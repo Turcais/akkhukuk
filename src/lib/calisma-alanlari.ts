@@ -102,6 +102,26 @@ export const calismaAlanlari: CalismaAlani[] = [
         cevap:
           "Limited şirketlerde pay devri için noter onaylı devir sözleşmesi, genel kurul onayı ve pay defteri kaydı birlikte gerekir; ayrıca ticaret siciline tescil edilir. Bu adımlardan biri eksik kaldığında devir, şirkete karşı hüküm ifade etmeyebilir. Anonim şirketlerde ise pay senedinin bastırılıp bastırılmadığına göre usul değişir.",
       },
+      {
+        soru: "Anonim şirket mi limited şirket mi kurmalıyım?",
+        cevap:
+          "Limited şirket daha az formalite ister ve küçük ortaklıklar için pratiktir; buna karşılık müdürler, şirketten tahsil edilemeyen kamu borçlarından şahsi malvarlıklarıyla sorumlu tutulabilir. Anonim şirkette bu sorumluluk yönetim kurulu üyeleriyle sınırlıdır ve pay devri daha kolaydır; ayrıca halka açılma ve yatırım alma yolu açıktır. Ortak sayısı, yatırım planı ve vergi yapısı birlikte değerlendirilmeden verilen karar sonradan tür değiştirme masrafı doğurur.",
+      },
+      {
+        soru: "Şirket kuruluşu ne kadar sürer ve ne kadar sermaye gerekir?",
+        cevap:
+          "Belgeler hazırsa tescil işlemi genellikle birkaç iş gününde tamamlanır. Asgari sermaye tutarları kanunla belirlenir ve dönem dönem güncellenir; limited şirkette bu tutarın tamamı, anonim şirkette ise bir bölümü kuruluşta ödenir. Güncel tutarları ve ödeme takvimini kuruluş görüşmesinde paylaşırız.",
+      },
+      {
+        soru: "Ortağım şirkete zarar veriyor, ne yapabilirim?",
+        cevap:
+          "Önce yetki kaynağına bakılır: kişi müdür veya yönetim kurulu üyesi ise görevden alınması ve sorumluluk davası gündeme gelir. Yalnızca ortak sıfatı varsa haklı sebeple ortaklıktan çıkarma davası açılabilir. Ağır ve süreklilik taşıyan hâllerde haklı sebeple fesih davası da mümkündür; mahkeme fesih yerine davacının payının ödenerek şirketten çıkarılmasına da karar verebilir. Hangi yolun açık olduğunu belirleyen şey ana sözleşme ve varsa ortaklık sözleşmesidir.",
+      },
+      {
+        soru: "Ticaret unvanımı başkası kullanıyor, engelleyebilir miyim?",
+        cevap:
+          "Ticaret unvanı sicile tescille korunur; unvanın haksız kullanımı hâlinde kullanımın durdurulması, sonuçlarının ortadan kaldırılması ve zarar varsa tazminat talep edilebilir. Ancak unvan koruması ile marka koruması aynı şey değildir: ticari hayatta kullandığınız isim, logo ve slogan için ayrıca marka tescili yaptırılması gerekir.",
+      },
     ],
     seoAciklama:
       "Anonim ve limited şirket kuruluşu, pay devri, ortaklık sözleşmesi, genel kurul ve ortaklar arası uyuşmazlıklarda avukatlık ve danışmanlık.",
@@ -180,6 +200,21 @@ export const calismaAlanlari: CalismaAlani[] = [
         cevap:
           "Değiştirilebilir, ancak vakıf senedi değişikliği tek başına yönetim kurulu kararıyla olmaz; mahkemeye başvurularak ve Vakıflar Genel Müdürlüğü'nün görüşü alınarak yapılır. Amaç maddesindeki değişiklikler ayrıca daha sıkı bir denetime tabidir.",
       },
+      {
+        soru: "Dernek kurmak için kaç kişi gerekir?",
+        cevap:
+          "Fiil ehliyetine sahip en az yedi gerçek veya tüzel kişinin bir araya gelmesi yeterlidir. Kuruluş bildirimi ve tüzüğün mülki idare amirliğine verilmesiyle tüzel kişilik kazanılır; ayrı bir izin beklenmez. Kuruluştan sonra ilk genel kurulun kanunda öngörülen süre içinde yapılması ve organların oluşturulması gerekir.",
+      },
+      {
+        soru: "Vakıf kurmak için ne kadar malvarlığı gerekir?",
+        cevap:
+          "Vakfın amacına özgülenecek asgari malvarlığı tutarı her yıl yeniden belirlenir ve amacın niteliğine göre mahkemece yeterli görülmesi aranır. Eğitim, sağlık gibi sürekli gider gerektiren amaçlarda asgari tutarın üzerinde bir varlık beklenir. Güncel tutarı ve amacınıza göre gerçekçi düzeyi ilk görüşmede paylaşırız.",
+      },
+      {
+        soru: "Beyanname vermeyi unuttuk, ne olur?",
+        cevap:
+          "Dernekler yıllık beyannamelerini kanunda öngörülen süre içinde vermekle yükümlüdür; verilmemesi idari para cezası doğurur ve denetim riskini artırır. Süre geçmişse beyannamenin gecikmeli de olsa verilmesi, cezanın ölçüsü bakımından lehe değerlendirilir. Ceza tebliğ edilmişse süresi içinde itiraz yolu açıktır.",
+      },
     ],
     seoAciklama:
       "Vakıf kuruluşu, dernek tüzüğü, vakıf senedi değişikliği, iktisadi işletme, vergi muafiyeti ve denetim süreçlerinde hukuki danışmanlık.",
@@ -216,6 +251,21 @@ export const calismaAlanlari: CalismaAlani[] = [
         soru: "Sözleşmeye cezai şart koymak yeterli koruma sağlar mı?",
         cevap:
           "Cezai şart güçlü bir araçtır, ancak fahiş bulunması hâlinde hâkim tarafından indirilebilir. Ayrıca cezai şartın hangi ihlal için, hangi tutarda ve tazminat hakkına ek mi yoksa onun yerine mi işleyeceği açıkça yazılmazsa, uygulamada tartışmalı hâle gelir.",
+      },
+      {
+        soru: "Sözleşmeyi tek taraflı feshedebilir miyim?",
+        cevap:
+          "Bu, sözleşmenin türüne ve metnine bağlıdır. Belirsiz süreli sürekli edimli sözleşmelerde kural olarak makul bir bildirim süresiyle fesih mümkündür. Belirli süreli sözleşmelerde ise ancak haklı sebep varsa ya da sözleşmede fesih hakkı düzenlenmişse fesih edilebilir; aksi hâlde erken fesih tazminat sorumluluğu doğurur. Fesihten önce metnin okunması, çoğu zaman davanın kendisinden ucuzdur.",
+      },
+      {
+        soru: "İmzalanmamış sözleşme geçerli midir?",
+        cevap:
+          "Kanunun şekil şartı aramadığı sözleşmeler yazılı olmasa bile geçerlidir; e-posta yazışması, teklif-kabul akışı ve fiilî uygulama sözleşmenin varlığını ispatlayabilir. Buna karşılık taşınmaz satışı, kat karşılığı inşaat ve taşınmaz satış vaadi gibi sözleşmelerde resmî şekil geçerlilik şartıdır ve bu şekle uyulmadan yapılan sözleşme hüküm doğurmaz.",
+      },
+      {
+        soru: "Sözleşmede yetkili mahkeme belirlenebilir mi?",
+        cevap:
+          "Tacirler ve kamu tüzel kişileri arasındaki uyuşmazlıklarda yetkili mahkeme sözleşmeyle kararlaştırılabilir. Tüketici ve işçi gibi zayıf konumdaki taraflar bakımından bu serbestlik sınırlıdır; kanunun kesin yetki öngördüğü hâllerde ise yetki sözleşmesi hüküm ifade etmez. Yabancı unsurlu sözleşmelerde ayrıca uygulanacak hukukun seçilmesi de gündeme gelir.",
       },
     ],
     seoAciklama:
@@ -283,6 +333,26 @@ export const calismaAlanlari: CalismaAlani[] = [
         cevap:
           "Kural olarak fazla çalışmayı iddia eden taraf ispatla yükümlüdür. İşyerinde giriş-çıkış kaydı, puantaj veya elektronik kayıt varsa bunlar esas alınır; yoksa tanık beyanına başvurulur. Bordroda fazla mesai tahakkuku varsa ve bordro imzalıysa, ispat yükü değişir. Bu nedenle işveren tarafında kayıt düzeni, işçi tarafında ise kayıtların temini kritik önemdedir.",
       },
+      {
+        soru: "Kıdem tazminatı nasıl hesaplanır?",
+        cevap:
+          "Her tam yıl için otuz günlük giydirilmiş brüt ücret esas alınır; artan süreler oranlanır. Giydirilmiş ücret, çıplak ücrete ek olarak yol, yemek, ikramiye gibi süreklilik taşıyan ödemeleri de içerir — bu nedenle bordroda görünen tutardan yüksek olabilir. Ayrıca her dönem için açıklanan kıdem tazminatı tavanı uygulanır.",
+      },
+      {
+        soru: "İstifa edersem kıdem tazminatı alabilir miyim?",
+        cevap:
+          "Kural olarak hayır. Ancak kanunda sayılan haklı fesih sebepleri varsa — ücretin ödenmemesi, sigorta priminin eksik yatırılması, ağır çalışma koşulları, mobbing gibi — işçinin haklı nedenle feshi kıdem tazminatı hakkını korur. Bu durumda fesih bildiriminde sebebin açıkça yazılması ve delillerin önceden toplanması belirleyicidir; 'istifa' başlıklı bir dilekçe sonradan aleyhe yorumlanabilir.",
+      },
+      {
+        soru: "Maaşım ödenmiyor, ne yapabilirim?",
+        cevap:
+          "Ücreti ödeme gününden itibaren yirmi gün içinde ödenmeyen işçi, iş görme borcunu yerine getirmekten kaçınabilir ve bu davranış grev sayılmaz. Ayrıca ücretin ödenmemesi işçi için haklı nedenle derhal fesih sebebidir. Uygulamada önce yazılı bir ihtar gönderilmesi ve ödeme kayıtlarının saklanması, sonraki aşamada ispat kolaylığı sağlar.",
+      },
+      {
+        soru: "İhbar süresi ne kadar?",
+        cevap:
+          "Kanuni asgari süreler kıdeme göre değişir: altı aya kadar iki hafta, altı ay ile bir buçuk yıl arası dört hafta, bir buçuk ile üç yıl arası altı hafta, üç yıldan fazla kıdemde sekiz hafta. Bu süreler sözleşmeyle artırılabilir, azaltılamaz. Süreye uyulmazsa karşı tarafa ihbar tazminatı ödenir.",
+      },
     ],
     seoAciklama:
       "İşe iade, kıdem ve ihbar tazminatı, fazla mesai alacağı, iş kazası tazminatı ve SGK uyuşmazlıklarında avukatlık hizmeti.",
@@ -321,6 +391,26 @@ export const calismaAlanlari: CalismaAlani[] = [
         soru: "Muris muvazaası davası ne kadar sürede açılmalı?",
         cevap:
           "Muris muvazaası (mirastan mal kaçırma) iddiasına dayalı tapu iptali ve tescil davası bir zamanaşımı süresine tabi değildir; miras bırakanın ölümünden sonra her zaman açılabilir. Ancak delillerin zamanla kaybolması nedeniyle beklemek pratikte aleyhe sonuç doğurur.",
+      },
+      {
+        soru: "Kiracımı nasıl tahliye edebilirim?",
+        cevap:
+          "Tahliye ancak kanunda sayılan sebeplerle ve çoğunlukla dava yoluyla mümkündür: kira bedelinin ödenmemesi nedeniyle iki haklı ihtar, gereksinim (kendisi, eşi, altsoyu-üstsoyu için konut veya işyeri ihtiyacı), yeniden inşa ve imar, yeni malikin gereksinimi ya da tahliye taahhüdü. Her sebebin kendi süresi ve şekil şartı vardır; yanlış sebeple açılan dava reddedilir ve süreç en baştan başlar.",
+      },
+      {
+        soru: "Kira artış oranı ne kadar olabilir?",
+        cevap:
+          "Konut ve çatılı işyeri kiralarında yenilenen dönemlerdeki artış, bir önceki kira yılına ait tüketici fiyat endeksindeki on iki aylık ortalamalara göre değişim oranını geçemez. Beş yıldan uzun süren kira ilişkilerinde ise hâkim, endeks sınırıyla bağlı olmaksızın hakkaniyete göre kira bedelini yeniden belirleyebilir; bu, kira tespit davasının konusudur.",
+      },
+      {
+        soru: "Hisseli tapum var, payımı satabilir miyim?",
+        cevap:
+          "Paylı mülkiyette her paydaş kendi payını serbestçe satabilir; diğer paydaşların onayı gerekmez. Ancak diğer paydaşların yasal önalım (şufa) hakkı vardır: satışın noter aracılığıyla bildirilmesinden itibaren üç ay, her hâlde satıştan itibaren iki yıl içinde önalım davası açabilirler. Bildirim yapılmazsa süre işlemeye başlamaz ve alıcı uzun süre belirsizlik altında kalır.",
+      },
+      {
+        soru: "Müteahhit daireyi teslim etmiyor, ne yapabilirim?",
+        cevap:
+          "Önce sözleşmedeki teslim tarihi ve gecikme yaptırımına bakılır. Gecikme sürüyorsa ihtar çekilerek uygun süre verilir; bu süre sonuçsuz kalırsa sözleşmeden dönme veya aynen ifa ile birlikte gecikme tazminatı talep edilebilir. Kat karşılığı inşaatta ayrıca arsa paylarının akıbeti ve üçüncü kişilere yapılan satışlar değerlendirilmelidir.",
       },
     ],
     seoAciklama:
@@ -385,6 +475,21 @@ export const calismaAlanlari: CalismaAlani[] = [
         soru: "Faturaya dayanarak icra takibi yapılabilir mi?",
         cevap:
           "Yapılabilir, ancak fatura tek başına kambiyo senedi değildir; borçlu itiraz ederse takip durur. Faturanın ticari defterlere kaydedilmiş olması, teslim belgeleri ve cari hesap mutabakatı, sonraki aşamada ispat gücünü belirler.",
+      },
+      {
+        soru: "Maaşıma haciz gelebilir mi, ne kadarı?",
+        cevap:
+          "Gelebilir. Maaş ve ücretlerin dörtte birinden azı haczedilemez; yani en fazla dörtte biri hacze konu olur. Nafaka alacakları bu sınırın istisnasıdır. Ayrıca borçlunun ve ailesinin geçimi için zorunlu olduğu belirlenirse hâkim bu oranı düşürebilir. Asgari ücret düzeyindeki gelirlerde uygulama daha korumacıdır.",
+      },
+      {
+        soru: "Evime haciz gelirse nelere el konulamaz?",
+        cevap:
+          "Borçlunun ve aynı çatı altında yaşayan aile bireylerinin yaşamı için gerekli eşyalar, mesleğini sürdürmesi için zorunlu araç ve gereçler, öğrenim ve ibadet eşyaları ile bir aylık yiyecek ve yakacak haczedilemez. Uygulamada haczedilmezlik iddiasının haciz tutanağının tebliğinden itibaren yedi gün içinde icra hukuk mahkemesine bildirilmesi gerekir; süre kaçarsa itiraz dinlenmez.",
+      },
+      {
+        soru: "Borçlunun malı yok, alacağım yanar mı?",
+        cevap:
+          "Takip düşmez. Aciz vesikası alınarak alacak belgelendirilir ve borçlunun sonradan edineceği mallar üzerinde takip sürdürülebilir; aciz vesikasına bağlanan alacak yirmi yıl boyunca takip edilebilir. Ayrıca borçlunun mal kaçırma amacıyla yaptığı devirlere karşı tasarrufun iptali davası açılabilir; bu dava çoğu dosyada asıl sonucu getiren yoldur.",
       },
     ],
     seoAciklama:
@@ -451,6 +556,31 @@ export const calismaAlanlari: CalismaAlani[] = [
         soru: "Evlilik içinde alınan ev boşanmada nasıl paylaşılır?",
         cevap:
           "2002 sonrası evliliklerde kural olarak edinilmiş mallara katılma rejimi geçerlidir. Evlilik içinde edinilen malın tapuda kimin üzerine kayıtlı olduğu tek başına belirleyici değildir; malın hangi kaynakla alındığı (kişisel mal mı, edinilmiş mal mı) hesaplamayı değiştirir. Miras veya bağış yoluyla gelen değerler kişisel mal sayılır.",
+      },
+      {
+        soru: "Çocuğun velayeti kime verilir?",
+        cevap:
+          "Belirleyici ölçüt çocuğun üstün yararıdır; annelik veya babalık tek başına üstünlük sağlamaz. Mahkeme çocuğun yaşını, alışkanlıklarını, eğitim düzenini, ebeveynlerin bakım imkânını ve idrak çağındaysa çocuğun görüşünü dikkate alır; gerektiğinde uzman incelemesi yaptırır. Küçük yaştaki çocuklarda uygulama anne yanında kalma yönünde eğilimlidir, ancak bu bir kural değildir.",
+      },
+      {
+        soru: "Nafaka ne kadar olur, ne zamana kadar ödenir?",
+        cevap:
+          "İştirak nafakası çocuğun ihtiyaçları ile ödeyecek tarafın gelirine göre belirlenir ve kural olarak çocuk ergin olana kadar sürer; eğitimi devam ediyorsa uzayabilir. Yoksulluk nafakası ise boşanma yüzünden yoksulluğa düşecek eşe süresiz olarak hükmedilebilir; ancak alan tarafın evlenmesi, fiilen evli gibi yaşaması veya yoksulluğunun ortadan kalkması hâlinde kaldırılması istenebilir. Koşullar değiştiğinde artırım veya azaltım davası açılabilir.",
+      },
+      {
+        soru: "Eşim boşanmak istemiyor, tek taraflı boşanabilir miyim?",
+        cevap:
+          "Evet. Anlaşmalı boşanma iki tarafın iradesini gerektirir; ancak çekişmeli boşanma davası tek taraflı açılır. Bu davada evlilik birliğinin temelinden sarsıldığının ispatlanması gerekir ve tanık, mesaj kayıtları, sağlık raporu gibi deliller belirleyici olur. Dava reddedilirse, kararın kesinleşmesinden itibaren üç yıl geçmesi ve ortak hayatın yeniden kurulamaması hâlinde yeniden dava açılabilir.",
+      },
+      {
+        soru: "Mirastan pay almak için ne yapmalıyım?",
+        cevap:
+          "Önce mirasçılık belgesi (veraset ilamı) alınır; noterden veya sulh hukuk mahkemesinden temin edilir. Ardından tereke tespiti yapılır ve mirasçılar anlaşarak paylaşabilir. Anlaşma sağlanamazsa mirasın paylaştırılması (izale-i şuyu) davası açılır. Miras bırakan sağlığında mal kaçırmışsa muris muvazaası, saklı pay ihlal edilmişse tenkis davası gündeme gelir.",
+      },
+      {
+        soru: "Saklı pay nedir, mirastan çıkarılabilir miyim?",
+        cevap:
+          "Saklı pay, altsoy, anne-baba ve sağ kalan eş için kanunun güvence altına aldığı asgari miras payıdır; miras bırakan vasiyetname veya sağlararası kazandırmalarla bu payı ihlal edemez. İhlal hâlinde tenkis davası açılır. Mirasçılıktan çıkarma ise ancak kanunda sayılan ağır sebeplerin varlığı ve bunların ölüme bağlı tasarrufta açıkça gösterilmesi hâlinde mümkündür.",
       },
     ],
     seoAciklama:
@@ -522,6 +652,21 @@ export const calismaAlanlari: CalismaAlani[] = [
         cevap:
           "Evet. Yargılama giderleri ve karşı taraf vekâlet ücreti, kural olarak haksız çıkan tarafa yüklenir. Kısmen kabul hâlinde giderler oranlanır. Bu risk, dava açmadan önce mutlaka hesaba katılmalıdır; ilk değerlendirmede bunu da paylaşırız.",
       },
+      {
+        soru: "Trafik kazasında kimden tazminat isteyebilirim?",
+        cevap:
+          "Zarardan sürücü, aracın işleteni ve zorunlu mali sorumluluk sigortacısı birlikte sorumludur; talep hepsine ya da bazılarına yöneltilebilir. Bedeni zararlarda sigortaya başvuru dava şartıdır: önce sigorta şirketine başvurulur, sekiz iş günü içinde yanıt gelmezse ya da yetersiz bulunursa Sigorta Tahkim Komisyonu veya mahkeme yoluna gidilir.",
+      },
+      {
+        soru: "Manevi tazminat ne kadar olur?",
+        cevap:
+          "Manevi tazminatın hesap formülü yoktur; hâkim olayın ağırlığını, tarafların ekonomik durumunu, kusur oranını ve duyulan elemin derecesini birlikte değerlendirerek takdir eder. Bu nedenle hiçbir avukat somut bir rakam taahhüt edemez. İlk değerlendirmede benzer nitelikteki dosyalarda mahkemelerin yaklaştığı aralığı paylaşırız.",
+      },
+      {
+        soru: "Sigorta az ödeme yaptı, dava açabilir miyim?",
+        cevap:
+          "Evet. Sigortanın yaptığı ödeme, eksik kısım için dava açma hakkını ortadan kaldırmaz; ancak ödeme sırasında imzalanan ibraname varsa kapsamı önem taşır. Ödeme belgesini ve varsa ibranameyi imzalamadan önce inceletmek, sonradan açılacak davadan çok daha etkilidir.",
+      },
     ],
     seoAciklama:
       "Trafik kazası ve iş kazası tazminatı, alacak ve menfi tespit davaları, tapu iptali, tüketici uyuşmazlıkları ve istinaf başvurularında avukatlık.",
@@ -560,6 +705,21 @@ export const calismaAlanlari: CalismaAlani[] = [
         cevap:
           "Yalnızca takibi şikâyete bağlı suçlarda. Bu suçlarda şikâyetten vazgeçme soruşturmayı veya davayı sona erdirir. Kamu davası olarak yürüyen suçlarda ise vazgeçme davayı düşürmez; olsa olsa cezanın belirlenmesinde dikkate alınabilir.",
       },
+      {
+        soru: "Gözaltı süresi ne kadar?",
+        cevap:
+          "Gözaltı süresi yakalama anından itibaren kural olarak yirmi dört saati geçemez; toplu işlenen suçlarda savcı kararıyla üçer günü aşmamak üzere en fazla dört gün uzatılabilir. Yol süresi bu sürelere dâhil değildir. Gözaltına alınan kişinin bir yakınına haber verilmesi ve müdafi ile görüşmesi engellenemez; bu haklar ifade başlamadan önce hatırlatılmalıdır.",
+      },
+      {
+        soru: "Adli sicil kaydı ne zaman silinir?",
+        cevap:
+          "Cezanın infazı tamamlandığında kayıt adli sicilden çıkarılarak arşiv kaydına alınır. Arşiv kaydı ise kanunda öngörülen sürelerin geçmesi ve koşulların gerçekleşmesiyle silinir; süre cezanın türüne ve miktarına göre değişir. Memuriyet ve bazı meslek başvurularında arşiv kaydı da sorulduğundan, silinme koşullarının dosya bazında değerlendirilmesi gerekir.",
+      },
+      {
+        soru: "Hakaret davası nasıl açılır?",
+        cevap:
+          "Hakaret takibi şikâyete bağlı bir suçtur: fiili ve failini öğrenmeden itibaren altı ay içinde şikâyet edilmelidir; süre geçerse kovuşturma yapılamaz. Şikâyet cumhuriyet başsavcılığına yapılır. İnternet ve mesaj yoluyla işlenen hakarette ekran görüntüsünün tek başına yeterli sayılmadığı, içeriğin tespiti ve kaynağının belirlenmesi gerektiği hâller vardır. Hakaret ayrıca uzlaştırma kapsamındadır.",
+      },
     ],
     seoAciklama:
       "Ceza soruşturması ve kovuşturmasında müdafilik, tutuklamaya itiraz, ekonomik suçlar, bilişim suçları ve mağdur vekilliği.",
@@ -597,6 +757,21 @@ export const calismaAlanlari: CalismaAlani[] = [
         soru: "İptal davası açma süresini kaçırdım, yapılacak bir şey var mı?",
         cevap:
           "Kural olarak altmış günlük süre hak düşürücüdür ve geçtikten sonra iptal davası açılamaz. Ancak işlemin tebliğinin usulüne uygun yapılmamış olması, işlemin sürekli etkili olması ya da idareye yapılan bir başvurunun süreyi durdurmuş olması gibi ihtimaller vardır. Bu nedenle süre geçmiş görünse de tebligat evrakının incelenmesinde fayda vardır.",
+      },
+      {
+        soru: "İdareye başvurmadan doğrudan dava açabilir miyim?",
+        cevap:
+          "Ortada kesin ve yürütülmesi zorunlu bir idari işlem varsa doğrudan iptal davası açılabilir. Böyle bir işlem yoksa önce idareye başvurmak gerekir; idarenin altmış gün içinde cevap vermemesi istek reddedilmiş sayılır ve dava süresi bu tarihten işlemeye başlar. Tam yargı davalarında ise kural olarak önce idareye başvuru zorunludur.",
+      },
+      {
+        soru: "Trafik cezasına itiraz nasıl yapılır?",
+        cevap:
+          "İdari para cezasının tebliğinden itibaren on beş gün içinde sulh ceza hâkimliğine başvurulur. Başvuru dilekçesinde cezanın hangi yönden hukuka aykırı olduğu somut olarak gösterilmelidir; ödeme yapılmış olması itiraz hakkını ortadan kaldırmaz ancak peşin ödeme indiriminden yararlanılmışsa bu durum değerlendirilir. Hâkimliğin kararına karşı itiraz yolu sınırlıdır.",
+      },
+      {
+        soru: "Yürütmenin durdurulması nedir, nasıl istenir?",
+        cevap:
+          "İptal davası açmak, dava konusu işlemin uygulanmasını kendiliğinden durdurmaz. İşlemin uygulanması hâlinde telafisi güç veya imkânsız zarar doğacaksa ve işlem açıkça hukuka aykırıysa, mahkemeden yürütmenin durdurulması istenir. Bu talebin dava dilekçesinde açıkça ileri sürülmesi gerekir; sonradan da istenebilir ancak geçen süre çoğu zaman zararı kalıcı hâle getirir.",
       },
     ],
     seoAciklama:
@@ -664,6 +839,21 @@ export const calismaAlanlari: CalismaAlani[] = [
         cevap:
           "İhlali öğrendiğinizden itibaren gecikmeksizin ve en geç 72 saat içinde Kişisel Verileri Koruma Kurulu'na bildirim yapmanız gerekir; etkilenen ilgili kişilere de makul en kısa sürede bildirim yapılır. İlk saatlerde alınan teknik ve hukuki adımlar, sonraki idari yaptırımın ölçüsünü doğrudan etkiler.",
       },
+      {
+        soru: "VERBİS'e kayıt olmak zorunda mıyım?",
+        cevap:
+          "Kayıt yükümlülüğü, yıllık çalışan sayısı ve mali bilanço büyüklüğü ile faaliyetin niteliğine göre belirlenir; Kurul bazı veri sorumlularını istisna tutmuştur. Ancak istisna kapsamında olmak, diğer yükümlülüklerden muaf olmak anlamına gelmez: aydınlatma, veri güvenliği ve başvuru yanıtlama yükümlülükleri işletme büyüklüğünden bağımsız olarak sürer.",
+      },
+      {
+        soru: "İnternette hakkımdaki içerik nasıl kaldırılır?",
+        cevap:
+          "Kişilik hakkı ihlal edilen kişi doğrudan içerik veya yer sağlayıcıya başvurabilir; sonuç alınamazsa sulh ceza hâkimliğinden içeriğin çıkarılması veya erişimin engellenmesi istenir. Hâkimlik kararını genellikle kısa sürede verir. Arama motoru sonuçlarından bağlantının kaldırılması ise ayrı bir taleptir ve ayrıca istenmelidir; içerik silinse bile önbellekte kalan kayıtlar için bu adım gerekir.",
+      },
+      {
+        soru: "Çalışanların verilerini işlemek için rıza almam gerekir mi?",
+        cevap:
+          "Çoğu durumda hayır. İş sözleşmesinin kurulması ve ifası, işverenin kanuni yükümlülükleri ve meşru menfaati zaten hukuki sebep oluşturur. Çalışandan alınan rıza, aradaki bağımlılık ilişkisi nedeniyle 'özgür irade' koşulunu sağlamayabilir ve geçersiz sayılabilir. Sağlık verisi ve biyometrik veri gibi özel nitelikli verilerde ise ayrı ve daha sıkı koşullar uygulanır.",
+      },
     ],
     seoAciklama:
       "KVKK uyum danışmanlığı, VERBİS kaydı, aydınlatma metni, veri ihlali bildirimi ve internette içerik kaldırma başvuruları.",
@@ -730,6 +920,21 @@ export const calismaAlanlari: CalismaAlani[] = [
         cevap:
           "İtiraz gelmeyen dosyalarda başvurudan belge aşamasına kadar geçen süre genellikle birkaç ayı bulur; yayına itiraz edilmesi hâlinde süreç önemli ölçüde uzar. Bu nedenle başvuru öncesi benzerlik araştırması, hem süre hem masraf açısından belirleyicidir.",
       },
+      {
+        soru: "Marka tescili ne kadar tutar?",
+        cevap:
+          "Maliyet, tescil edilecek sınıf sayısına ve başvurunun itirazla karşılaşıp karşılaşmadığına göre değişir; resmî harçlar TÜRKPATENT tarafından her yıl yeniden belirlenir. Sınıf sayısını gereğinden fazla tutmak maliyeti artırır, gereğinden az tutmak ise korumayı boşa çıkarır. Başvuru öncesi yapılacak benzerlik araştırması, itiraz nedeniyle doğacak masrafı önlediği için çoğu dosyada kendini amorti eder.",
+      },
+      {
+        soru: "Markam taklit ediliyor, ne yapabilirim?",
+        cevap:
+          "Tescilli marka sahibi, tecavüzün durdurulmasını, taklit ürünlere el konulmasını ve maddi-manevi tazminat ile itibar tazminatı talep edebilir. Delil tespiti ve ihtiyati tedbir yoluyla ürünlerin piyasadan hızla çekilmesi mümkündür. Marka tescilli değilse haksız rekabet hükümlerine dayanılabilir; ancak bu yol daha zayıf ve daha yavaştır.",
+      },
+      {
+        soru: "Logomu telif hakkıyla koruyabilir miyim?",
+        cevap:
+          "Logo, sahibinin hususiyetini taşıyan bir eser niteliğindeyse telif korumasından da yararlanır ve tescile gerek olmadan doğar. Ancak ticari hayatta asıl işlevsel koruma marka tescilidir: telif, logonun kopyalanmasını engellerken marka, benzer bir işaretin aynı mal ve hizmetlerde kullanılmasını da engeller. İkisi birbirini tamamlar. Ayrıca logoyu bir tasarımcı yaptıysa mali hakların sözleşmeyle devralınmış olması gerekir.",
+      },
     ],
     seoAciklama:
       "Marka tescili, yayına itiraz, marka hükümsüzlüğü, patent ve tasarım başvuruları ile telif hakkı ihlallerinde hukuki destek.",
@@ -768,6 +973,16 @@ export const calismaAlanlari: CalismaAlani[] = [
         soru: "Küçük bir şirket için sürekli danışmanlık pahalı olmaz mı?",
         cevap:
           "Aylık danışmanlık bedeli, çalışan sayısı ve iş hacmine göre belirlenir. Karşılaştırma yapılırken tek bir işçilik alacağı davasının ya da yanlış kurgulanmış tek bir sözleşmenin maliyeti dikkate alınmalıdır. İlk görüşmede işletmenizin gerçek ihtiyacını birlikte ölçüyor, gerekmiyorsa danışmanlık önermiyoruz.",
+      },
+      {
+        soru: "Danışmanlık sözleşmesi ne kadar süreli yapılır?",
+        cevap:
+          "Genellikle bir yıllık dönemler hâlinde yapılır ve taraflar aksini bildirmedikçe yenilenir. Kısa süreli deneme dönemleri de mümkündür; ilk üç ay, işletmenin gerçek hukuk yükünü görmek için çoğu zaman yeterlidir. Sözleşmede kapsamın, yanıt sürelerinin ve dava işlerinin ayrıca ücretlendirileceğinin açıkça yazılması, sonradan doğacak beklenti farkını önler.",
+      },
+      {
+        soru: "Şirketimizin zaten bir avukatı var, ayrıca danışmanlık gerekir mi?",
+        cevap:
+          "Gerekmeyebilir. Belirleyici olan, mevcut ilişkinin dava odaklı mı yoksa süreç odaklı mı olduğudur. Yalnızca uyuşmazlık çıktığında devreye giren bir ilişki, sözleşme incelemesi, personel süreçleri ve resmî yazışma takibi ihtiyacını karşılamaz. İlk görüşmede işletmenizin gerçek ihtiyacını birlikte ölçüyor, gerekmiyorsa danışmanlık önermiyoruz.",
       },
     ],
     seoAciklama:

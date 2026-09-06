@@ -88,20 +88,51 @@ Sitede bunun için yapılanlar:
 
 **Gizli anahtar kelime / cümle listesi sayfası yapılmamıştır.**
 
-Bu teknik üç ayrı nedenle sitenin aleyhinedir:
+Kastedilen teknik, 2000'lerin ortasında yaygın olan yöntemdir: bir XML ya
+da gizli sayfa içinde "ankara avukat", "ankara boşanma avukatı" gibi
+binlerce ifadenin listelenmesi. O yıllarda arama motorları büyük ölçüde
+terim sıklığına bakıyordu ve yöntem işe yarıyordu. Bugün yaramamasının üç
+ayrı nedeni var:
 
-1. **Artık çalışmıyor.** Meta anahtar kelime etiketi 2009'dan beri Google
-   sıralamasında kullanılmıyor; görünmez metin ise sayfanın tamamının
-   değerlendirme dışı bırakılmasına yol açıyor.
-2. **Google Spam Politikaları** gizli metni ve anahtar kelime yığınını
-   açıkça yasaklar. Yaptırımı algoritmik bir sıra kaybı değil, elle
-   uygulanan (manual action) tam kaldırmadır. Bir hukuk bürosu için alan
-   adının arama sonuçlarından çıkması, kazanılacak her trafiğin çok
-   üzerinde bir kayıptır ve geri alınması aylar sürer.
-3. **TBB Reklam Yasağı Yönetmeliği**, arama motorunda öne çıkmak amacıyla
-   ilgisiz anahtar kelime ve meta etiket kullanımını doğrudan disiplin
-   konusu yapar (bkz. `docs/mevzuat.md`). Yaptırım siteye değil, avukatın
-   siciline işler.
+1. **Sinyal olarak ölü.** Meta anahtar kelime etiketi 2009'dan beri
+   Google sıralamasında kullanılmıyor. Görünmez metin ise sayfanın
+   tamamının değerlendirme dışı bırakılmasına yol açıyor. 2011 (Panda) ve
+   2012 (Penguin) güncellemeleri ince içeriği ve aşırı optimizasyonu
+   hedefledi; 2015'teki "doorway page" güncellemesi ise tam olarak bu
+   kalıbı — tek bir hedefe yönlendiren, kendi başına değeri olmayan
+   çoğaltılmış sayfaları — cezalandırmak için yayımlandı.
+2. **Yaptırımı geri dönüşsüz.** Sıra kaybı değil, elle uygulanan
+   kaldırma (manual action). Bir hukuk bürosu için alan adının aramadan
+   çıkması, kazanılacak trafiğin çok üzerinde bir kayıp ve düzelmesi
+   aylar sürer.
+3. **Meslek kuralına aykırı.** TBB Reklam Yasağı Yönetmeliği, arama
+   motorunda öne çıkmak amacıyla ilgisiz anahtar kelime ve meta etiket
+   kullanımını doğrudan disiplin konusu yapar. Yaptırım siteye değil,
+   avukatın siciline işler (bkz. `docs/mevzuat.md`).
+
+**Aynı hedefe bugün nasıl gidiliyor?** O tekniğin amacı uzun kuyruk
+sorgularını toplamaktı; bu amaç meşru ve sitede bunun için çalışılıyor.
+Fark şu: liste değil, cevap. Sitede hâlihazırda **412 ayrı yazılı ifade**
+var ve her biri gerçek içeriğin parçası:
+
+| Kaynak | Adet |
+|---|---|
+| Çalışma alanı sayfası | 13 |
+| Hizmet satırı | 178 |
+| Alan sayfalarındaki soru-cevap | 71 |
+| Süreç şeması adımı | 46 |
+| Genel sıkça sorulan soru | 13 |
+| Yayınlardaki ara başlık | 27 |
+| Rehber başlığı ve maddesi | 77 |
+
+Bu 412 ifadenin tamamı sayfada görünür durumda, `FAQPage` ve `ItemList`
+olarak işaretli ve `llms.txt` ile dil modellerine açık. Yani gizli bir
+listede saklanan 2000 kelimenin yapmaya çalıştığı işi, görünür ve
+savunulabilir 412 ifade yapıyor — üstelik tıklandığında okurun aradığı
+cevabı da veriyor.
+
+Bu sayı, aşağıdaki içerik programıyla her ay artar. Kapasite sınırı yok:
+her yeni soru-cevap yeni bir uzun kuyruk sorgusu demek.
 
 Aynı hedefe (yüksek ve **kalıcı** organik trafik) götüren meşru yol,
 aşağıdaki içerik programıdır.
