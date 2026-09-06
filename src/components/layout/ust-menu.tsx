@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ChevronDown, Mail, Menu, Phone, X } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
+import { TemaAnahtari } from "@/components/tema-anahtari";
 import { ButonBaglanti } from "@/components/ui/buton";
 import { Kapsayici } from "@/components/ui/bolum";
 import { anaMenu } from "@/lib/site";
@@ -155,6 +156,7 @@ export function UstMenu({
           </nav>
 
           <div className="flex items-center gap-3">
+            <TemaAnahtari />
             <ButonBaglanti href="/iletisim" className="hidden md:inline-flex">
               Görüşme talep edin
             </ButonBaglanti>

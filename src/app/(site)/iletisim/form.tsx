@@ -152,7 +152,7 @@ export function IletisimFormu() {
           type="checkbox"
           value="evet"
           required
-          className="mt-1 h-4 w-4 shrink-0 accent-[var(--kirmizi)]"
+          className="onay-kutusu mt-0.5"
           aria-invalid={Boolean(hatalar.onay)}
         />
         <label htmlFor="onay" className="text-[0.85rem] leading-relaxed text-metin-soluk">

@@ -24,6 +24,33 @@ Kontrast: gövde metni kâğıt üzerinde 10:1'in üzerinde; küçük altın met
 için `--altin-metin` kullanılır (AA'yı geçer). Parlak altın yalnızca koyu
 zeminde ve 14 px üzeri boyutta kullanılır.
 
+## Karanlık tema
+
+Palet ters çevrilmez, **yeniden dengelenir.** Kâğıt yerine mürekkep geçer;
+ama iki renk olduğu gibi kalamaz:
+
+| Jeton | Aydınlık | Karanlık | Neden değişti |
+|---|---|---|---|
+| Kâğıt (sayfa) | `#fbf8f3` | `#16130f` | — |
+| Yüzey (kart, form) | `#ffffff` | `#201a15` | Sayfadan bir tık açık kalır |
+| Koyu zemin (bant) | `#16110d` | `#0b0807` | Sayfadan **daha derine** çekilir; yoksa açılış ve çalışma yöntemi bantları sayfayla birleşir |
+| Metin kırmızısı | `#9e1b32` | `#dd6376` | `#9e1b32` koyu zeminde 3,7:1 kalıyor — okunmaz. Açılan ton 5:1'i geçer |
+| Buton dolgusu | `#9e1b32` | `#a81f38` | Dolgunun koyu kalması gerekir; metin kırmızısı bu iş için fazla açık |
+| Altın (metin) | `#7a6224` | `#d0af69` | Aydınlıkta koyulaştırılır, karanlıkta açılır — ikisi de kontrast için |
+
+Buradaki asıl karar, **buton dolgusunun metin kırmızısından ayrılması**
+(`--dolgu`). Tek jetonla iki problem birden çözülemiyor: koyu zeminde metnin
+açılması, dolgunun ise koyu kalması gerekiyor.
+
+Tarayıcının kendi çizimleri de temaya uyar (`color-scheme`): kaydırma
+çubuğu, otomatik doldurma ve odak halkası. Onay kutusu ise tarayıcıya
+bırakılmaz — kendi kutumuz çizilir ve işaret, motif dilindeki baklavadır.
+
+Varsayılan **sistem tercihi**: ziyaretçinin işletim sistemi koyu temadaysa
+site koyu açılır. Üst menüdeki anahtar bunu geçersiz kılar; simgeler şems
+(güneş) ve hilaldir. Anahtarın hangi simgeyi göstereceği CSS ile seçilir;
+böylece ilk boyada boş kutu ya da yanlış simge görünmez.
+
 ## Tipografi
 
 | Rol | Yazı tipi | Neden |

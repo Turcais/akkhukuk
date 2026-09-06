@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* next-themes'in <html> uzerine koydugu sinifla calisan karanlik varyant */
+@custom-variant dark (&:where(.karanlik, .karanlik *));
+
 /* ============================================================
    AKK Hukuk ve Danismanlik — tasarim sistemi
 
@@ -21,6 +24,10 @@
 }
 
 :root {
+  /* Tarayicinin kendi ciziminde de temayi bilmesi icin: onay kutusu,
+     kaydirma cubugu ve otomatik doldurma renkleri buradan gelir. */
+  color-scheme: light;
+
   /* Zeminler */
   --kagit: #fbf8f3;
   --kagit-koyu: #f4efe5;
@@ -38,11 +45,18 @@
   --cizgi: #e7dfd1;
   --cizgi-koyu: #d5c7b0;
 
-  /* Edirne kirmizisi */
+  /* Edirne kirmizisi — metin ve cizgi icin */
   --kirmizi: #9e1b32;
   --kirmizi-koyu: #7c1226;
   --kirmizi-acik: #b8283f;
   --kirmizi-yumusak: #f8ecee;
+
+  /* Dolu butonun zemini. Metin kirmizisinden ayri tutulur: acik temada
+     ikisi ayni olabilir, koyu temada metnin acilmasi gerekirken dolgunun
+     koyu kalmasi gerekir — tek jetonla ikisi birden saglanamaz. */
+  --dolgu: #9e1b32;
+  --dolgu-ustunde: #7c1226;
+  --dolgu-metin: #ffffff;
 
   /* Altin */
   --altin: #a8873c;
@@ -51,6 +65,47 @@
   --altin-yumusak: #f7f0df;
 
   --ring: #9e1b32;
+}
+
+/* ================= KARANLIK TEMA =================
+   Kagit yerine mürekkep. Ayni palet, ters cevrilmis degil yeniden
+   dengelenmis: kirmizi acilir (koyu zeminde #9e1b32 okunmaz), altin
+   parlar, cizgiler kagit tarafinda oldugundan daha belirgin durur.
+   Zaten koyu olan bolumler (acilis, calisma yontemi, cagri, alt bilgi)
+   sayfadan daha derin bir siyaha ceker; boylece karanlik temada da
+   ayri bir malzeme olarak okunurlar. */
+.karanlik {
+  color-scheme: dark;
+
+  --kagit: #16130f;
+  --kagit-koyu: #1d1813;
+  --yuzey: #201a15;
+  --koyu-zemin: #0b0807;
+  --koyu-zemin-ust: #150f0c;
+
+  --murekkep: #f4efe6;
+  --metin: #ddd4c6;
+  --metin-soluk: #a89c8c;
+  --metin-silik: #877c6d;
+
+  --cizgi: #302821;
+  --cizgi-koyu: #43372d;
+
+  --kirmizi: #dd6376;
+  --kirmizi-koyu: #eb8494;
+  --kirmizi-acik: #c73b52;
+  --kirmizi-yumusak: #2a1318;
+
+  --dolgu: #a81f38;
+  --dolgu-ustunde: #c02a45;
+  --dolgu-metin: #ffffff;
+
+  --altin: #b9944a;
+  --altin-parlak: #dcc084;
+  --altin-metin: #d0af69;
+  --altin-yumusak: #241d10;
+
+  --ring: #dd6376;
 }
 
 @theme inline {
@@ -72,6 +127,9 @@
   --color-kirmizi-koyu: var(--kirmizi-koyu);
   --color-kirmizi-acik: var(--kirmizi-acik);
   --color-kirmizi-yumusak: var(--kirmizi-yumusak);
+  --color-dolgu: var(--dolgu);
+  --color-dolgu-ustunde: var(--dolgu-ustunde);
+  --color-dolgu-metin: var(--dolgu-metin);
 
   --color-altin: var(--altin);
   --color-altin-parlak: var(--altin-parlak);
@@ -104,6 +162,11 @@
     text-rendering: optimizeLegibility;
   }
 
+  /* Ayni doku koyu zeminde acik tanecik olarak okunur; yogunlugu duser. */
+  .karanlik body {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23t)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+
   h1,
   h2,
   h3,
@@ -131,8 +194,8 @@
   }
 
   ::selection {
-    background-color: var(--kirmizi);
-    color: #ffffff;
+    background-color: var(--dolgu);
+    color: var(--dolgu-metin);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -208,6 +271,42 @@
     font-weight: 500;
     line-height: 0.78;
     color: var(--kirmizi);
+  }
+
+  /* Onay kutusu.
+     Tarayicinin kendi cizimi yerine kendi kutumuz: koyu temada dogru
+     renkte durur ve isaret, motif dilindeki baklava olur. */
+  .onay-kutusu {
+    appearance: none;
+    -webkit-appearance: none;
+    display: inline-grid;
+    place-content: center;
+    width: 1.05rem;
+    height: 1.05rem;
+    flex-shrink: 0;
+    border: 1px solid var(--cizgi-koyu);
+    background-color: var(--yuzey);
+    cursor: pointer;
+    transition:
+      border-color 200ms ease,
+      background-color 200ms ease;
+  }
+  .onay-kutusu:hover {
+    border-color: var(--altin);
+  }
+  .onay-kutusu::after {
+    content: "";
+    width: 0.45rem;
+    height: 0.45rem;
+    background-color: var(--dolgu);
+    transform: rotate(45deg) scale(0);
+    transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .onay-kutusu:checked {
+    border-color: var(--dolgu);
+  }
+  .onay-kutusu:checked::after {
+    transform: rotate(45deg) scale(1);
   }
 
   /* Ust menu baglantilarinin soldan cizilen altin alt hatti */

@@ -9,7 +9,7 @@ const temel =
   "inline-flex items-center justify-center gap-2 font-medium tracking-wide transition-[background-color,color,border-color,box-shadow] duration-200 disabled:opacity-60 disabled:pointer-events-none";
 
 const gorunumler: Record<Gorunum, string> = {
-  dolu: "bg-kirmizi text-white hover:bg-kirmizi-koyu shadow-[0_1px_0_rgba(255,255,255,0.12)_inset]",
+  dolu: "bg-dolgu text-dolgu-metin hover:bg-dolgu-ustunde shadow-[0_1px_0_rgba(255,255,255,0.12)_inset]",
   cizgili: "border border-cizgi-koyu text-murekkep hover:border-kirmizi hover:text-kirmizi bg-transparent",
   sade: "text-kirmizi hover:text-kirmizi-koyu underline decoration-altin/50 underline-offset-4 hover:decoration-kirmizi",
   altin: "border border-altin/50 text-altin-parlak hover:bg-altin/10 bg-transparent",

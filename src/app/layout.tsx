@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Bodoni_Moda, Inter } from "next/font/google";
+import { TemaSaglayici } from "@/components/tema-saglayici";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -52,8 +53,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#9e1b32",
-  colorScheme: "light",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fbf8f3" },
+    { media: "(prefers-color-scheme: dark)", color: "#16130f" },
+  ],
+  colorScheme: "light dark",
 };
 
 /**
@@ -67,8 +71,12 @@ export default function KokYerlesim({ children }: { children: React.ReactNode })
        globals.css icindeki --font-sans / --font-display bunlari :root
        seviyesinde okur; degiskenler <body>'de kalirsa :root'ta tanimsiz
        olur ve iki yazi tipi de sessizce devre disi kalir. */
-    <html lang={site.lang} className={`${inter.variable} ${bodoni.variable}`}>
-      <body className="antialiased">{children}</body>
+    /* suppressHydrationWarning: tema sinifi sunucuda bilinemez, istemcide
+       ilk boyada eklenir; bu tek elemandaki farki React'e bildiriyoruz. */
+    <html lang={site.lang} className={`${inter.variable} ${bodoni.variable}`} suppressHydrationWarning>
+      <body className="antialiased">
+        <TemaSaglayici>{children}</TemaSaglayici>
+      </body>
     </html>
   );
 }

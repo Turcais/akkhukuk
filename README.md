@@ -57,9 +57,16 @@ varsayılana düşer. Panel geçici olarak erişilemezse site ayakta kalır.
 - [docs/marka.md](docs/marka.md) — renk, tipografi ve motif sistemi
 - [docs/mevzuat.md](docs/mevzuat.md) — avukatlık reklam yasağı çerçevesinde site kuralları
 
+## Tema
+
+Aydınlık ve karanlık tema. Varsayılan, ziyaretçinin işletim sistemi
+tercihidir; üst menüdeki anahtar bunu geçersiz kılar ve seçim tarayıcıda
+saklanır. Renk sistemi tamamen CSS değişkenleri üzerinden kurulu olduğu
+için tema değişimi tek bir sınıfla (`.karanlik`) gerçekleşir.
+
 ## Erişilebilirlik
 
-- WCAG 2.2 AA kontrast hedefi
+- İki temada da WCAG 2.2 AA kontrast hedefi
 - Klavye navigasyonu ve görünür odak halkası
 - Her sayfada "İçeriğe geç" atlama bağlantısı
 - `prefers-reduced-motion` desteği
