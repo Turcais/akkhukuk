@@ -33,7 +33,7 @@ export async function GET() {
     `- Şehir: Ankara, Türkiye`,
     `- Baro: ${ayarlar.baro}`,
     `- Adres: ${ayarlar.adresTekSatir}`,
-    `- Telefon: ${ayarlar.telefon}`,
+    ...(ayarlar.telefonVar ? [`- Telefon: ${ayarlar.telefon}`] : []),
     `- E-posta: ${ayarlar.eposta}`,
     `- Çalışma saatleri: ${ayarlar.calismaSaatleri}`,
     `- İnternet sitesi: ${tamAdres("/")}`,

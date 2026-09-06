@@ -63,6 +63,7 @@ export default async function Yayinlar() {
         butonMetni={anaSayfa.cagri.butonMetni}
         telefon={ayarlar.telefon}
         telefonHref={ayarlar.telefonHref}
+        telefonVar={ayarlar.telefonVar}
       />
     </>
   );

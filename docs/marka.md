@@ -115,10 +115,17 @@ koyu açılış → açık güven şeridi → açık tanıtım → levha
 Ortadaki koyu "çalışma yöntemi" bandı, sayfanın nefes aldığı yerdir; içi
 boş altın rakamlar (yalnızca kontur) ve dikey altın hatlarla kurulur.
 
-**Fihrist kartları.** Çalışma alanları numaralı bir fihrist gibi dizilir:
-solda sıra numarası, sağda konunun simgesi, altta başlık, altın kesme
-çizgisi ve tek cümlelik özet. Üzerine gelindiğinde girih örüntüsü %5,5
-opaklıkta belirir — kart bir çini karoya dönüşür.
+**Fihrist.** Çalışma alanları kart ızgarası değil, satır satır dizilmiş bir
+fihristtir: numara, küçük simge, başlık ve tek cümlelik özet. Bu bir biçim
+tercihi değil: on iki eşit kart, on iki eşit ağırlıkta konu olduğu izlenimi
+verir ve okur hiçbirine tutunamaz. Kitap fihristi gibi dizildiğinde göz
+başlıklarda aşağı iner ve ilgilendiği satırda durur. Satırın altında,
+üzerine gelindiğinde soldan çizilen altın bir hat belirir.
+
+**Eşit kutulardan kaçınma.** Aynı gerekçeyle büro tanıtımındaki ilkeler ve
+"Çalışma ilkelerimiz" bölümü de kutu ızgarası değil, çizgiyle ayrılmış
+listedir; ilk madde daha büyük punto alır. Arka arkaya üç "eşit kutu
+ızgarası" bölümü, sayfanın en şablon görünen yeriydi.
 
 **Başharf.** Uzun metinlerin ilk harfi, müzehhep başharflerin modern
 karşılığı olarak Edirne kırmızısında ve Bodoni ile büyütülür. Yalnızca

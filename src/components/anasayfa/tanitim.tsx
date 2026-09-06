@@ -1,7 +1,7 @@
 import { Motif } from "@/components/brand/motif";
-import { Bolum, IzgaraDolgusu } from "@/components/ui/bolum";
+import { Bolum } from "@/components/ui/bolum";
 
-/** Buro tanitimi: solda sabit baslik, sagda ilkeler. */
+/** Buro tanitimi: solda sabit baslik ve metin, sagda calisma ilkeleri. */
 export function Tanitim({
   ustBaslik,
   baslik,
@@ -33,16 +33,32 @@ export function Tanitim({
           </div>
         </div>
 
-        <div className="grid gap-px bg-cizgi sm:grid-cols-2">
-          {maddeler.map((madde) => (
-            <div key={madde.baslik} className="h-full bg-kagit p-7 transition-colors duration-300 hover:bg-yuzey">
-              <span className="block h-px w-8 bg-altin" aria-hidden="true" />
-              <h3 className="mt-5 text-[1.12rem]">{madde.baslik}</h3>
-              <p className="mt-3 text-[0.92rem] leading-relaxed text-metin-soluk">{madde.metin}</p>
-            </div>
+        {/* Kutu izgarasi degil, cizgiyle ayrilmis liste. Ilk madde daha
+            buyuk punto alir; dort esit kutu, dort esit onemde ilke oldugu
+            izlenimi veriyordu. */}
+        <ol className="border-t border-cizgi">
+          {maddeler.map((madde, sira) => (
+            <li key={madde.baslik} className="border-b border-cizgi py-7">
+              <div className="flex items-baseline gap-4">
+                <span className="font-display text-[0.95rem] leading-none text-altin/70">
+                  {String(sira + 1).padStart(2, "0")}
+                </span>
+                <h3 className={sira === 0 ? "text-[1.4rem] leading-snug" : "text-[1.12rem] leading-snug"}>
+                  {madde.baslik}
+                </h3>
+              </div>
+              <p
+                className={
+                  sira === 0
+                    ? "mt-4 pl-9 text-[1rem] leading-relaxed text-metin"
+                    : "mt-3 pl-9 text-[0.93rem] leading-relaxed text-metin-soluk"
+                }
+              >
+                {madde.metin}
+              </p>
+            </li>
           ))}
-          <IzgaraDolgusu adet={maddeler.length} sutun={2} />
-        </div>
+        </ol>
       </div>
     </Bolum>
   );

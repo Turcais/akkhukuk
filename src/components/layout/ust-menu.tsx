@@ -24,6 +24,7 @@ export function UstMenu({
   logo,
   telefon,
   telefonHref,
+  telefonVar,
   eposta,
   alanlar,
 }: {
@@ -32,6 +33,7 @@ export function UstMenu({
   logo?: SanityGorsel;
   telefon: string;
   telefonHref: string;
+  telefonVar: boolean;
   eposta: string;
   alanlar: Alan[];
 }) {
@@ -76,10 +78,12 @@ export function UstMenu({
             Avukatlık ve Hukuki Danışmanlık · Ankara
           </span>
           <div className="flex items-center gap-6">
-            <a href={telefonHref} className="inline-flex items-center gap-2 hover:text-white">
-              <Phone className="h-3.5 w-3.5" strokeWidth={1.5} aria-hidden="true" />
-              {telefon}
-            </a>
+            {telefonVar ? (
+              <a href={telefonHref} className="inline-flex items-center gap-2 hover:text-white">
+                <Phone className="h-3.5 w-3.5" strokeWidth={1.5} aria-hidden="true" />
+                {telefon}
+              </a>
+            ) : null}
             <a href={`mailto:${eposta}`} className="inline-flex items-center gap-2 hover:text-white">
               <Mail className="h-3.5 w-3.5" strokeWidth={1.5} aria-hidden="true" />
               {eposta}
@@ -206,10 +210,12 @@ export function UstMenu({
             </div>
 
             <div className="mt-8 flex flex-col gap-3 border-t border-cizgi pt-6">
-              <a href={telefonHref} className="inline-flex items-center gap-2 text-metin">
-                <Phone className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
-                {telefon}
-              </a>
+              {telefonVar ? (
+                <a href={telefonHref} className="inline-flex items-center gap-2 text-metin">
+                  <Phone className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
+                  {telefon}
+                </a>
+              ) : null}
               <a href={`mailto:${eposta}`} className="inline-flex items-center gap-2 text-metin">
                 <Mail className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
                 {eposta}

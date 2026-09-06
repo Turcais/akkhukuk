@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { SayfaBasligi } from "@/components/layout/sayfa-basligi";
-import { AlanKarti } from "@/components/anasayfa/alanlar";
+import { AlanFihristi } from "@/components/anasayfa/alanlar";
 import { Cagri } from "@/components/anasayfa/cagri";
 import { ListeVerisi, YolVerisi } from "@/components/yapisal-veri";
-import { Bolum, IzgaraDolgusu } from "@/components/ui/bolum";
+import { Bolum } from "@/components/ui/bolum";
 import { ayarlariGetir } from "@/lib/ayarlar";
 import { anaSayfa } from "@/lib/icerik";
 import { calismaAlanlariGetir, sayfaMetniGetir, sec } from "@/lib/veri";
@@ -54,12 +54,7 @@ export default async function CalismaAlanlari() {
       />
 
       <Bolum>
-        <div className="grid gap-px border border-cizgi bg-cizgi sm:grid-cols-2 lg:grid-cols-3">
-          {alanlar.map((alan, sira) => (
-            <AlanKarti key={alan.slug} alan={alan} sira={sira + 1} />
-          ))}
-          <IzgaraDolgusu adet={alanlar.length} />
-        </div>
+        <AlanFihristi alanlar={alanlar} />
       </Bolum>
 
       <Cagri
@@ -68,6 +63,7 @@ export default async function CalismaAlanlari() {
         butonMetni={anaSayfa.cagri.butonMetni}
         telefon={ayarlar.telefon}
         telefonHref={ayarlar.telefonHref}
+        telefonVar={ayarlar.telefonVar}
       />
     </>
   );

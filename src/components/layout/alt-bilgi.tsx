@@ -101,12 +101,14 @@ export function AltBilgi({ ayarlar, alanlar }: { ayarlar: Ayarlar; alanlar: Alan
                   ))}
                 </address>
               </li>
-              <li className="flex gap-3">
-                <Phone className="h-4 w-4 shrink-0 text-altin/70" strokeWidth={1.5} aria-hidden="true" />
-                <a href={ayarlar.telefonHref} className="text-white/65 transition-colors hover:text-white">
-                  {ayarlar.telefon}
-                </a>
-              </li>
+              {ayarlar.telefonVar ? (
+                <li className="flex gap-3">
+                  <Phone className="h-4 w-4 shrink-0 text-altin/70" strokeWidth={1.5} aria-hidden="true" />
+                  <a href={ayarlar.telefonHref} className="text-white/65 transition-colors hover:text-white">
+                    {ayarlar.telefon}
+                  </a>
+                </li>
+              ) : null}
               <li className="flex gap-3">
                 <Mail className="h-4 w-4 shrink-0 text-altin/70" strokeWidth={1.5} aria-hidden="true" />
                 <a href={`mailto:${ayarlar.eposta}`} className="text-white/65 transition-colors hover:text-white">

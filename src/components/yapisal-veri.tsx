@@ -58,7 +58,7 @@ export function BuroVerisi({
           description: aciklama,
           url: site.url,
           email: eposta,
-          telephone: telefon,
+          telephone: telefon || undefined,
           address: adres,
           areaServed: [
             { "@type": "Country", name: "Türkiye" },
@@ -74,7 +74,7 @@ export function BuroVerisi({
           contactPoint: {
             "@type": "ContactPoint",
             contactType: "Müvekkil başvuruları",
-            telephone: telefon,
+            telephone: telefon || undefined,
             email: eposta,
             areaServed: "TR",
             availableLanguage: ["Turkish", "English"],

@@ -17,38 +17,32 @@ export const anaSayfa = {
 
   guvenSeridi: [
     { deger: "Ankara 2 No'lu Barosu", etiket: "Kayıtlı avukatlık bürosu" },
-    { deger: "12 çalışma alanı", etiket: "Dava, takip ve danışmanlık" },
-    { deger: "Kurumsal danışmanlık", etiket: "Şirket, vakıf ve dernekler" },
-    { deger: "Aynı gün dönüş", etiket: "Mesai içi başvurularda" },
+    { deger: "Şirket, vakıf ve dernek", etiket: "Sürekli danışmanlık müvekkilleri" },
+    { deger: "12 çalışma alanı", etiket: "Dava, icra takibi ve danışmanlık" },
   ],
 
   tanitim: {
     ustBaslik: "Büro Hakkında",
-    baslik: "Dosyayı biz taşırız, siz işinizi yaparsınız.",
+    baslik: "Bir hukukçunun asıl işi dava kazanmak değildir.",
     paragraflar: [
-      "AKK Hukuk ve Danışmanlık, hukuki desteği bir kriz hizmeti olmaktan çıkarıp kurumun gündelik karar mekanizmasının parçası hâline getirme anlayışıyla kurulmuştur. Bir sözleşme imzalanmadan önce okunduğunda, bir personel çıkışı planlandığında, bir resmi yazıya süresi içinde yanıt verildiğinde ortadan kalkan uyuşmazlık sayısı, kazanılan davalardan fazladır.",
-      "Büromuz Ankara'da faaliyet gösterir; şirketler, vakıf ve dernekler ile gerçek kişilere avukatlık ve sürekli hukuki danışmanlık hizmeti sunar. Her dosyada müvekkile üç şeyi baştan söyleriz: sürecin gerçekçi takvimi, olası sonuçların tamamı ve maliyetin nasıl hesaplanacağı.",
+      "Asıl iş, davaya gerek kalmayan bir düzen kurmaktır. Bir sözleşme imzalanmadan önce okunduğunda, bir personel çıkışı fesihten önce planlandığında, bir resmi yazıya süresi içinde cevap verildiğinde ortadan kalkan uyuşmazlık sayısı, kazanılan davalardan fazladır. Büromuz hukuki desteği bu yüzden kriz anına sıkıştırmaz; kurumun gündelik karar mekanizmasının içine yerleştirir.",
+      "Ankara'da faaliyet gösteriyoruz. Şirketlere, vakıf ve derneklere, gerçek kişilere avukatlık ve sürekli hukuki danışmanlık hizmeti veriyoruz. Uyuşmazlık doğduğunda da dosyayı sonuna kadar takip ediyoruz — ancak bunu, dosyanın nasıl buraya geldiğini bilerek yapıyoruz.",
     ],
     maddeler: [
       {
-        baslik: "Önce belge, sonra dava",
+        baslik: "Dava açmanın aleyhinize olduğu durumu da söyleriz",
         metin:
-          "Dosyaya başlarken elimizdeki belgeleri ve ihtimalleri açıkça ortaya koyarız. Dava açmanın müvekkil aleyhine olduğu durumlarda bunu söylemekten çekinmeyiz.",
+          "Bir davanın kazanılma ihtimalini olduğundan yüksek göstermek kısa vadede müvekkil kazandırır, uzun vadede güveni bitirir. Uzlaşmanın, arabuluculuğun ya da hiçbir şey yapmamanın daha doğru olduğu dosyalar vardır; bunu ilk görüşmede söyleriz.",
       },
       {
-        baslik: "Tek muhatap",
+        baslik: "Dosyanızı yürüten avukatın adını bilirsiniz",
         metin:
-          "Her dosyanın sorumlu avukatı bellidir. Süreci kimin yürüttüğünü ve kime ulaşacağınızı aramanıza gerek kalmaz.",
+          "Her dosyanın sorumlu avukatı bellidir ve ona doğrudan ulaşırsınız. Süreci kimin takip ettiğini aramanıza gerek kalmaz.",
       },
       {
-        baslik: "Anlaşılır dil",
+        baslik: "İmzalayacağınız belgeyi önce birlikte okuruz",
         metin:
-          "Hukuki metinleri, hukukçu olmayan bir okurun anlayacağı biçimde özetleriz. Ne olduğunu anlamadığınız bir belgeyi imzalamanızı istemeyiz.",
-      },
-      {
-        baslik: "Kayıtlı süreç",
-        metin:
-          "Her aşama yazılı olarak kayıt altına alınır. Yıllar sonra bir denetim ya da yargılama söz konusu olduğunda dosya kendini savunabilir durumdadır.",
+          "Ne olduğunu anlamadığınız bir metni imzalamanızı istemeyiz. Hukuki belgeleri, hukukçu olmayan bir okurun anlayacağı biçimde özetleriz.",
       },
     ],
   },
@@ -146,23 +140,10 @@ export const hakkimizdaSayfasi = {
       ],
     },
   ],
-  degerler: [
-    {
-      baslik: "Dürüstlük",
-      metin: "Müvekkile olası sonuçların en iyisini değil, tamamını söyleriz.",
-    },
-    {
-      baslik: "Hazırlık",
-      metin: "Duruşmaya, görüşmeye ve müzakereye dosyayı bilerek gideriz.",
-    },
-    {
-      baslik: "Erişilebilirlik",
-      metin: "Sorunuzun yanıtını almak için haftalarca beklemezsiniz.",
-    },
-    {
-      baslik: "Süreklilik",
-      metin: "Dosya kapandığında ilişki bitmez; sonraki adımı da birlikte planlarız.",
-    },
+  ilkeler: [
+    "Müvekkile olası sonuçların en iyisini değil, tamamını söyleriz. Bir dosyanın zayıf tarafını ilk biz söylemezsek, karşı taraf söyler.",
+    "Duruşmaya, görüşmeye ve müzakereye dosyayı bilerek gideriz. Hazırlıksız girilen bir duruşma, kaybedilmiş bir duruşmadır.",
+    "Dosya kapandığında ilişki bitmez. Kararın ne anlama geldiğini ve bundan sonra ne yapılması gerektiğini de anlatırız.",
   ],
 };
 

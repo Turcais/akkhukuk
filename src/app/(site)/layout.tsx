@@ -26,8 +26,9 @@ export default async function SiteYerlesimi({ children }: { children: React.Reac
         buroAdi={ayarlar.buroAdi}
         slogan={ayarlar.slogan}
         logo={ayarlar.logo}
-        telefon={ayarlar.telefon}
+        telefon={ayarlar.telefonVar ? ayarlar.telefon : ""}
         telefonHref={ayarlar.telefonHref}
+        telefonVar={ayarlar.telefonVar}
         eposta={ayarlar.eposta}
         alanlar={menuAlanlari}
       />
@@ -35,13 +36,14 @@ export default async function SiteYerlesimi({ children }: { children: React.Reac
       <main id="icerik">{children}</main>
 
       <AltBilgi ayarlar={ayarlar} alanlar={menuAlanlari} />
-      <WhatsappButonu adres={ayarlar.whatsappHref} />
+      {/* Yer tutucu numarayla calismayan bir buton gostermeyiz. */}
+      {ayarlar.whatsappVar ? <WhatsappButonu adres={ayarlar.whatsappHref} /> : null}
 
       <BuroVerisi
         buroAdi={ayarlar.buroAdi}
         aciklama={ayarlar.seoAciklama}
         eposta={ayarlar.eposta}
-        telefon={ayarlar.telefon}
+        telefon={ayarlar.telefonVar ? ayarlar.telefon : ""}
         adresSatirlari={ayarlar.adresSatirlari}
         sosyal={ayarlar.sosyal.map((hesap) => hesap.adres)}
         alanBasliklari={alanlar.map((alan) => alan.baslik)}

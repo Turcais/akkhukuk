@@ -37,7 +37,9 @@ export default async function Iletisim() {
       satirlar: ayarlar.adresSatirlari,
       adres: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ayarlar.haritaSorgusu)}`,
     },
-    { Ikon: Phone, baslik: "Telefon", satirlar: [ayarlar.telefon], adres: ayarlar.telefonHref },
+    ...(ayarlar.telefonVar
+      ? [{ Ikon: Phone, baslik: "Telefon", satirlar: [ayarlar.telefon], adres: ayarlar.telefonHref }]
+      : []),
     { Ikon: Mail, baslik: "E-posta", satirlar: [ayarlar.eposta], adres: `mailto:${ayarlar.eposta}` },
     { Ikon: Clock, baslik: "Çalışma saatleri", satirlar: [ayarlar.calismaSaatleri], adres: null },
   ];

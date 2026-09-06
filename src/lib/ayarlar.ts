@@ -44,6 +44,15 @@ type PanelAyarlari = {
 
 export type Ayarlar = {
   buroAdi: string;
+  /**
+   * Telefon ve WhatsApp gercek deger mi?
+   *
+   * Yer tutucu numara gosterilmez: uydurma bir numara, siteyi eksik degil
+   * sahte gosterir. Panelden gercek numara girildigi anda ilgili baglantilar
+   * kendiliginden gorunur hale gelir.
+   */
+  telefonVar: boolean;
+  whatsappVar: boolean;
   slogan: string;
   footerMetni: string;
   seoAciklama: string;
@@ -76,8 +85,13 @@ export async function ayarlariGetir(): Promise<Ayarlar> {
     ? panel.adresSatirlari.filter(Boolean)
     : [...varsayilanIletisim.adresSatirlari];
 
+  const telefonVar = telefon !== varsayilanIletisim.telefon;
+  const whatsappVar = whatsapp !== varsayilanIletisim.whatsapp;
+
   return {
     buroAdi: sec(panel?.buroAdi, site.name),
+    telefonVar,
+    whatsappVar,
     slogan: sec(panel?.slogan, site.tagline),
     footerMetni: sec(
       panel?.footerMetni,

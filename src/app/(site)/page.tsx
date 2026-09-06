@@ -175,6 +175,7 @@ export default async function AnaSayfa() {
         butonMetni={sec(cagri.birinciButonMetni, anaSayfa.cagri.butonMetni)}
         telefon={ayarlar.telefon}
         telefonHref={ayarlar.telefonHref}
+        telefonVar={ayarlar.telefonVar}
       />
     </>
   );

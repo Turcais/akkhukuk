@@ -197,6 +197,7 @@ export default async function YaziSayfasi({ params }: { params: Promise<{ slug: 
         butonMetni={anaSayfa.cagri.butonMetni}
         telefon={ayarlar.telefon}
         telefonHref={ayarlar.telefonHref}
+        telefonVar={ayarlar.telefonVar}
       />
     </>
   );

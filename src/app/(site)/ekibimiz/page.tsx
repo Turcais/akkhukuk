@@ -76,6 +76,7 @@ export default async function Ekibimiz() {
         butonMetni={anaSayfa.cagri.butonMetni}
         telefon={ayarlar.telefon}
         telefonHref={ayarlar.telefonHref}
+        telefonVar={ayarlar.telefonVar}
       />
     </>
   );

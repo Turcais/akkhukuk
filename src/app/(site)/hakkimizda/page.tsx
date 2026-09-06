@@ -67,17 +67,22 @@ export default async function Hakkimizda() {
       </Bolum>
 
       <Bolum className="border-y border-cizgi bg-kagit-koyu/40">
-        <p className="ustbaslik">Değerlerimiz</p>
-        <div className="mt-10 grid gap-px border border-cizgi bg-cizgi sm:grid-cols-2 lg:grid-cols-4">
-          {hakkimizdaSayfasi.degerler.map((deger, sira) => (
-            <div key={deger.baslik} className="h-full bg-kagit p-7">
-              <span className="font-display text-[2.2rem] leading-none text-altin/40">
-                {String(sira + 1).padStart(2, "0")}
-              </span>
-              <h3 className="mt-5 text-[1.1rem]">{deger.baslik}</h3>
-              <p className="mt-3 text-[0.9rem] leading-relaxed text-metin-soluk">{deger.metin}</p>
-            </div>
-          ))}
+        <div className="grid gap-12 lg:grid-cols-[0.55fr_1.45fr] lg:gap-20">
+          <div>
+            <p className="ustbaslik">Çalışma ilkelerimiz</p>
+            <Motif className="mt-7 max-w-[8rem]" />
+          </div>
+
+          <ol className="border-t border-cizgi">
+            {hakkimizdaSayfasi.ilkeler.map((ilke, sira) => (
+              <li key={ilke.slice(0, 20)} className="flex gap-6 border-b border-cizgi py-7 sm:gap-8">
+                <span className="shrink-0 font-display text-[1.6rem] leading-none text-altin/45">
+                  {String(sira + 1).padStart(2, "0")}
+                </span>
+                <p className="text-[1.02rem] leading-[1.75] text-metin">{ilke}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </Bolum>
 
@@ -87,6 +92,7 @@ export default async function Hakkimizda() {
         butonMetni={anaSayfa.cagri.butonMetni}
         telefon={ayarlar.telefon}
         telefonHref={ayarlar.telefonHref}
+        telefonVar={ayarlar.telefonVar}
       />
     </>
   );
