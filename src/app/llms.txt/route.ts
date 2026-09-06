@@ -17,7 +17,7 @@ export const revalidate = 3600;
  * kullaniciyi hem modeli yaniltir.
  */
 export async function GET() {
-  const { ayarlar, alanlar, ekip, yazilar } = await seoVerisi();
+  const { ayarlar, alanlar, ekip, yazilar, rehberler } = await seoVerisi();
 
   /* Alan ozetleri, sayfalarindaki gercek icerikten okunur. */
   const alanDetaylari = await Promise.all(alanlar.map((alan) => calismaAlaniGetir(alan.slug)));
@@ -71,6 +71,11 @@ export async function GET() {
     satirlar.push(`- [${uye.ad}](${tamAdres(`/ekibimiz/${uye.slug}`)}) — ${uye.unvan}.`);
     if (uye.kisaTanitim) satirlar.push(`  ${uye.kisaTanitim}`);
     if (uzmanlik) satirlar.push(`  Çalışma alanları: ${uzmanlik}.`);
+  }
+
+  satirlar.push("", "## Rehberler", "");
+  for (const rehber of rehberler) {
+    satirlar.push(`- [${rehber.baslik}](${tamAdres(`/rehberler/${rehber.slug}`)}) — ${rehber.ozet}`);
   }
 
   satirlar.push("", "## Yayınlar", "");

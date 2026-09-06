@@ -154,6 +154,25 @@ export default async function EkipUyesiSayfasi({ params }: { params: Promise<{ s
               </div>
             </div>
 
+            {uye.davaTurleri.length > 0 ? (
+              <div className="mt-14">
+                <h2 className="text-[1.5rem]">
+                  <span className="block h-px w-10 bg-altin/60" aria-hidden="true" />
+                  <span className="mt-4 block">Baktığı dava ve iş türleri</span>
+                </h2>
+                <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+                  {uye.davaTurleri.map((tur) => (
+                    <li
+                      key={tur}
+                      className="relative pl-6 text-[0.94rem] leading-relaxed text-metin before:absolute before:left-0 before:top-[0.72em] before:h-1.5 before:w-1.5 before:rotate-45 before:bg-altin"
+                    >
+                      {tur}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+
             {uye.uzmanlikAlanlari.length > 0 ? (
               <div className="mt-14">
                 <h2 className="text-[1.5rem]">

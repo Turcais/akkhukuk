@@ -96,6 +96,15 @@ export const ekipUyesi = defineType({
       description: "Çalışma alanları bölümünden seçilir; profil sayfasında bağlantı olarak görünür.",
     }),
     defineField({
+      name: "davaTurleri",
+      title: "Baktığı dava ve iş türleri",
+      type: "array",
+      group: "ozgecmis",
+      of: [defineArrayMember({ type: "string" })],
+      description:
+        "Uzmanlık alanlarından daha ayrıntılı, serbest yazılan liste. Örnek: İşe iade davaları, Trafik kazası tazminatı, Vakıf senedi değişikliği. Ziyaretçinin kendi meselesini burada birebir bulması amaçlanır.",
+    }),
+    defineField({
       name: "egitim",
       title: "Eğitim",
       type: "array",

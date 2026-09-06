@@ -19,7 +19,7 @@ export function Cagri({
   telefonVar: boolean;
 }) {
   return (
-    <section className="relative overflow-hidden bg-koyu-zemin">
+    <section className="relative overflow-hidden bg-koyu-zemin" data-yazdirma="gizle">
       <Oruntu className="text-altin opacity-[0.06]" />
       <div
         className="absolute inset-0"
@@ -28,6 +28,7 @@ export function Cagri({
             "radial-gradient(48rem 22rem at 50% 0%, rgba(158,27,50,0.4), transparent 68%)",
         }}
         aria-hidden="true"
+        data-yazdirma="gizle"
       />
 
       <Bordur className="relative text-altin/70" ters />

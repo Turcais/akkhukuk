@@ -54,7 +54,7 @@ export const ekipSorgusu = groq`
 export const ekipUyesiSorgusu = groq`
   *[_type == "ekipUyesi" && slug.current == $slug][0] {
     "slug": slug.current, ad, unvan, kisaTanitim, gorsel, biyografi,
-    egitim, uyelikler, sertifikalar, diller, eposta, linkedin,
+    davaTurleri, egitim, uyelikler, sertifikalar, diller, eposta, linkedin,
     "uzmanlikAlanlari": uzmanlikAlanlari[]->{ "slug": slug.current, baslik, kisaBaslik }
   }
 `;
@@ -97,4 +97,22 @@ export const kurumsalMetinSorgusu = groq`
   *[_type == "kurumsalMetin" && anahtar == $anahtar][0] {
     baslik, ozet, guncelleme, govde
   }
+`;
+
+/** Rehber listesi. */
+export const rehberlerSorgusu = groq`
+  *[_type == "rehber" && defined(slug.current)] | order(sira asc, baslik asc) {
+    "slug": slug.current, baslik, ozet, guncelleme
+  }
+`;
+
+/** Tek rehber. */
+export const rehberSorgusu = groq`
+  *[_type == "rehber" && slug.current == $slug][0] {
+    "slug": slug.current, baslik, ozet, guncelleme, govde, seoAciklama
+  }
+`;
+
+export const rehberSluglariSorgusu = groq`
+  *[_type == "rehber" && defined(slug.current)].slug.current
 `;

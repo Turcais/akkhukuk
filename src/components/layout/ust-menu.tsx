@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ChevronDown, Mail, Menu, Phone, X } from "lucide-react";
+import { ChevronDown, Mail, Menu, Phone, Search, X } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { TemaAnahtari } from "@/components/tema-anahtari";
 import { ButonBaglanti } from "@/components/ui/buton";
@@ -160,8 +160,16 @@ export function UstMenu({
           </nav>
 
           <div className="flex items-center gap-3">
+            <Link
+              href="/arama"
+              aria-label="Sitede ara"
+              title="Sitede ara"
+              className="inline-flex h-11 w-11 items-center justify-center border border-cizgi-koyu text-metin transition-colors hover:border-altin hover:text-altin-metin"
+            >
+              <Search className="h-[1.1rem] w-[1.1rem]" strokeWidth={1.5} aria-hidden="true" />
+            </Link>
             <TemaAnahtari />
-            <ButonBaglanti href="/iletisim" className="hidden md:inline-flex">
+            <ButonBaglanti href="/iletisim" className="hidden xl:inline-flex">
               Görüşme talep edin
             </ButonBaglanti>
             <button
@@ -210,6 +218,10 @@ export function UstMenu({
             </div>
 
             <div className="mt-8 flex flex-col gap-3 border-t border-cizgi pt-6">
+              <Link href="/arama" className="inline-flex items-center gap-2 text-metin">
+                <Search className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
+                Sitede ara
+              </Link>
               {telefonVar ? (
                 <a href={telefonHref} className="inline-flex items-center gap-2 text-metin">
                   <Phone className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />

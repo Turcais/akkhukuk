@@ -30,6 +30,7 @@ export function SayfaBasligi({
             "radial-gradient(60rem 24rem at 15% 0%, rgba(158,27,50,0.35), transparent 65%), radial-gradient(40rem 20rem at 90% 100%, rgba(168,135,60,0.16), transparent 70%)",
         }}
         aria-hidden="true"
+        data-yazdirma="gizle"
       />
 
       <Kapsayici className="relative py-16 sm:py-20">

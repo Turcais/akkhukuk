@@ -391,11 +391,11 @@ export const calismaAlanlari: CalismaAlani[] = [
       "İcra takibi, itirazın iptali, menfi tespit, ihtiyati haciz, konkordato ve şirketler için alacak tahsili hizmetleri.",
   },
   {
-    slug: "aile-ve-miras-hukuku",
-    baslik: "Aile ve Miras Hukuku",
-    kisaBaslik: "Aile ve Miras",
+    slug: "bosanma-aile-ve-miras-hukuku",
+    baslik: "Boşanma, Aile ve Miras Hukuku",
+    kisaBaslik: "Boşanma ve Aile",
     ikon: "aile",
-    ozet: "Boşanma, velayet, nafaka, mal rejimi ve miras paylaşımı süreçlerinde ölçülü ve mahremiyete saygılı temsil.",
+    ozet: "Boşanma, velayet, nafaka, mal rejiminin tasfiyesi ve miras paylaşımında ölçülü ve mahremiyete saygılı temsil.",
     giris:
       "Aile hukuku dosyaları, hukuki olduğu kadar insani dosyalardır. Burada iyi sonuç, yalnızca kazanılan dava değil; tarafların onurunu ve özellikle çocukların yararını koruyarak varılan çözümdür. Büromuz bu dosyalarda mahremiyeti esas alır, mümkün olduğunda anlaşmalı çözümü önerir, gerektiğinde ise hakkı sonuna kadar takip eder.",
     hizmetler: [
@@ -414,6 +414,33 @@ export const calismaAlanlari: CalismaAlani[] = [
       "Miras paylaşımında anlaşmazlık yaşayan mirasçılar",
       "Malvarlığını yaşarken planlamak isteyen kişiler",
     ],
+    surecBasligi: "Boşanma davası nasıl ilerler?",
+    surec: [
+      {
+        baslik: "İlk değerlendirme",
+        metin:
+          "Anlaşmalı mı çekişmeli mi yürüyeceği; velayet, nafaka ve mal rejimi bakımından tarafların nerede durduğu konuşulur.",
+        sure: "İlk görüşme",
+      },
+      {
+        baslik: "Dava ve protokol",
+        metin:
+          "Anlaşmalı boşanmada protokol hazırlanır; çekişmeli dosyada dava dilekçesi ve deliller sunulur.",
+        sure: "1–2 hafta",
+      },
+      {
+        baslik: "Duruşmalar",
+        metin:
+          "Anlaşmalı dosya çoğunlukla tek duruşmada biter. Çekişmeli dosyada tanık, sosyal inceleme ve bilirkişi aşamaları olabilir.",
+        sure: "Mahkemenin takvimine bağlı",
+      },
+      {
+        baslik: "Karar ve kesinleşme",
+        metin:
+          "Karar verildikten sonra tebliğ ve kesinleşme süreci işler; nüfusa tescil bundan sonra yapılır.",
+        sure: "Değişken",
+      },
+    ],
     sorular: [
       {
         soru: "Anlaşmalı boşanma ne kadar sürer?",
@@ -428,6 +455,76 @@ export const calismaAlanlari: CalismaAlani[] = [
     ],
     seoAciklama:
       "Boşanma, velayet, nafaka, mal rejimi tasfiyesi, mirasçılık belgesi, vasiyetname ve miras paylaşımı davalarında avukatlık.",
+  },
+  {
+    slug: "tazminat-ve-hukuk-davalari",
+    baslik: "Tazminat ve Hukuk Davaları",
+    kisaBaslik: "Tazminat ve Hukuk Davaları",
+    ikon: "adalet",
+    ozet: "Maddi ve manevi tazminat, alacak, tespit ve tapu davaları dahil hukuk yargılamasının bütünü.",
+    giris:
+      "Hukuk davaları, ceza yargılamasından farklı yürür: burada devlet değil, taraflar iddia eder ve ispatlar. Bu nedenle sonucu belirleyen şey çoğu zaman haklılık değil, haklılığın nasıl ortaya konduğudur. Hangi delilin hangi aşamada sunulduğu, hangi talebin dilekçede yer aldığı ve ıslah hakkının ne zaman kullanıldığı, aynı olayda birbirinden çok farklı sonuçlar doğurur.",
+    hizmetler: [
+      "Trafik kazasından doğan maddi ve manevi tazminat davaları",
+      "İş kazası ve meslek hastalığı tazminatı",
+      "Haksız fiil ve sözleşmeye aykırılıktan doğan tazminat talepleri",
+      "Alacak, itirazın iptali ve menfi tespit davaları",
+      "Tapu iptali ve tescil, ortaklığın giderilmesi davaları",
+      "Kişilik haklarına saldırı ve manevi tazminat",
+      "Tüketici hakem heyeti başvuruları ve tüketici mahkemesi davaları",
+      "Dava şartı arabuluculuk süreçlerinin yürütülmesi",
+      "İstinaf ve temyiz başvuruları",
+    ],
+    kimlerIcin: [
+      "Kaza, haksız fiil veya sözleşme ihlali nedeniyle zarara uğrayanlar",
+      "Aleyhine tazminat davası açılan kişi ve şirketler",
+      "Alacağını tahsil edemeyen ya da haksız borçla karşılaşanlar",
+      "İlk derece kararını kanun yoluna taşımak isteyenler",
+    ],
+    surecBasligi: "Hukuk davası nasıl ilerler?",
+    surec: [
+      {
+        baslik: "Arabuluculuk",
+        metin:
+          "Ticari davalar, tüketici uyuşmazlıklarının bir kısmı ve kira uyuşmazlıklarında arabuluculuk dava şartıdır; bu yola başvurulmadan açılan dava usulden reddedilir.",
+        sure: "3–4 hafta",
+      },
+      {
+        baslik: "Dilekçeler teatisi",
+        metin:
+          "Dava, cevap, cevaba cevap ve ikinci cevap dilekçeleri verilir. İddia ve savunmanın çerçevesi bu aşamada kapanır.",
+        sure: "2–3 ay",
+      },
+      {
+        baslik: "Ön inceleme",
+        metin: "Uyuşmazlık konuları belirlenir, deliller toplanır ve tahkikat aşamasına geçilir.",
+        sure: "Mahkemenin takvimine bağlı",
+      },
+      {
+        baslik: "Tahkikat ve hüküm",
+        metin: "Tanık dinlenir, bilirkişi incelemesi yapılır ve karar verilir. Karara karşı istinaf yolu açıktır.",
+        sure: "Değişken",
+      },
+    ],
+    sorular: [
+      {
+        soru: "Tazminat davasında zamanaşımı ne kadar?",
+        cevap:
+          "Haksız fiilden doğan tazminat taleplerinde kural olarak zararı ve failini öğrenmeden itibaren iki yıl, her hâlde fiilin işlenmesinden itibaren on yıllık zamanaşımı uygulanır. Fiil aynı zamanda suç oluşturuyorsa ceza zamanaşımı süresi uygulanır ve süre uzar. Sözleşmeye aykırılıkta ise kural on yıldır.",
+      },
+      {
+        soru: "Dava dilekçesinde talebimi eksik yazdım, artırabilir miyim?",
+        cevap:
+          "Belirsiz alacak davası olarak açılmışsa miktar sonradan artırılabilir. Aksi hâlde tahkikat sona erene kadar bir kez ıslah yoluna başvurularak talep artırılabilir. Bu hakkın bir kez kullanılabildiği ve süresi bulunduğu için, dava açılırken talep türünün doğru seçilmesi belirleyicidir.",
+      },
+      {
+        soru: "Davayı kaybedersem karşı tarafın avukat ücretini öder miyim?",
+        cevap:
+          "Evet. Yargılama giderleri ve karşı taraf vekâlet ücreti, kural olarak haksız çıkan tarafa yüklenir. Kısmen kabul hâlinde giderler oranlanır. Bu risk, dava açmadan önce mutlaka hesaba katılmalıdır; ilk değerlendirmede bunu da paylaşırız.",
+      },
+    ],
+    seoAciklama:
+      "Trafik kazası ve iş kazası tazminatı, alacak ve menfi tespit davaları, tapu iptali, tüketici uyuşmazlıkları ve istinaf başvurularında avukatlık.",
   },
   {
     slug: "ceza-hukuku",
@@ -468,28 +565,27 @@ export const calismaAlanlari: CalismaAlani[] = [
       "Ceza soruşturması ve kovuşturmasında müdafilik, tutuklamaya itiraz, ekonomik suçlar, bilişim suçları ve mağdur vekilliği.",
   },
   {
-    slug: "idare-ve-vergi-hukuku",
-    baslik: "İdare ve Vergi Hukuku",
-    kisaBaslik: "İdare ve Vergi",
+    slug: "idare-hukuku",
+    baslik: "İdare Hukuku",
+    kisaBaslik: "İdare Hukuku",
     ikon: "devlet",
-    ozet: "İdari işlemlerin iptali, kamu ihaleleri, idari para cezaları ve vergi uyuşmazlıklarında temsil.",
+    ozet: "İdari işlemlerin iptali, kamu ihaleleri, idari para cezaları ve memur işlemlerinde temsil.",
     giris:
-      "Devletle olan uyuşmazlıklarda süreler kısa ve katıdır: çoğu idari işlem için tebliğden itibaren altmış gün, vergi uyuşmazlıklarında otuz gün. Bu süreler kaçırıldığında, işlem ne kadar hukuka aykırı olursa olsun sonuç alınamaz. Bu nedenle idari bir yazı elinize geçtiği gün değerlendirilmelidir.",
+      "Devletle olan uyuşmazlıklarda süreler kısa ve katıdır: çoğu idari işlem için tebliğden itibaren altmış gün. Bu süre kaçırıldığında, işlem ne kadar hukuka aykırı olursa olsun sonuç alınamaz. Bu nedenle idari bir yazı elinize geçtiği gün değerlendirilmelidir; beklemenin bedeli, çoğu dosyada davanın kendisinden ağırdır.",
     hizmetler: [
       "İdari işlemlerin iptali ve tam yargı (tazminat) davaları",
       "İdari para cezalarına itiraz ve iptal başvuruları",
       "Kamu ihale süreçleri, şikâyet ve itirazen şikâyet başvuruları (KİK)",
-      "Vergi ve ceza ihbarnamelerine karşı dava; uzlaşma ve düzeltme başvuruları",
-      "Vergi incelemesi ve tarhiyat öncesi/sonrası süreçlerin yönetimi",
       "İmar, ruhsat ve yapı kayıt belgesi uyuşmazlıkları",
-      "Memur disiplin soruşturmaları ve atama-görevden alma işlemleri",
+      "Memur disiplin soruşturmaları, atama ve görevden alma işlemleri",
       "Belediye işlemleri ve kamulaştırma uyuşmazlıkları",
+      "Kamu görevlilerine açılan rücu davaları",
     ],
     kimlerIcin: [
       "İdari yaptırım veya para cezası ile karşılaşan kişi ve şirketler",
       "Kamu ihalelerine katılan yükleniciler",
-      "Vergi incelemesi geçiren mükellefler",
       "Ruhsat ve imar işlemleri nedeniyle hak kaybına uğrayanlar",
+      "Hakkında disiplin soruşturması yürütülen kamu görevlileri",
     ],
     sorular: [
       {
@@ -498,13 +594,13 @@ export const calismaAlanlari: CalismaAlani[] = [
           "Kabahatler Kanunu kapsamındaki idari para cezalarında tebliğden itibaren on beş gün içinde sulh ceza hâkimliğine başvurulur. Ancak cezayı veren idareye ve dayandığı kanuna göre görevli merci ve süre değişebilir; bu nedenle tebligatın hangi kanuna dayandığı ilk bakılması gereken noktadır.",
       },
       {
-        soru: "Vergi cezasında uzlaşma mı, dava mı?",
+        soru: "İptal davası açma süresini kaçırdım, yapılacak bir şey var mı?",
         cevap:
-          "İkisi birbirinin alternatifidir; uzlaşma sağlandığında dava yolu kapanır. Tarhiyatın hukuki dayanağı zayıfsa dava, tutarın azaltılması öncelikliyse uzlaşma öne çıkar. Karar verilmeden önce inceleme raporunun ve vergi tekniği raporunun incelenmesi gerekir.",
+          "Kural olarak altmış günlük süre hak düşürücüdür ve geçtikten sonra iptal davası açılamaz. Ancak işlemin tebliğinin usulüne uygun yapılmamış olması, işlemin sürekli etkili olması ya da idareye yapılan bir başvurunun süreyi durdurmuş olması gibi ihtimaller vardır. Bu nedenle süre geçmiş görünse de tebligat evrakının incelenmesinde fayda vardır.",
       },
     ],
     seoAciklama:
-      "İptal davası, tam yargı davası, idari para cezası itirazı, kamu ihalesi itirazen şikâyet ve vergi davalarında avukatlık.",
+      "İptal davası, tam yargı davası, idari para cezası itirazı, kamu ihalesi itirazen şikâyet ve imar uyuşmazlıklarında avukatlık.",
   },
   {
     slug: "kisisel-verilerin-korunmasi-ve-bilisim-hukuku",

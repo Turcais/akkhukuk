@@ -106,6 +106,15 @@ export function BuroVerisi({
           name: buroAdi,
           inLanguage: "tr-TR",
           publisher: { "@id": `${site.url}/#buro` },
+          /* Arama sonuclarinda site ici arama kutusu cikabilmesi icin */
+          potentialAction: {
+            "@type": "SearchAction",
+            target: {
+              "@type": "EntryPoint",
+              urlTemplate: `${site.url}/arama?q={arama_terimi}`,
+            },
+            "query-input": "required name=arama_terimi",
+          },
         }}
       />
     </>

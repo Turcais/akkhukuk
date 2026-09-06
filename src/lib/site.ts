@@ -27,11 +27,15 @@ export const anaMenu = [
   { baslik: "Çalışma Alanlarımız", kisa: "Çalışma Alanları", adres: "/calisma-alanlarimiz" },
   { baslik: "Ekibimiz", kisa: "Ekibimiz", adres: "/ekibimiz" },
   { baslik: "Yayınlar", kisa: "Yayınlar", adres: "/yayinlar" },
+  { baslik: "Rehberler", kisa: "Rehberler", adres: "/rehberler" },
   { baslik: "Sıkça Sorulan Sorular", kisa: "S.S.S.", adres: "/sikca-sorulan-sorular" },
   { baslik: "İletişim", kisa: "İletişim", adres: "/iletisim" },
 ] as const;
 
 /** Alt bilgideki kurumsal metin baglantilari. */
+/** Alt bilgide menunun sonuna eklenen yardimci baglantilar. */
+export const yardimciMenu = [{ baslik: "Sitede ara", adres: "/arama" }] as const;
+
 export const yasalMenu = [
   { baslik: "Yasal Uyarı", adres: "/yasal-uyari" },
   { baslik: "KVKK Aydınlatma Metni", adres: "/kvkk-aydinlatma-metni" },

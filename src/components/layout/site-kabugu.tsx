@@ -40,7 +40,16 @@ export async function SiteKabugu({ children }: { children: React.ReactNode }) {
         alanlar={menuAlanlari}
       />
 
-      <main id="icerik">{children}</main>
+      <main id="icerik">
+        {/* Yalnızca çıktıda görünen künye: kâğıda düşen sayfa kimsiz kalmasın */}
+        <div className="yazdirma-kunyesi">
+          {ayarlar.buroAdi} · {ayarlar.baro}
+          {ayarlar.adresTekSatir ? ` · ${ayarlar.adresTekSatir}` : ""}
+          <br />
+          Bu belge bilgilendirme amaçlıdır; hukuki görüş niteliği taşımaz.
+        </div>
+        {children}
+      </main>
 
       <AltBilgi ayarlar={ayarlar} alanlar={menuAlanlari} />
       {/* Yer tutucu numarayla calismayan bir buton gostermeyiz. */}

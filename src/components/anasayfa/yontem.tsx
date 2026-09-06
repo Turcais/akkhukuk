@@ -28,6 +28,7 @@ export function Yontem({
             "radial-gradient(56rem 26rem at 50% -10%, rgba(158,27,50,0.32), transparent 68%)",
         }}
         aria-hidden="true"
+        data-yazdirma="gizle"
       />
 
       <Bordur className="relative text-altin/70" ters />

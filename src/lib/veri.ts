@@ -8,6 +8,9 @@ import {
   ekipSorgusu,
   ekipUyesiSorgusu,
   kurumsalMetinSorgusu,
+  rehberSluglariSorgusu,
+  rehberSorgusu,
+  rehberlerSorgusu,
   sayfaMetniSorgusu,
   sikSorulanlarSorgusu,
   yaziSluglariSorgusu,
@@ -17,6 +20,7 @@ import {
 import { calismaAlanlari as yerelAlanlar, type CalismaAlani } from "./calisma-alanlari";
 import { ekip as yerelEkip } from "./ekip";
 import { sikSorulanlar as yerelSorular, type SikSorulanSoru } from "./icerik";
+import { rehberler as yerelRehberler } from "./rehberler";
 import { yasalMetinler, type MetinBlogu } from "./yasal-metinler";
 import { yazilar as yerelYazilar, type YaziBlogu } from "./yazilar";
 
@@ -122,6 +126,7 @@ export type EkipOzeti = {
 
 export type EkipProfili = EkipOzeti & {
   biyografi: Govde<string>;
+  davaTurleri: string[];
   egitim: string[];
   uyelikler: string[];
   sertifikalar: string[];
@@ -155,6 +160,7 @@ export async function ekipGetir(): Promise<EkipOzeti[]> {
 
 type PanelEkipProfili = PanelEkipOzeti & {
   biyografi?: PortableTextBlock[];
+  davaTurleri?: string[];
   egitim?: string[];
   uyelikler?: string[];
   sertifikalar?: string[];
@@ -173,6 +179,7 @@ export async function ekipUyesiGetir(slug: string): Promise<EkipProfili | null> 
       ...panel,
       uzmanlikAlanlari: panel.uzmanlikAlanlari ?? [],
       biyografi: { kaynak: "panel", bloklar: panel.biyografi ?? [] },
+      davaTurleri: panel.davaTurleri ?? [],
       egitim: panel.egitim ?? [],
       uyelikler: panel.uyelikler ?? [],
       sertifikalar: panel.sertifikalar ?? [],
@@ -186,6 +193,7 @@ export async function ekipUyesiGetir(slug: string): Promise<EkipProfili | null> 
   return {
     ...yerelEkipOzeti(uye),
     biyografi: { kaynak: "yerel", bloklar: uye.biyografi },
+    davaTurleri: uye.davaTurleri ?? [],
     egitim: uye.egitim,
     uyelikler: uye.uyelikler,
     sertifikalar: [],
@@ -322,4 +330,49 @@ export async function kurumsalMetinGetir(anahtar: string): Promise<KurumsalMetin
     guncelleme: yerel.guncelleme,
     govde: { kaynak: "yerel", bloklar: yerel.govde },
   };
+}
+
+/* ───────────────────────── Rehberler ───────────────────────── */
+
+export type RehberOzeti = { slug: string; baslik: string; ozet: string; guncelleme: string };
+
+export type RehberDetayi = RehberOzeti & {
+  seoAciklama?: string;
+  govde: Govde<YaziBlogu>;
+};
+
+export async function rehberleriGetir(): Promise<RehberOzeti[]> {
+  const panel = await sanityFetch<RehberOzeti[]>(rehberlerSorgusu, {}, [], { tags: ["rehber"] });
+  if (panel.length > 0) return panel;
+  return yerelRehberler
+    .slice()
+    .sort((a, b) => a.sira - b.sira)
+    .map(({ slug, baslik, ozet, guncelleme }) => ({ slug, baslik, ozet, guncelleme }));
+}
+
+export async function rehberGetir(slug: string): Promise<RehberDetayi | null> {
+  const panel = await sanityFetch<
+    (RehberOzeti & { seoAciklama?: string; govde?: PortableTextBlock[] }) | null
+  >(rehberSorgusu, { slug }, null, { tags: ["rehber", `rehber:${slug}`] });
+
+  if (panel?.govde?.length) {
+    return { ...panel, govde: { kaynak: "panel", bloklar: panel.govde } };
+  }
+
+  const yerel = yerelRehberler.find((rehber) => rehber.slug === slug);
+  if (!yerel) return null;
+
+  return {
+    slug: yerel.slug,
+    baslik: yerel.baslik,
+    ozet: yerel.ozet,
+    guncelleme: yerel.guncelleme,
+    seoAciklama: yerel.seoAciklama,
+    govde: { kaynak: "yerel", bloklar: yerel.govde },
+  };
+}
+
+export async function rehberSluglari(): Promise<string[]> {
+  const panel = await sanityFetch<string[]>(rehberSluglariSorgusu, {}, [], { tags: ["rehber"] });
+  return panel.length > 0 ? panel : yerelRehberler.map((rehber) => rehber.slug);
 }

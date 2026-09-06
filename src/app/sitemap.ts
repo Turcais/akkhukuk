@@ -14,7 +14,7 @@ export const revalidate = 3600;
  * yok saymasina yol acar.
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const { alanlar, ekip, yazilar } = await seoVerisi();
+  const { alanlar, ekip, yazilar, rehberler } = await seoVerisi();
   const simdi = new Date();
 
   /* En yeni yazinin tarihi, yayin listelerinin gercek guncelleme zamanidir. */
@@ -25,6 +25,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${site.url}/calisma-alanlarimiz`, lastModified: simdi, changeFrequency: "monthly", priority: 0.9 },
     { url: `${site.url}/ekibimiz`, lastModified: simdi, changeFrequency: "monthly", priority: 0.8 },
     { url: `${site.url}/yayinlar`, lastModified: sonYazi, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${site.url}/rehberler`, lastModified: simdi, changeFrequency: "monthly", priority: 0.8 },
     { url: `${site.url}/hakkimizda`, lastModified: simdi, changeFrequency: "yearly", priority: 0.7 },
     { url: `${site.url}/iletisim`, lastModified: simdi, changeFrequency: "yearly", priority: 0.7 },
     {
@@ -54,6 +55,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(yazi.yayinTarihi),
       changeFrequency: "yearly" as const,
       priority: 0.7,
+    })),
+    ...rehberler.map((rehber) => ({
+      url: `${site.url}/rehberler/${rehber.slug}`,
+      lastModified: rehber.guncelleme ? new Date(rehber.guncelleme) : simdi,
+      changeFrequency: "yearly" as const,
+      priority: 0.75,
     })),
     ...yasalMenu.map((oge) => ({
       url: `${site.url}${oge.adres}`,

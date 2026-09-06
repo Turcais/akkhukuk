@@ -6,6 +6,7 @@ export function WhatsappButonu({ adres }: { adres: string }) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="WhatsApp üzerinden yazın"
+      data-yazdirma="gizle"
       className="fixed bottom-5 right-5 z-40 inline-flex h-13 w-13 items-center justify-center rounded-full bg-[#1f7a45] p-3.5 text-white shadow-yukselti transition-transform duration-200 hover:scale-105"
     >
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-6 w-6">

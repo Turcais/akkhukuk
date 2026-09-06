@@ -35,6 +35,7 @@ export function Giris({
             "radial-gradient(70rem 34rem at 12% 6%, rgba(158,27,50,0.42), transparent 62%), radial-gradient(46rem 26rem at 92% 92%, rgba(168,135,60,0.18), transparent 68%)",
         }}
         aria-hidden="true"
+        data-yazdirma="gizle"
       />
 
       <Kapsayici className="relative grid items-center gap-14 py-20 sm:py-28 lg:grid-cols-[1.25fr_0.75fr] lg:py-32">

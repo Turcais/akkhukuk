@@ -27,9 +27,23 @@ Ortam değişkenlerinin nasıl alınacağı [docs/kurulum.md](docs/kurulum.md) i
 
 ## Sayfalar
 
-Ana Sayfa · Hakkımızda · Çalışma Alanlarımız (+12 alt sayfa) · Ekibimiz (+kişi sayfaları) ·
-Yayınlar (+yazı sayfaları) · Sıkça Sorulan Sorular · İletişim ·
-Yasal Uyarı · KVKK Aydınlatma Metni · Gizlilik Politikası · Çerez Politikası
+Ana Sayfa · Hakkımızda · Çalışma Alanlarımız (+13 alt sayfa) · Ekibimiz (+kişi sayfaları) ·
+Yayınlar (+yazı sayfaları) · Rehberler (+rehber sayfaları) · Sıkça Sorulan Sorular ·
+Arama · İletişim · Yasal Uyarı · KVKK Aydınlatma Metni · Gizlilik Politikası · Çerez Politikası
+
+## Öne çıkan özellikler
+
+- **Site içi arama** (`/arama`) — çalışma alanları, yayınlar, rehberler, sık sorulan sorular ve
+  ekip sayfaları tek dizinde. Türkçe aksan duyarsız: "sozlesme" yazan "Sözleşmeler"i bulur.
+  Dizin sunucuda üretilir, arama tarayıcıda yapılır; yazarken bekleme olmaz.
+- **Rehberler** — vekâletname çıkarma, görüşmeye belge hazırlığı gibi tekrar eden işlerin
+  adım adım anlatımı. Panelden yeni rehber eklenebilir.
+- **Süreç şemaları** — adımları önceden bilinebilen çalışma alanlarında tipik süre bilgisiyle
+  birlikte zaman çizelgesi.
+- **Yazdırma düzeni** — herhangi bir sayfa çıktı alındığında menü, alt bilgi ve süslemeler
+  düşer; kâğıda büro künyesi ve okunur bir belge basılır.
+- **Kısa cevap ve dayanak mevzuat** — yayınlarda sorunun doğrudan cevabı ve dayandığı
+  kanun maddeleri; ikisi de yapısal veriye işlenir.
 
 ## İçerik mimarisi
 
@@ -45,6 +59,7 @@ varsayılana düşer. Panel geçici olarak erişilemezse site ayakta kalır.
 | Çalışma alanları | `src/lib/calisma-alanlari.ts` | Çalışma Alanları |
 | Ekip | `src/lib/ekip.ts` | Ekip |
 | Yayınlar | `src/lib/yazilar.ts` | Yayınlar |
+| Rehberler | `src/lib/rehberler.ts` | Rehberler |
 | Sıkça sorulan sorular | `src/lib/icerik.ts` | Sıkça Sorulan Sorular |
 | Kurumsal metinler | `src/lib/yasal-metinler.ts` | Kurumsal Metinler |
 

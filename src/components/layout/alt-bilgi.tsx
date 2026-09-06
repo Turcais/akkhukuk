@@ -6,7 +6,7 @@ import { Nisan } from "@/components/brand/nisan";
 import { sosyalIkonlar } from "@/components/brand/sosyal-ikonlar";
 import { Kapsayici } from "@/components/ui/bolum";
 import type { Ayarlar } from "@/lib/ayarlar";
-import { anaMenu, yasalMenu } from "@/lib/site";
+import { anaMenu, yardimciMenu, yasalMenu } from "@/lib/site";
 
 type Alan = { slug: string; kisaBaslik: string };
 
@@ -55,7 +55,7 @@ export function AltBilgi({ ayarlar, alanlar }: { ayarlar: Ayarlar; alanlar: Alan
           <nav aria-label="Alt menü">
             <h2 className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-altin-parlak">Menü</h2>
             <ul className="mt-5 space-y-3 text-[0.9rem]">
-              {anaMenu.map((oge) => (
+              {[...anaMenu, ...yardimciMenu].map((oge) => (
                 <li key={oge.adres}>
                   <Link href={oge.adres} className="text-white/65 transition-colors hover:text-white">
                     {oge.baslik}

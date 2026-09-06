@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
  */
 export function Motif({ className }: { className?: string }) {
   return (
-    <div className={cn("ayrac", className)} aria-hidden="true">
+    <div className={cn("ayrac", className)} aria-hidden="true" data-yazdirma="gizle">
       <svg viewBox="0 0 56 18" className="h-[18px] w-14" fill="none">
         {/* sivri oval cekirdek */}
         <path
@@ -53,6 +53,7 @@ export function Bordur({ className, ters = false }: { className?: string; ters?:
     <div
       className={cn("pointer-events-none relative h-6 w-full overflow-hidden", ters && "rotate-180", className)}
       aria-hidden="true"
+      data-yazdirma="gizle"
     >
       <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 480 24">
         <defs>
@@ -89,7 +90,11 @@ export function Bordur({ className, ters = false }: { className?: string; ters?:
  */
 export function Oruntu({ className }: { className?: string }) {
   return (
-    <svg className={cn("pointer-events-none absolute inset-0 h-full w-full", className)} aria-hidden="true">
+    <svg
+      className={cn("pointer-events-none absolute inset-0 h-full w-full", className)}
+      aria-hidden="true"
+      data-yazdirma="gizle"
+    >
       <defs>
         <pattern id="akk-girih" width="80" height="80" patternUnits="userSpaceOnUse">
           {/* ust uste binen iki kare: sekiz kollu yildiz */}
@@ -155,6 +160,7 @@ export function KemerCercevesi({ className }: { className?: string }) {
       viewBox="0 0 1 1"
       preserveAspectRatio="none"
       aria-hidden="true"
+      data-yazdirma="gizle"
     >
       <path
         d={KEMER_YOLU}
@@ -176,7 +182,7 @@ export function KemerCercevesi({ className }: { className?: string }) {
 export function Kosebent({ className }: { className?: string }) {
   const kose = "absolute h-4 w-4 border-current";
   return (
-    <span aria-hidden="true" className={cn("pointer-events-none absolute inset-2", className)}>
+    <span aria-hidden="true" data-yazdirma="gizle" className={cn("pointer-events-none absolute inset-2", className)}>
       <span className={cn(kose, "left-0 top-0 border-l border-t")} />
       <span className={cn(kose, "right-0 top-0 border-r border-t")} />
       <span className={cn(kose, "bottom-0 left-0 border-b border-l")} />

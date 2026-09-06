@@ -273,6 +273,15 @@
     color: var(--kirmizi);
   }
 
+  /* Arama alanindaki tarayici temizleme dugmesi gizlenir: kendi X
+     dugmemiz zaten var, ikisi yan yana durunca hangisinin ne yaptigi
+     belirsizlesiyor. */
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
   /* Onay kutusu.
      Tarayicinin kendi cizimi yerine kendi kutumuz: koyu temada dogru
      renkte durur ve isaret, motif dilindeki baklava olur. */
@@ -355,4 +364,116 @@
     color: var(--murekkep);
     border: 2px solid var(--ring);
   }
+}
+
+/* ============================================================
+   YAZDIRMA
+   Hukukçular ekranı değil kâğıdı okur: bir alan sayfası ya da rehber
+   çıktı alınıp dosyaya konur, müvekkile verilir. Varsayılan yazdırma
+   çıktısı menüyü, alt bilgiyi ve koyu zeminleri kâğıda basar; okunmaz
+   ve mürekkep yakar. Burası o çıktıyı belge hâline getirir.
+   ============================================================ */
+@media print {
+  :root {
+    color-scheme: light;
+  }
+
+  /* Ekrana ait olan her şey kâğıda gitmez */
+  header,
+  footer,
+  .ayrac,
+  .atlama-baglantisi,
+  [data-yazdirma="gizle"] {
+    display: none !important;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #000000 !important;
+    font-size: 11pt;
+  }
+
+  /* Koyu zeminli bölümler kâğıtta beyaza döner. Metin renkleri de
+     zorlanır: aksi hâlde beyaz zemine beyaz yazı basılır. */
+  main *,
+  main {
+    background-image: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  main [class*="bg-koyu-zemin"],
+  main [class*="bg-kagit"],
+  main [class*="bg-yuzey"],
+  main [class*="bg-cizgi"],
+  main [class*="bg-kirmizi-yumusak"] {
+    background-color: #ffffff !important;
+  }
+  main [class*="text-white"],
+  main [class*="text-altin"],
+  main [class*="text-metin"],
+  main [class*="text-murekkep"],
+  main [class*="text-kirmizi"] {
+    color: #000000 !important;
+  }
+  main [class*="border-"] {
+    border-color: #cccccc !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: #000000 !important;
+    /* Başlık sayfanın en altında yalnız kalmasın */
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  p,
+  li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  section,
+  article,
+  li {
+    break-inside: avoid-page;
+  }
+
+  /* Kâğıtta tıklanamayan bağlantının adresi yazılır */
+  main a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #444444;
+    word-break: break-all;
+  }
+  main a[href^="/"]::after,
+  main a[href^="#"]::after,
+  main a[href^="mailto"]::after,
+  main a[href^="tel"]::after {
+    content: "";
+  }
+
+  /* Yalnızca çıktıda görünen künye */
+  .yazdirma-kunyesi {
+    display: block !important;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #999999;
+    font-size: 9pt;
+    line-height: 1.5;
+    color: #333333;
+  }
+
+  @page {
+    margin: 18mm 16mm;
+  }
+}
+
+/* Künye ekranda görünmez; yalnızca yazdırma kuralı onu açar. */
+.yazdirma-kunyesi {
+  display: none;
 }

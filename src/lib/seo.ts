@@ -1,4 +1,4 @@
-import { calismaAlanlariGetir, ekipGetir, yazilarGetir } from "./veri";
+import { calismaAlanlariGetir, ekipGetir, rehberleriGetir, yazilarGetir } from "./veri";
 import { ayarlariGetir } from "./ayarlar";
 import { site, yasalMenu } from "./site";
 
@@ -11,13 +11,14 @@ import { site, yasalMenu } from "./site";
  * digerinin unutulmasini imkansiz kilar.
  */
 export async function seoVerisi() {
-  const [ayarlar, alanlar, ekip, yazilar] = await Promise.all([
+  const [ayarlar, alanlar, ekip, yazilar, rehberler] = await Promise.all([
     ayarlariGetir(),
     calismaAlanlariGetir(),
     ekipGetir(),
     yazilarGetir(),
+    rehberleriGetir(),
   ]);
-  return { ayarlar, alanlar, ekip, yazilar };
+  return { ayarlar, alanlar, ekip, yazilar, rehberler };
 }
 
 /** XML metin dugumlerini guvenli hale getirir. */

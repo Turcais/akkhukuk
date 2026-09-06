@@ -64,6 +64,13 @@ function yapi(S: StructureBuilder) {
         .child(S.documentTypeList("kategori").title("Kategoriler")),
 
       S.listItem()
+        .title("Rehberler")
+        .schemaType("rehber")
+        .child(
+          S.documentTypeList("rehber").title("Rehberler").defaultOrdering([{ field: "sira", direction: "asc" }]),
+        ),
+
+      S.listItem()
         .title("Sıkça Sorulan Sorular")
         .schemaType("sikSorulan")
         .child(

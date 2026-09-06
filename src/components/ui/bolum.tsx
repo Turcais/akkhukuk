@@ -99,6 +99,7 @@ export function Cetvel() {
   return (
     <div
       aria-hidden="true"
+      data-yazdirma="gizle"
       className="pointer-events-none fixed inset-y-6 left-10 right-10 z-0 hidden border-x border-altin/[0.14] min-[1440px]:block"
     >
       <span className={cn(kose, "-left-px -top-px border-l border-t")} />

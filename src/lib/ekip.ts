@@ -31,6 +31,13 @@ export type EkipUyesi = {
   biyografi: string[];
   /** calisma-alanlari.ts icindeki slug degerleri */
   uzmanlikAlanlari: string[];
+  /**
+   * Baktigi dava ve is turleri.
+   *
+   * Uzmanlik alanindan daha ince taneli: ziyaretci kendi meselesini
+   * ("trafik kazasi tazminati") burada birebir bulabilmeli.
+   */
+  davaTurleri?: string[];
   egitim: string[];
   uyelikler: string[];
   diller: string[];
@@ -57,7 +64,16 @@ export const ekip: EkipUyesi[] = [
       "vakiflar-ve-dernekler-hukuku",
       "sozlesmeler-hukuku",
       "surekli-hukuki-danismanlik",
-      "idare-ve-vergi-hukuku",
+      "idare-hukuku",
+    ],
+    davaTurleri: [
+      "Vakıf kuruluşu ve vakıf senedi değişikliği davaları",
+      "Dernek kuruluşu, tüzük değişikliği ve denetim süreçleri",
+      "Şirket kuruluşu, pay devri ve sermaye işlemleri",
+      "Ortaklar arası uyuşmazlıklar ve genel kurul kararlarının iptali",
+      "Ticari sözleşmelerin hazırlanması ve müzakeresi",
+      "Sürekli hukuki danışmanlık ve kurumsal risk yönetimi",
+      "İdari işlemlerin iptali ve idari para cezalarına itiraz",
     ],
     egitim: [
       "Yüksek Lisans — Siyaset Bilimi ve Uluslararası İlişkiler, Selçuk Üniversitesi",
@@ -84,7 +100,17 @@ export const ekip: EkipUyesi[] = [
       "icra-iflas-ve-alacak-tahsili",
       "gayrimenkul-ve-insaat-hukuku",
       "ceza-hukuku",
-      "aile-ve-miras-hukuku",
+      "tazminat-ve-hukuk-davalari",
+      "bosanma-aile-ve-miras-hukuku",
+    ],
+    davaTurleri: [
+      "İşe iade ve işçilik alacağı davaları",
+      "İş kazası ve meslek hastalığı tazminatı",
+      "Trafik kazasından doğan maddi ve manevi tazminat",
+      "İcra takibi, itirazın iptali ve menfi tespit davaları",
+      "Boşanma, velayet ve nafaka davaları",
+      "Tapu iptali ve tescil, ortaklığın giderilmesi",
+      "Ceza soruşturmalarında müdafilik ve mağdur vekilliği",
     ],
     egitim: ["Lisans — Hukuk Fakültesi"],
     uyelikler: ["Ankara Barosu"],
