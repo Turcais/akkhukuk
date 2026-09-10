@@ -79,6 +79,9 @@ export default async function YaziSayfasi({ params }: { params: Promise<{ slug: 
         gorsel={kapak}
       />
 
+      {/* Uzun metinde nerede olunduğunu gösteren ince hat */}
+      <div className="okuma-cubugu" aria-hidden="true" />
+
       <article>
         <Bolum className="doku-kagit">
           {kapak ? (
@@ -169,6 +172,7 @@ export default async function YaziSayfasi({ params }: { params: Promise<{ slug: 
 
             <Link
               href="/yayinlar"
+              transitionTypes={["geri"]}
               className="mt-8 inline-flex items-center gap-2 text-[0.85rem] font-medium uppercase tracking-[0.14em] text-kirmizi"
             >
               <ArrowLeft className="h-4 w-4" strokeWidth={1.6} aria-hidden="true" />

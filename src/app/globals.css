@@ -19,6 +19,16 @@
   --radius-none: 0px;
   --radius-soft: 2px;
 
+  /* Hareket jetonlari.
+     Tek yerde tanimlanir; bileşenler kendi sürelerini uydurmaz. Süreler
+     kısa tutulur: sitede hareket bir gösteri değil, geri bildirimdir. */
+  --sure-ani: 160ms;
+  --sure-normal: 280ms;
+  --sure-uzun: 420ms;
+  /* Çıkışta hızlı başlayıp yavaşlayan, girişte tersini yapan eğriler */
+  --egri-cikis: cubic-bezier(0.4, 0, 0.2, 1);
+  --egri-giris: cubic-bezier(0.22, 1, 0.36, 1);
+
   --shadow-kart: 0 1px 2px rgba(23, 19, 15, 0.04), 0 8px 24px -12px rgba(23, 19, 15, 0.12);
   --shadow-yukselti: 0 2px 4px rgba(23, 19, 15, 0.05), 0 18px 40px -18px rgba(23, 19, 15, 0.22);
 }
@@ -476,4 +486,149 @@
 /* Künye ekranda görünmez; yalnızca yazdırma kuralı onu açar. */
 .yazdirma-kunyesi {
   display: none;
+}
+
+/* ============================================================
+   SAYFA GEÇİŞİ — "YAPRAK"
+
+   Ciltli bir kitapta sayfa çevirmenin karşılığı: giden sayfa sola doğru
+   kalkar, sağ kenarında altındaki sayfaya düşen bir gölge bırakır ve
+   hafifçe koyulaşır; gelen sayfa alttan, çok az büyüyerek yerine oturur.
+   Gerçek bir üç boyutlu çevirme yapılmadı — o etki bu ölçekte ucuz durur
+   ve metni titretir. Aranan his hız ve ağırlıktır, gösteri değil.
+
+   Tümü tarayıcının View Transitions API'si üzerinden çalışır: içerik
+   gizlenmez, yalnızca anlık görüntü canlandırılır. Destek yoksa sayfa
+   eskisi gibi anında değişir.
+   ============================================================ */
+
+::view-transition {
+  /* Geçiş sürerken yapılan tıklama kaybolmasın */
+  pointer-events: none;
+}
+
+/* Üst menü kendi grubundadır ve hareketsiz kalır: okurun sabit bir
+   dayanak noktası olmalı, kayan şey sayfanın gövdesi olmalı. Eski anlık
+   görüntüsü gizlenir, yoksa iki menü bir an üst üste binip titrer. */
+::view-transition-group(ust-menu) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(ust-menu) {
+  display: none;
+}
+::view-transition-new(ust-menu) {
+  animation: none;
+}
+
+/* Kök yalnızca alt bilgi ve sabit ögeleri taşır; kendi çapraz geçişini
+   yapmasın, yoksa sayfa gövdesiyle üst üste iki animasyon çalışır. */
+::view-transition-old(root) {
+  display: none;
+}
+::view-transition-new(root) {
+  animation: none;
+}
+
+/* Yaprak.
+   Giden sayfa hızla, gelen sayfa yavaşça hareket eder — yaprağın kalkışı
+   keskin, oturuşu yumuşaktır. Kayma mesafesi bilinçli olarak küçük:
+   iki sayfanın yüksekliği farklı olduğundan tarayıcının anlık görüntü
+   geometrisi birebir örtüşmez; kısa mesafede bu fark görünmez, uzun
+   mesafede metin kayması olarak okunur. Yön duygusu 40 pikselde zaten
+   kuruluyor, daha fazlası hem riskli hem yavaş. */
+::view-transition-old(.yaprak),
+::view-transition-old(.yaprak-geri) {
+  animation:
+    170ms cubic-bezier(0.5, 0, 0.75, 0.25) both yaprak-solma reverse,
+    320ms cubic-bezier(0.5, 0, 0.75, 0.25) both yaprak-kayma reverse;
+}
+::view-transition-new(.yaprak),
+::view-transition-new(.yaprak-geri) {
+  animation:
+    240ms var(--egri-giris) 120ms both yaprak-solma,
+    380ms var(--egri-giris) both yaprak-kayma;
+}
+
+::view-transition-old(.yaprak) {
+  --yaprak-kayma: -40px;
+}
+::view-transition-new(.yaprak) {
+  --yaprak-kayma: 40px;
+}
+::view-transition-old(.yaprak-geri) {
+  --yaprak-kayma: 40px;
+}
+::view-transition-new(.yaprak-geri) {
+  --yaprak-kayma: -40px;
+}
+
+@keyframes yaprak-solma {
+  from {
+    opacity: 0;
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes yaprak-kayma {
+  from {
+    translate: var(--yaprak-kayma);
+  }
+  to {
+    translate: 0;
+  }
+}
+
+/* Yatay hareket, hareket duyarlılığını en çok tetikleyen biçimdir.
+   Tercihini belirten kullanıcıda sayfa anında değişir. */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+  }
+}
+
+/* ============================================================
+   OKUMA ÇUBUĞU
+   Uzun metinlerde sayfanın neresinde olunduğunu gösteren ince hat.
+   Kaydırma tabanlı animasyonla çalışır; JavaScript kullanmaz ve ana iş
+   parçacığını meşgul etmez. Tarayıcı desteklemiyorsa hiç görünmez.
+   ============================================================ */
+.okuma-cubugu {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 60;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background-image: linear-gradient(to right, var(--kirmizi), var(--altin));
+  pointer-events: none;
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .okuma-cubugu {
+      animation: okuma-ilerlemesi linear both;
+      animation-timeline: scroll(root block);
+    }
+  }
+}
+
+@keyframes okuma-ilerlemesi {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media print {
+  .okuma-cubugu {
+    display: none !important;
+  }
 }

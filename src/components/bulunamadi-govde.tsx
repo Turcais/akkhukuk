@@ -16,7 +16,9 @@ export function BulunamadiGovde() {
         </p>
 
         <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-          <ButonBaglanti href="/">Ana sayfaya dön</ButonBaglanti>
+          <ButonBaglanti href="/" transitionTypes={["geri"]}>
+            Ana sayfaya dön
+          </ButonBaglanti>
           <ButonBaglanti href="/iletisim" gorunum="cizgili">
             Bize yazın
           </ButonBaglanti>

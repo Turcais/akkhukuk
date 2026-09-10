@@ -53,6 +53,9 @@ export default async function RehberSayfasi({ params }: { params: Promise<{ slug
       <SayfaBasligi ustBaslik="Rehber" baslik={rehber.baslik} aciklama={rehber.ozet} yolIzi={yolIzi} />
       <YolVerisi basamaklar={yolIzi} />
 
+      {/* Uzun metinde nerede olunduğunu gösteren ince hat */}
+      <div className="okuma-cubugu" aria-hidden="true" />
+
       <article>
         <Bolum className="doku-kagit">
           <div className="olcu">
@@ -74,6 +77,7 @@ export default async function RehberSayfasi({ params }: { params: Promise<{ slug
 
             <Link
               href="/rehberler"
+              transitionTypes={["geri"]}
               className="mt-8 inline-flex items-center gap-2 text-[0.85rem] font-medium uppercase tracking-[0.14em] text-kirmizi"
             >
               <ArrowLeft className="h-4 w-4" strokeWidth={1.6} aria-hidden="true" />

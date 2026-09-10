@@ -142,7 +142,35 @@ bloklarda dengeyi bozar.
 - Gölge neredeyse yoktur; katman hissi çizgiyle kurulur.
 - Üst menü bağlantılarının altında, üzerine gelindiğinde soldan çizilen bir
   altın hat belirir; bulunulan sayfada bu hat çizili kalır.
-- Hareket: sayfa girişinde animasyon yoktur. Yalnızca üzerine gelme
-  durumlarında 200–700 ms arası geçişler kullanılır. Bunun nedeni yalnızca
-  estetik değildir: giriş animasyonu içeriği geçici olarak görünmez
-  kıldığından hem tarama motorları hem yazdırma için risk üretir.
+- Hareket süreleri tek yerde tanımlıdır (`--sure-ani`, `--sure-normal`,
+  `--sure-uzun` ve iki eğri); bileşenler kendi sürelerini uydurmaz.
+
+## Hareket
+
+Sitede iki tür hareket vardır ve ikisinin de gerekçesi aynıdır: okura
+nerede olduğunu söylemek. Süsleme amaçlı hiçbir hareket yoktur.
+
+**Sayfa geçişi — "yaprak".** Gezinmede giden sayfa hafifçe bulanıklaşıp
+sola kayarak çekilir, gelen sayfa sağdan yerine oturur. Üst menü sabit
+kalır: okurun bir dayanak noktası olmalı, kayan şey sayfanın gövdesidir.
+Yol izi, logo ve "tümü" bağlantıları kendilerini **geri** olarak işaretler
+ve yaprak ters yöne döner — yön, nereye gidildiğini söyler.
+
+Bu geçiş tarayıcının View Transitions API'si üzerinden yürür: **DOM
+gizlenmez**, yalnızca tarayıcının aldığı anlık görüntü canlandırılır.
+Tarama motorları, ekran okuyucular ve yazdırma çıktısı bundan hiç
+etkilenmez. Sitede daha önce giriş animasyonları vardı ve tam da bu
+nedenle kaldırılmıştı; bu yöntemde o sorun yoktur.
+
+Kayma mesafesi bilinçli olarak 40 pikselle sınırlı. İki sayfanın
+yüksekliği farklı olduğunda tarayıcının anlık görüntü geometrisi birebir
+örtüşmüyor; kısa mesafede bu fark görünmez, uzun mesafede metin kayması
+olarak okunur. Yön duygusu 40 pikselde zaten kuruluyor.
+
+**Okuma çubuğu.** Uzun metinlerde (yayınlar ve rehberler) sayfanın
+üstünde ince bir hat, kaydırdıkça kırmızıdan altına doğru dolar.
+Kaydırma tabanlı CSS animasyonuyla çalışır: JavaScript kullanmaz, ana iş
+parçacığını meşgul etmez. Tarayıcı desteklemiyorsa hiç görünmez.
+
+Her ikisi de `prefers-reduced-motion` tercihine uyar: hareket azaltma
+açıkken sayfa anında değişir ve çubuk çizilmez.

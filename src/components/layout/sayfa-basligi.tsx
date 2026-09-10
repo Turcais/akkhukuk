@@ -38,7 +38,8 @@ export function SayfaBasligi({
           <nav aria-label="Sayfa yolu" className="mb-7">
             <ol className="flex flex-wrap items-center gap-2 text-[0.78rem] text-white/45">
               <li>
-                <Link href="/" className="transition-colors hover:text-white/80">
+                {/* Yol izi geriye doğrudur; yaprak ters yöne çevrilir. */}
+                <Link href="/" transitionTypes={["geri"]} className="transition-colors hover:text-white/80">
                   Ana Sayfa
                 </Link>
               </li>
@@ -50,7 +51,11 @@ export function SayfaBasligi({
                   {sira === yolIzi.length - 1 ? (
                     <span className="text-white/70">{basamak.ad}</span>
                   ) : (
-                    <Link href={basamak.adres} className="transition-colors hover:text-white/80">
+                    <Link
+                      href={basamak.adres}
+                      transitionTypes={["geri"]}
+                      className="transition-colors hover:text-white/80"
+                    >
                       {basamak.ad}
                     </Link>
                   )}

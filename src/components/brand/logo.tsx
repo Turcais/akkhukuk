@@ -26,6 +26,7 @@ export function Logo({
   return (
     <Link
       href="/"
+      transitionTypes={["geri"]}
       aria-label={`${buroAdi} — ana sayfa`}
       className={cn("group inline-flex items-center gap-3", className)}
     >

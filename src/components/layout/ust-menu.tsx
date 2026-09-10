@@ -65,7 +65,9 @@ export function UstMenu({
   const aktifMi = (adres: string) => yol === adres || yol.startsWith(`${adres}/`);
 
   return (
-    <header className="sticky top-0 z-50">
+    /* Gecis boyunca sabit kalmasi icin kendi adiyla ayri bir gruba alinir;
+       kayan sey sayfanin govdesi olmali, ekranin tamami degil. */
+    <header className="sticky top-0 z-50" style={{ viewTransitionName: "ust-menu" }}>
       {/* Iletisim seridi */}
       <div
         className={cn(

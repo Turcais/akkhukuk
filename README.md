@@ -42,6 +42,10 @@ Arama · İletişim · Yasal Uyarı · KVKK Aydınlatma Metni · Gizlilik Politi
   birlikte zaman çizelgesi.
 - **Yazdırma düzeni** — herhangi bir sayfa çıktı alındığında menü, alt bilgi ve süslemeler
   düşer; kâğıda büro künyesi ve okunur bir belge basılır.
+- **Sayfa geçişi** — gezinmede giden sayfa bulanıklaşıp çekilir, gelen sayfa yerine oturur;
+  üst menü sabit kalır. Geri dönen bağlantılarda yön tersine döner. Tarayıcının View
+  Transitions API'si üzerinden çalışır: DOM gizlenmez, yalnızca anlık görüntü canlandırılır.
+- **Okuma çubuğu** — uzun metinlerde kaydırma ilerlemesini gösteren ince hat; JavaScript yok.
 - **Kısa cevap ve dayanak mevzuat** — yayınlarda sorunun doğrudan cevabı ve dayandığı
   kanun maddeleri; ikisi de yapısal veriye işlenir.
 
