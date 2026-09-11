@@ -13,7 +13,11 @@ yayımlanamaz.
       (üniversite ve yıl), yüksek lisans yılı, varsa sertifika ve üyelikler
 - [ ] **Av. Atakan DEMİRKAN** — bağlı olduğu baro ve sicil numarası, lisans
       mezuniyeti (üniversite ve yıl), çalışma alanları
-- [ ] Her iki avukat için profil fotoğrafı
+- [x] Her iki avukat için profil fotoğrafı — `public/ekip/` altında.
+      Vesikalık beyazı, sitenin kâğıt tonuna yakın sıcak bir stüdyo
+      zeminiyle değiştirildi. Panelden yüklenen fotoğraf bu dosyaların
+      yerine geçer.
+- [ ] Fotoğrafların hangi avukata ait olduğu teyit edilmeli
 - [ ] Ekipte görünecek diğer meslektaşlar (varsa)
 
 Kaynak dosya: `src/lib/ekip.ts` — doğrulama sonrası bilgiler **yönetim

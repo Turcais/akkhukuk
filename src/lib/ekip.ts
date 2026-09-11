@@ -51,6 +51,7 @@ export const ekip: EkipUyesi[] = [
     slug: "ali-kaan-kilicoglu",
     ad: "Av. Ali Kaan KILIÇOĞLU",
     unvan: "Kurucu Avukat",
+    gorsel: "/ekip/ali-kaan-kilicoglu.jpg",
     kisaTanitim:
       "Şirketler, vakıflar ve dernekler hukuku ile sürekli hukuki danışmanlık alanlarında çalışıyor.",
     biyografi: [
@@ -86,6 +87,7 @@ export const ekip: EkipUyesi[] = [
   {
     slug: "atakan-demirkan",
     ad: "Av. Atakan DEMİRKAN",
+    gorsel: "/ekip/atakan-demirkan.jpg",
     unvan: "Avukat",
     kisaTanitim:
       "Uyuşmazlık çözümü, iş hukuku ve icra takibi dosyalarında dava ve takip süreçlerini yürütüyor.",

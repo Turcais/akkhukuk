@@ -59,7 +59,8 @@ export default async function EkipUyesiSayfasi({ params }: { params: Promise<{ s
 
   if (!uye) notFound();
 
-  const portre = uye.gorsel ? gorselAdresi(uye.gorsel, 720, 900) : null;
+  // Panelden yuklenen portre once gelir; yoksa public/ altindaki dosya.
+  const portre = (uye.gorsel ? gorselAdresi(uye.gorsel, 720, 900) : null) ?? uye.yerelGorsel ?? null;
   const yolIzi = [
     { ad: "Ekibimiz", adres: "/ekibimiz" },
     { ad: uye.ad, adres: `/ekibimiz/${uye.slug}` },

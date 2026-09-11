@@ -2,11 +2,18 @@ import Link from "next/link";
 import Image from "next/image";
 import { gorselAdresi, type SanityGorsel } from "@/sanity/client";
 import { cn } from "@/lib/utils";
-import { Nisan } from "./nisan";
+import markaIsareti from "../../../public/marka/akk-logo.svg";
 
 /**
- * Yazili logo. Yonetim panelinden gorsel yuklendiginde onun yerine
- * o gorsel kullanilir; yuklenmediginde nisan + kelime isareti gosterilir.
+ * Buro logosu ve kelime isareti.
+ *
+ * Isaret, buronun kendi kurumsal logosudur (sekiz kollu yildiz, cift
+ * basli kartal ve AKK kelime isareti). Kaynak CorelDRAW cizimi vektor
+ * oldugu icin SVG olarak tasinir: her olcude keskin kalir ve tek dosya
+ * hem acik hem koyu zeminde calisir. Altin ic hat bunun icin secildi;
+ * ozgun beyaz hat koyu zeminde yildizin govdesini yutuyordu.
+ *
+ * Yonetim panelinden logo yuklendiginde o gorsel bunun yerine gecer.
  */
 export function Logo({
   buroAdi,
@@ -21,34 +28,41 @@ export function Logo({
   koyuZemin?: boolean;
   className?: string;
 }) {
-  const gorselUrl = gorsel ? gorselAdresi(gorsel, 480) : null;
+  const panelLogosu = gorsel ? gorselAdresi(gorsel, 480) : null;
 
   return (
     <Link
       href="/"
       transitionTypes={["geri"]}
       aria-label={`${buroAdi} — ana sayfa`}
-      className={cn("group inline-flex items-center gap-3", className)}
+      className={cn("group inline-flex items-center gap-3 sm:gap-4", className)}
     >
-      {gorselUrl ? (
+      {panelLogosu ? (
+        /* Panelden yuklenen logo tek basina durur: yuklenen gorsel cogu
+           zaman buro adini da icerir, yaninda kelime isareti tekrar olur. */
         <Image
-          src={gorselUrl}
+          src={panelLogosu}
           alt={gorsel?.alt || buroAdi}
-          width={240}
-          height={64}
-          className="h-11 w-auto"
+          width={280}
+          height={72}
+          className="h-11 w-auto sm:h-13"
           priority
         />
       ) : (
         <>
-          <Nisan
-            className={cn("h-11 w-8", koyuZemin ? "text-altin-parlak" : "text-kirmizi")}
-            harfSinifi="text-[0.62rem] font-semibold"
+          <Image
+            src={markaIsareti}
+            alt=""
+            aria-hidden="true"
+            className="h-12 w-auto shrink-0 transition-transform duration-500 group-hover:scale-[1.04] sm:h-13"
+            priority
           />
-          <span className="flex flex-col leading-none">
+          {/* Dar ekranda kelime isareti uc satira kiriliyor; isaretin
+              icinde zaten AKK var, ad ise baglantinin aria-label'inda. */}
+          <span className="hidden flex-col leading-none sm:flex">
             <span
               className={cn(
-                "font-display text-[1.3rem] leading-[1.15] tracking-tight",
+                "font-display text-[1.18rem] leading-[1.15] tracking-tight sm:text-[1.3rem]",
                 koyuZemin ? "text-white" : "text-murekkep",
               )}
             >

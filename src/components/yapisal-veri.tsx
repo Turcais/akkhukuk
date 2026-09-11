@@ -20,6 +20,17 @@ function Betik({ veri }: { veri: JsonSozluk }) {
   );
 }
 
+/**
+ * Yapisal veride gorsel alanlari mutlak adres ister.
+ *
+ * Panelden gelen gorseller zaten tam adreslidir; public/ altindaki yerel
+ * dosyalar "/ekip/..." seklinde geldigi icin site adresiyle tamamlanir.
+ */
+function tamAdres(yol?: string | null) {
+  if (!yol) return undefined;
+  return yol.startsWith("http") ? yol : `${site.url}${yol}`;
+}
+
 export function BuroVerisi({
   buroAdi,
   aciklama,
@@ -57,6 +68,8 @@ export function BuroVerisi({
           alternateName: site.shortName,
           description: aciklama,
           url: site.url,
+          logo: `${site.url}/marka/akk-logo.svg`,
+          image: `${site.url}/opengraph-image`,
           email: eposta,
           telephone: telefon || undefined,
           address: adres,
@@ -218,7 +231,7 @@ export function AvukatVerisi({
         jobTitle: unvan,
         description: aciklama,
         url: `${site.url}${adres}`,
-        image: gorsel ?? undefined,
+        image: tamAdres(gorsel),
         knowsAbout: uzmanliklar,
         knowsLanguage: diller.length > 0 ? diller : undefined,
         sameAs: baglantilar.length > 0 ? baglantilar : undefined,
@@ -268,7 +281,7 @@ export function YaziVerisi({
         dateModified: tarih,
         inLanguage: "tr-TR",
         isAccessibleForFree: true,
-        image: gorsel ?? undefined,
+        image: tamAdres(gorsel),
         author: yazar ? { "@type": "Person", name: yazar } : { "@type": "Organization", name: buroAdi },
         publisher: { "@type": "Organization", name: buroAdi, "@id": `${site.url}/#buro` },
         mainEntityOfPage: { "@type": "WebPage", "@id": `${site.url}${adres}` },

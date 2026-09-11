@@ -12,7 +12,8 @@ import type { EkipOzeti } from "@/lib/veri";
  * gosterilir; boylece fotografi olmayan bir profil de kimliksiz gorunmez.
  */
 export function EkipKarti({ uye }: { uye: EkipOzeti }) {
-  const portre = uye.gorsel ? gorselAdresi(uye.gorsel, 640, 800) : null;
+  // Panelden yuklenen portre once gelir; yoksa public/ altindaki dosya.
+  const portre = (uye.gorsel ? gorselAdresi(uye.gorsel, 640, 800) : null) ?? uye.yerelGorsel ?? null;
 
   return (
     <Link

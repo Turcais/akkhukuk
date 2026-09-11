@@ -120,7 +120,10 @@ export type EkipOzeti = {
   ad: string;
   unvan: string;
   kisaTanitim: string;
+  /** Panelden yuklenen portre; varsa yerel dosyanin yerine gecer. */
   gorsel?: SanityGorsel;
+  /** public/ altindaki yedek portre yolu. */
+  yerelGorsel?: string;
   uzmanlikAlanlari: { slug: string; baslik: string; kisaBaslik?: string }[];
 };
 
@@ -145,6 +148,7 @@ function yerelEkipOzeti(uye: (typeof yerelEkip)[number]): EkipOzeti {
     ad: uye.ad,
     unvan: uye.unvan,
     kisaTanitim: uye.kisaTanitim,
+    yerelGorsel: uye.gorsel,
     uzmanlikAlanlari: uye.uzmanlikAlanlari
       .map((alanSlug) => yerelAlanlar.find((alan) => alan.slug === alanSlug))
       .filter((alan): alan is CalismaAlani => Boolean(alan))

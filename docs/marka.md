@@ -64,6 +64,35 @@ tipleri projeyle birlikte sunulur; harici font isteği yapılmaz.
 Ölçek: gövde 17 px / 1.7 satır. Başlıklar `text-wrap: balance`, paragraflar
 `text-wrap: pretty` ile kırılır. Okuma genişliği 68 karakterle sınırlıdır.
 
+## Logo
+
+Büronun kendi kurumsal işareti kullanılır: sekiz kollu yıldız (mühr-ü
+Süleyman) içinde çift başlı altın kartal ve AKK kelime işareti. Kaynak,
+CorelDRAW ile çizilmiş vektör bir PDF'tir; yol verileri çıkarılıp SVG'ye
+taşındığı için her ölçüde keskin kalır ve tek dosya hem açık hem koyu
+zeminde çalışır.
+
+| Dosya | Nerede | Not |
+|---|---|---|
+| `public/marka/akk-logo.svg` | Üst menü, alt bilgi | Tam logo: yıldız, kartal, AKK |
+| `public/marka/akk-muhur.svg` | Paylaşım görseli (OG) | Sadeleştirilmiş: yıldız + kartal |
+| `src/app/icon.svg` | Tarayıcı sekmesi | `akk-muhur.svg` ile aynı |
+| `src/app/favicon.ico` | Eski tarayıcılar, arama motorları | 16 / 32 / 48 piksel |
+| `src/app/apple-icon.png` | iOS ana ekran | 180×180, koyu zemin üstüne yerleştirilmiş |
+
+Özgün çizimde yıldızın iç hattı beyazdır. Sitede bu hat **altına**
+çevrildi: beyaz hat koyu zeminde yıldızın gövdesini yutuyor, altın hat
+ise her iki zeminde de formu ayırıyor. Böylece tek dosya yetiyor ve
+paletle de aynı dili konuşuyor.
+
+Küçük ölçekte kelime işareti lekeye dönüştüğü için sekme ikonu ve mühür
+sadeleştirilmiş sürümü kullanır. Dar ekranda üst menüde yalnızca işaret
+kalır; büro adı bağlantının `aria-label` değerinde durur.
+
+Logo yönetim panelinden değiştirilebilir (Site Ayarları → Logo). Panelden
+bir görsel yüklendiğinde yanındaki yazılı büro adı kaldırılır; yüklenen
+logolar çoğu zaman adı zaten içerir.
+
 ## Motif
 
 Osmanlı bezeme geleneğinden beş unsur alınmıştır; hiçbiri süs olarak
@@ -71,7 +100,7 @@ serbest bırakılmamış, her biri bir işleve bağlanmıştır.
 
 | Unsur | Nerede | İşlev |
 |---|---|---|
-| **Nişan** — şemse (madalyon) formundan türetilmiş sivri oval mühür | Logo, fotoğrafsız profiller, 404 | Kimlik işareti |
+| **Nişan** — şemse (madalyon) formundan türetilmiş sivri oval mühür | Fotoğrafsız profiller, 404 | Kimlik işareti |
 | **Mihrap kemeri** — sivri kemer siluetli niş | Açılıştaki mühür panosu, ekip portreleri, avukat profili | Portreyi ve mührü çerçeveleyen niş; sitenin en belirleyici formu |
 | **Zencerek bordür** — birbirini kesen iki dalga ve kesişme baklavaları | Koyu ve açık bölümlerin buluştuğu her sınır | "Su yolu" şeridi: geçişi kesilmiş değil, çerçeveye alınmış gösterir |
 | **Köşebent** — kutuların dört köşesine oturan çerçeve parçaları | Kenar sütunundaki kutular, iletişim sayfası | Cilt ve kitabe düzeninin köşe bezemesi |
