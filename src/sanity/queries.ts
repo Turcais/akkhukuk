@@ -5,7 +5,7 @@ export const siteAyarlariSorgusu = groq`
   *[_type == "siteAyarlari"][0] {
     buroAdi, slogan, footerMetni, seoAciklama, baro, sicilNo,
     eposta, telefon, whatsapp, whatsappMesaji,
-    adresSatirlari, postaKodu, ilce, il, haritaSorgusu, calismaSaatleri,
+    adresSatirlari, adresSokak, postaKodu, ilce, il, haritaSorgusu, calismaSaatleri,
     logo, sosyal[]{ platform, adres }
   }
 `;
@@ -45,7 +45,7 @@ export const calismaAlaniSluglariSorgusu = groq`
 /** Ekip listesi. */
 export const ekipSorgusu = groq`
   *[_type == "ekipUyesi" && aktif != false && defined(slug.current)] | order(sira asc, ad asc) {
-    "slug": slug.current, ad, unvan, kisaTanitim, gorsel,
+    "slug": slug.current, ad, unvan, kisaTanitim, gorsel, telefon,
     "uzmanlikAlanlari": uzmanlikAlanlari[]->{ "slug": slug.current, baslik, kisaBaslik }
   }
 `;
@@ -54,7 +54,7 @@ export const ekipSorgusu = groq`
 export const ekipUyesiSorgusu = groq`
   *[_type == "ekipUyesi" && slug.current == $slug][0] {
     "slug": slug.current, ad, unvan, kisaTanitim, gorsel, biyografi,
-    davaTurleri, egitim, uyelikler, sertifikalar, diller, eposta, linkedin,
+    davaTurleri, egitim, uyelikler, sertifikalar, diller, eposta, telefon, linkedin,
     "uzmanlikAlanlari": uzmanlikAlanlari[]->{ "slug": slug.current, baslik, kisaBaslik }
   }
 `;

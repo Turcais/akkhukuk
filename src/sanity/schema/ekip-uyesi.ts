@@ -142,6 +142,13 @@ export const ekipUyesi = defineType({
       validation: (kural) => kural.email().error("Geçerli bir e-posta adresi girin."),
     }),
     defineField({
+      name: "telefon",
+      title: "Doğrudan telefon",
+      type: "string",
+      group: "iletisim",
+      description: "Ekip ve iletişim sayfasında bu avukatın adıyla birlikte gösterilir.",
+    }),
+    defineField({
       name: "linkedin",
       title: "LinkedIn adresi",
       type: "url",

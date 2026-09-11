@@ -97,6 +97,13 @@ export const siteAyarlari = defineType({
       description: "Her satır ayrı bir madde olarak girilir.",
     }),
     defineField({
+      name: "adresSokak",
+      title: "Adres — tek satır (yapısal veri)",
+      type: "string",
+      group: "iletisim",
+      description: "Mahalle, cadde, bina ve kat/daire tek satırda. Arama motorlarına bu biçimde bildirilir.",
+    }),
+    defineField({
       name: "postaKodu",
       title: "Posta kodu",
       type: "string",

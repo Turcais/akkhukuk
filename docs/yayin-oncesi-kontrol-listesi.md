@@ -25,24 +25,30 @@ panelinden** girilir, dosyaya dokunmaya gerek yoktur.
 
 ## İletişim bilgileri
 
-Adres büronun bildirdiği gerçek adrestir. Kalanlar hâlâ yer tutucudur:
+Adres ve telefonlar büronun bildirdiği gerçek bilgilerdir:
 
-| Alan | Durum | Yapılacak |
+| Alan | Değer | Durum |
 |---|---|---|
-| Adres | `Ehlibeyt Mah. Ceyhun Atuf Kansu Cad. No: 109, 06520 Çankaya / Ankara` | Kat / daire numarası varsa eklensin |
-| Telefon | `+90 (312) 000 00 00` | Gerçek numara |
-| WhatsApp | `905000000000` | Gerçek numara (ülke koduyla, rakam) |
+| Adres | `Ehlibeyt Mah. Ceyhun Atuf Kansu Cad. No: 109, Kat: 2 No: 3, 06520 Çankaya / Ankara` | ✔ |
+| Telefon (büro) | `+90 552 532 06 06` — Av. Ali Kaan KILIÇOĞLU | ✔ |
+| Telefon (doğrudan) | `+90 505 390 46 75` — Av. Atakan DEMİRKAN | ✔ |
+| WhatsApp | `905525320606` | ✔ |
 | E-posta | `info@akkhukuk.com.tr` | Büroda kullanımda olduğu teyit edilsin |
 | Alan adı | `www.akkhukuk.com.tr` | Gerçek alan adı (`NEXT_PUBLIC_SITE_URL`) |
 
-Telefon ve WhatsApp yer tutucu kaldığı sürece sitede **hiç gösterilmez**;
-uydurma bir numara siteyi eksik değil sahte gösterir. Panele gerçek numara
-girildiği anda üst menüdeki, iletişim sayfasındaki ve WhatsApp butonundaki
-bağlantılar kendiliğinden görünür.
+Büroda santral yoktur; her avukatın doğrudan hattı vardır. İletişim
+sayfası iki numarayı da avukatın adıyla birlikte listeler, her profil
+sayfası kendi numarasını taşır. Üst menü, alt bilgi ve WhatsApp butonu
+ise büro numarasını (kurucunun hattı) kullanır — bu, Site Ayarları →
+İletişim altındaki **Telefon** alanıdır.
 
-Yerel aramada doğru görünmek için posta kodu, ilçe ve il ayrı alanlarda
-tutulur (Site Ayarları → İletişim); yapısal veri bunları `PostalAddress`
-olarak yayımlar.
+Bir numara yer tutucu değerde (`+90 (312) 000 00 00` /
+`905000000000`) bırakılırsa sitede **hiç gösterilmez**; uydurma bir
+numara siteyi eksik değil sahte gösterir.
+
+Yerel aramada doğru görünmek için sokak, posta kodu, ilçe ve il ayrı
+alanlarda tutulur (Site Ayarları → İletişim); yapısal veri bunları
+`PostalAddress` olarak, telefonları da E.164 biçiminde yayımlar.
 
 Tamamı **Site Ayarları → İletişim** bölümünden girilir.
 

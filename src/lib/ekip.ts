@@ -42,6 +42,8 @@ export type EkipUyesi = {
   uyelikler: string[];
   diller: string[];
   eposta?: string;
+  /** Dogrudan hat. Buroda santral yok; her avukatin kendi numarasi var. */
+  telefon?: string;
   linkedin?: string;
   sira: number;
 };
@@ -52,6 +54,7 @@ export const ekip: EkipUyesi[] = [
     ad: "Av. Ali Kaan KILIÇOĞLU",
     unvan: "Kurucu Avukat",
     gorsel: "/ekip/ali-kaan-kilicoglu.jpg",
+    telefon: "+90 552 532 06 06",
     kisaTanitim:
       "Şirketler, vakıflar ve dernekler hukuku ile sürekli hukuki danışmanlık alanlarında çalışıyor.",
     biyografi: [
@@ -88,6 +91,7 @@ export const ekip: EkipUyesi[] = [
     slug: "atakan-demirkan",
     ad: "Av. Atakan DEMİRKAN",
     gorsel: "/ekip/atakan-demirkan.jpg",
+    telefon: "+90 505 390 46 75",
     unvan: "Avukat",
     kisaTanitim:
       "Uyuşmazlık çözümü, iş hukuku ve icra takibi dosyalarında dava ve takip süreçlerini yürütüyor.",

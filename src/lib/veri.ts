@@ -124,6 +124,8 @@ export type EkipOzeti = {
   gorsel?: SanityGorsel;
   /** public/ altindaki yedek portre yolu. */
   yerelGorsel?: string;
+  /** Dogrudan hat; iletisim sayfasi ve profil bunu gosterir. */
+  telefon?: string;
   uzmanlikAlanlari: { slug: string; baslik: string; kisaBaslik?: string }[];
 };
 
@@ -149,6 +151,7 @@ function yerelEkipOzeti(uye: (typeof yerelEkip)[number]): EkipOzeti {
     unvan: uye.unvan,
     kisaTanitim: uye.kisaTanitim,
     yerelGorsel: uye.gorsel,
+    telefon: uye.telefon,
     uzmanlikAlanlari: uye.uzmanlikAlanlari
       .map((alanSlug) => yerelAlanlar.find((alan) => alan.slug === alanSlug))
       .filter((alan): alan is CalismaAlani => Boolean(alan))

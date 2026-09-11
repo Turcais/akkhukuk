@@ -7,21 +7,38 @@ import { site } from "./site";
  * varsayilanlardan okunur. Panelde bos birakilan her alan da varsayilana
  * duser; boylece paneli kismi doldurmak guvenlidir.
  *
- * NOT: Asagidaki telefon ve WhatsApp numaralari yer tutucudur. Yayina
- * almadan once yonetim panelindeki "Site Ayarlari" bolumunden gercek
- * numaralarla degistirilmelidir. Bkz. docs/yayin-oncesi-kontrol-listesi.md
- * Adres ve e-posta buronun bildirdigi gercek bilgilerdir.
+ * Buradaki iletisim bilgileri buronun bildirdigi gercek bilgilerdir.
+ * Panelden degistirilebilir; bkz. docs/yayin-oncesi-kontrol-listesi.md
  */
+
+/**
+ * Yer tutucu degerler.
+ *
+ * Bir numara bunlardan biriyse sitede hic gosterilmez: uydurma bir
+ * numara siteyi eksik degil sahte gosterir. Karsilastirma varsayilana
+ * degil bu listeye bakar; varsayilanlar gercek degerlere donunce
+ * "varsayilandan farkli mi" olcusu her numarayi yer tutucu sayardi.
+ */
+export const yerTutucu = {
+  telefon: "+90 (312) 000 00 00",
+  whatsapp: "905000000000",
+} as const;
 
 export const varsayilanIletisim = {
   eposta: "info@akkhukuk.com.tr",
-  telefon: "+90 (312) 000 00 00",
-  whatsapp: "905000000000",
+  telefon: "+90 552 532 06 06",
+  whatsapp: "905525320606",
   whatsappMesaji: "Merhaba, hukuki bir konuda görüşme talep etmek istiyorum.",
-  adresSatirlari: ["Ehlibeyt Mah. Ceyhun Atuf Kansu Cad. No: 109", "06520 Çankaya / Ankara"],
+  adresSatirlari: [
+    "Ehlibeyt Mah. Ceyhun Atuf Kansu Cad. No: 109",
+    "Kat: 2 No: 3",
+    "06520 Çankaya / Ankara",
+  ],
   haritaSorgusu: "Ehlibeyt Mah. Ceyhun Atuf Kansu Cad. No:109, 06520 Çankaya/Ankara",
-  /* Yapisal veri adresi parcali ister; gorunen satirlardan ayirmak
-     ayristirma tahminine gerek birakmiyor. */
+  /* Yapisal veri adresi parcali ister. Gorunen satirlar yalnizca sunum
+     icindir; sokak, ilce, il ve posta kodu ayri tutulur ki satirlarin
+     bicimi degistiginde yapisal veri sessizce bozulmasin. */
+  adresSokak: "Ehlibeyt Mah. Ceyhun Atuf Kansu Cad. No: 109 Kat: 2 No: 3",
   postaKodu: "06520",
   ilce: "Çankaya",
   il: "Ankara",
@@ -41,6 +58,7 @@ type PanelAyarlari = {
   whatsappMesaji?: string;
   adresSatirlari?: string[];
   haritaSorgusu?: string;
+  adresSokak?: string;
   postaKodu?: string;
   ilce?: string;
   il?: string;
@@ -72,6 +90,7 @@ export type Ayarlar = {
   adresSatirlari: string[];
   adresTekSatir: string;
   haritaSorgusu: string;
+  adresSokak: string;
   postaKodu: string;
   ilce: string;
   il: string;
@@ -97,8 +116,8 @@ export async function ayarlariGetir(): Promise<Ayarlar> {
     ? panel.adresSatirlari.filter(Boolean)
     : [...varsayilanIletisim.adresSatirlari];
 
-  const telefonVar = telefon !== varsayilanIletisim.telefon;
-  const whatsappVar = whatsapp !== varsayilanIletisim.whatsapp;
+  const telefonVar = telefon !== yerTutucu.telefon;
+  const whatsappVar = whatsapp !== yerTutucu.whatsapp;
 
   return {
     buroAdi: sec(panel?.buroAdi, site.name),
@@ -117,6 +136,7 @@ export async function ayarlariGetir(): Promise<Ayarlar> {
     adresSatirlari,
     adresTekSatir: adresSatirlari.join(", "),
     haritaSorgusu: sec(panel?.haritaSorgusu, varsayilanIletisim.haritaSorgusu),
+    adresSokak: sec(panel?.adresSokak, varsayilanIletisim.adresSokak),
     postaKodu: sec(panel?.postaKodu, varsayilanIletisim.postaKodu),
     ilce: sec(panel?.ilce, varsayilanIletisim.ilce),
     il: sec(panel?.il, varsayilanIletisim.il),

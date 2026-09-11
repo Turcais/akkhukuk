@@ -26,6 +26,13 @@ function Betik({ veri }: { veri: JsonSozluk }) {
  * Panelden gelen gorseller zaten tam adreslidir; public/ altindaki yerel
  * dosyalar "/ekip/..." seklinde geldigi icin site adresiyle tamamlanir.
  */
+function numara(deger?: string | null) {
+  /* Yapisal veride numara E.164 bicimiyle verilir; bosluk ve parantez
+     insan icin, makine icin degil. */
+  const sade = deger?.replace(/[^\d+]/g, "");
+  return sade || undefined;
+}
+
 function tamAdres(yol?: string | null) {
   if (!yol) return undefined;
   return yol.startsWith("http") ? yol : `${site.url}${yol}`;
@@ -37,6 +44,7 @@ export function BuroVerisi({
   eposta,
   telefon,
   adresSatirlari,
+  adresSokak,
   postaKodu,
   ilce,
   il,
@@ -49,6 +57,7 @@ export function BuroVerisi({
   eposta: string;
   telefon: string;
   adresSatirlari: string[];
+  adresSokak?: string;
   postaKodu?: string;
   ilce?: string;
   il?: string;
@@ -61,7 +70,7 @@ export function BuroVerisi({
      yazmak gibi sessiz hatalara aciktir. */
   const adres = {
     "@type": "PostalAddress",
-    streetAddress: adresSatirlari[0],
+    streetAddress: adresSokak || adresSatirlari[0],
     addressLocality: ilce || site.city,
     addressRegion: il || site.city,
     postalCode: postaKodu || undefined,
@@ -82,7 +91,7 @@ export function BuroVerisi({
           logo: `${site.url}/marka/akk-logo.svg`,
           image: `${site.url}/opengraph-image`,
           email: eposta,
-          telephone: telefon || undefined,
+          telephone: numara(telefon),
           address: adres,
           areaServed: [
             { "@type": "Country", name: "Türkiye" },
@@ -98,7 +107,7 @@ export function BuroVerisi({
           contactPoint: {
             "@type": "ContactPoint",
             contactType: "Müvekkil başvuruları",
-            telephone: telefon || undefined,
+            telephone: numara(telefon),
             email: eposta,
             areaServed: "TR",
             availableLanguage: ["Turkish", "English"],
@@ -219,6 +228,7 @@ export function AvukatVerisi({
   adres,
   buroAdi,
   gorsel,
+  telefon,
   uzmanliklar,
   baglantilar = [],
   diller = [],
@@ -229,6 +239,7 @@ export function AvukatVerisi({
   adres: string;
   buroAdi: string;
   gorsel?: string | null;
+  telefon?: string;
   uzmanliklar: string[];
   baglantilar?: string[];
   diller?: string[];
@@ -243,6 +254,7 @@ export function AvukatVerisi({
         description: aciklama,
         url: `${site.url}${adres}`,
         image: tamAdres(gorsel),
+        telephone: numara(telefon),
         knowsAbout: uzmanliklar,
         knowsLanguage: diller.length > 0 ? diller : undefined,
         sameAs: baglantilar.length > 0 ? baglantilar : undefined,

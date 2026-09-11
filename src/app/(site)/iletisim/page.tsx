@@ -5,7 +5,7 @@ import { SayfaBasligi } from "@/components/layout/sayfa-basligi";
 import { YolVerisi } from "@/components/yapisal-veri";
 import { Bolum } from "@/components/ui/bolum";
 import { ayarlariGetir } from "@/lib/ayarlar";
-import { sayfaMetniGetir, sec } from "@/lib/veri";
+import { ekipGetir, sayfaMetniGetir, sec } from "@/lib/veri";
 import { IletisimFormu } from "./form";
 
 export const revalidate = 300;
@@ -27,21 +27,34 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Iletisim() {
-  const [ayarlar, panel] = await Promise.all([ayarlariGetir(), sayfaMetniGetir("iletisim-sayfa")]);
+  const [ayarlar, panel, ekip] = await Promise.all([
+    ayarlariGetir(),
+    sayfaMetniGetir("iletisim-sayfa"),
+    ekipGetir(),
+  ]);
   const yolIzi = [{ ad: "İletişim", adres: "/iletisim" }];
+
+  /* Buroda santral yok; her avukatin dogrudan hatti var. Numarayi adiyla
+     birlikte vermek, arayanin kime dustugunu bilmesini sagliyor. */
+  const hatlar = ekip
+    .filter((uye) => uye.telefon)
+    .map((uye) => ({ ad: uye.ad, numara: uye.telefon as string }));
 
   const bilgiler = [
     {
       Ikon: MapPin,
       baslik: "Adres",
+      hatlar: [],
       satirlar: ayarlar.adresSatirlari,
       adres: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ayarlar.haritaSorgusu)}`,
     },
-    ...(ayarlar.telefonVar
-      ? [{ Ikon: Phone, baslik: "Telefon", satirlar: [ayarlar.telefon], adres: ayarlar.telefonHref }]
-      : []),
-    { Ikon: Mail, baslik: "E-posta", satirlar: [ayarlar.eposta], adres: `mailto:${ayarlar.eposta}` },
-    { Ikon: Clock, baslik: "Çalışma saatleri", satirlar: [ayarlar.calismaSaatleri], adres: null },
+    ...(hatlar.length > 0
+      ? [{ Ikon: Phone, baslik: "Telefon", hatlar, satirlar: [], adres: null }]
+      : ayarlar.telefonVar
+        ? [{ Ikon: Phone, baslik: "Telefon", hatlar: [], satirlar: [ayarlar.telefon], adres: ayarlar.telefonHref }]
+        : []),
+    { Ikon: Mail, baslik: "E-posta", hatlar: [], satirlar: [ayarlar.eposta], adres: `mailto:${ayarlar.eposta}` },
+    { Ikon: Clock, baslik: "Çalışma saatleri", hatlar: [], satirlar: [ayarlar.calismaSaatleri], adres: null },
   ];
 
   return (
@@ -60,7 +73,7 @@ export default async function Iletisim() {
 
           <aside className="space-y-8">
             <dl className="divide-y divide-cizgi border-y border-cizgi">
-              {bilgiler.map(({ Ikon, baslik, satirlar, adres }) => (
+              {bilgiler.map(({ Ikon, baslik, satirlar, hatlar: kayitlar, adres }) => (
                 <div key={baslik} className="flex gap-4 py-5">
                   <Ikon className="mt-0.5 h-5 w-5 shrink-0 text-kirmizi" strokeWidth={1.4} aria-hidden="true" />
                   <div>
@@ -68,7 +81,21 @@ export default async function Iletisim() {
                       {baslik}
                     </dt>
                     <dd className="mt-2 text-[0.95rem] leading-relaxed text-metin">
-                      {adres ? (
+                      {kayitlar.length > 0 ? (
+                        <ul className="space-y-2.5">
+                          {kayitlar.map((hat) => (
+                            <li key={hat.numara}>
+                              <a
+                                href={`tel:${hat.numara.replace(/[^\d+]/g, "")}`}
+                                className="transition-colors hover:text-kirmizi"
+                              >
+                                {hat.numara}
+                              </a>
+                              <span className="block text-[0.8rem] text-metin-soluk">{hat.ad}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : adres ? (
                         <a
                           href={adres}
                           target={adres.startsWith("http") ? "_blank" : undefined}

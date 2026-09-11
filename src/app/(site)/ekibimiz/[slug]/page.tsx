@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Mail } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { KemerCercevesi } from "@/components/brand/motif";
 import { Nisan } from "@/components/brand/nisan";
 import { SayfaBasligi } from "@/components/layout/sayfa-basligi";
@@ -78,6 +78,7 @@ export default async function EkipUyesiSayfasi({ params }: { params: Promise<{ s
         buroAdi={ayarlar.buroAdi}
         gorsel={portre}
         uzmanliklar={uye.uzmanlikAlanlari.map((alan) => alan.baslik)}
+        telefon={uye.telefon}
         baglantilar={[uye.linkedin].filter((adres): adres is string => Boolean(adres))}
         diller={uye.diller}
       />
@@ -115,12 +116,21 @@ export default async function EkipUyesiSayfasi({ params }: { params: Promise<{ s
               <Liste baslik="Sertifika ve eğitimler" maddeler={uye.sertifikalar} />
               <Liste baslik="Yabancı diller" maddeler={uye.diller} />
 
-              {uye.eposta || uye.linkedin ? (
+              {uye.telefon || uye.eposta || uye.linkedin ? (
                 <div className="border-t border-cizgi pt-6">
                   <h2 className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-altin-metin">
                     İletişim
                   </h2>
                   <div className="mt-4 flex flex-col gap-3 text-[0.92rem]">
+                    {uye.telefon ? (
+                      <a
+                        href={`tel:${uye.telefon.replace(/[^\d+]/g, "")}`}
+                        className="inline-flex items-center gap-2 text-metin hover:text-kirmizi"
+                      >
+                        <Phone className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
+                        {uye.telefon}
+                      </a>
+                    ) : null}
                     {uye.eposta ? (
                       <a href={`mailto:${uye.eposta}`} className="inline-flex items-center gap-2 text-metin hover:text-kirmizi">
                         <Mail className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
