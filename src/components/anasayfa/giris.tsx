@@ -1,7 +1,8 @@
-import { Nisan } from "@/components/brand/nisan";
+import Image from "next/image";
 import { Bordur, KemerCercevesi, Oruntu } from "@/components/brand/motif";
 import { ButonBaglanti } from "@/components/ui/buton";
 import { Kapsayici } from "@/components/ui/bolum";
+import markaIsareti from "../../../public/marka/akk-logo.svg";
 
 /**
  * Acilis bolumu.
@@ -68,8 +69,11 @@ export function Giris({
           <div className="relative h-[25rem] w-[17.5rem]">
             <div className="kemer absolute inset-0 overflow-hidden bg-koyu-zemin-ust/70 backdrop-blur-sm">
               <Oruntu className="text-altin opacity-[0.09]" />
-              <div className="relative flex h-full flex-col items-center justify-center gap-7 px-8 pt-10">
-                <Nisan className="h-32 w-24 text-altin-parlak" harfSinifi="text-[1.25rem] font-medium text-white" />
+              <div className="relative flex h-full flex-col items-center justify-center gap-6 px-8 pt-6">
+                {/* Nisin icinde buronun kendi isareti durur; yildizin koyu
+                    govdesi nisin zeminine gomulur, altin hat ve kartal
+                    kabartma gibi okunur. */}
+                <Image src={markaIsareti} alt="" aria-hidden="true" className="h-40 w-auto" priority />
 
                 <div className="text-center">
                   <p className="font-display text-[1.12rem] leading-snug text-white">

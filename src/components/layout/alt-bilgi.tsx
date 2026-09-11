@@ -6,7 +6,7 @@ import { Nisan } from "@/components/brand/nisan";
 import { sosyalIkonlar } from "@/components/brand/sosyal-ikonlar";
 import { Kapsayici } from "@/components/ui/bolum";
 import type { Ayarlar } from "@/lib/ayarlar";
-import { anaMenu, yardimciMenu, yasalMenu } from "@/lib/site";
+import { anaMenu, gelistirici, yardimciMenu, yasalMenu } from "@/lib/site";
 
 type Alan = { slug: string; kisaBaslik: string };
 
@@ -144,6 +144,18 @@ export function AltBilgi({ ayarlar, alanlar }: { ayarlar: Ayarlar; alanlar: Alan
             ))}
           </ul>
         </div>
+
+        <p className="mt-6 text-[0.76rem] text-white/30">
+          Coded by{" "}
+          <a
+            href={gelistirici.adres}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-white/20 underline-offset-4 transition-colors hover:text-altin-parlak hover:decoration-altin/50"
+          >
+            {gelistirici.ad}
+          </a>
+        </p>
       </Kapsayici>
     </footer>
   );

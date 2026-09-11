@@ -21,6 +21,12 @@ export const site = {
   bar: "Ankara 2 No'lu Barosu",
 } as const;
 
+/** Alt bilgideki gelistirici kunyesi. */
+export const gelistirici = {
+  ad: "2187Labs",
+  adres: "https://web.2187labs.com",
+} as const;
+
 /** Ust menu. "kisa" yalnizca dar ust menude, "baslik" her yerde kullanilir. */
 export const anaMenu = [
   { baslik: "Hakkımızda", kisa: "Hakkımızda", adres: "/hakkimizda" },
