@@ -7,9 +7,10 @@ import { site } from "./site";
  * varsayilanlardan okunur. Panelde bos birakilan her alan da varsayilana
  * duser; boylece paneli kismi doldurmak guvenlidir.
  *
- * NOT: Asagidaki iletisim bilgileri yer tutucudur. Yayina almadan once
- * yonetim panelindeki "Site Ayarlari" bolumunden gercek bilgilerle
- * degistirilmelidir. Bkz. docs/yayin-oncesi-kontrol-listesi.md
+ * NOT: Asagidaki telefon ve WhatsApp numaralari yer tutucudur. Yayina
+ * almadan once yonetim panelindeki "Site Ayarlari" bolumunden gercek
+ * numaralarla degistirilmelidir. Bkz. docs/yayin-oncesi-kontrol-listesi.md
+ * Adres ve e-posta buronun bildirdigi gercek bilgilerdir.
  */
 
 export const varsayilanIletisim = {
@@ -17,8 +18,13 @@ export const varsayilanIletisim = {
   telefon: "+90 (312) 000 00 00",
   whatsapp: "905000000000",
   whatsappMesaji: "Merhaba, hukuki bir konuda görüşme talep etmek istiyorum.",
-  adresSatirlari: ["Çankaya", "Ankara"],
-  haritaSorgusu: "Çankaya, Ankara",
+  adresSatirlari: ["Ehlibeyt Mah. Ceyhun Atuf Kansu Cad. No: 109", "06520 Çankaya / Ankara"],
+  haritaSorgusu: "Ehlibeyt Mah. Ceyhun Atuf Kansu Cad. No:109, 06520 Çankaya/Ankara",
+  /* Yapisal veri adresi parcali ister; gorunen satirlardan ayirmak
+     ayristirma tahminine gerek birakmiyor. */
+  postaKodu: "06520",
+  ilce: "Çankaya",
+  il: "Ankara",
   calismaSaatleri: "Pazartesi – Cuma · 09.00 – 18.00",
 } as const;
 
@@ -35,6 +41,9 @@ type PanelAyarlari = {
   whatsappMesaji?: string;
   adresSatirlari?: string[];
   haritaSorgusu?: string;
+  postaKodu?: string;
+  ilce?: string;
+  il?: string;
   calismaSaatleri?: string;
   baro?: string;
   sicilNo?: string;
@@ -63,6 +72,9 @@ export type Ayarlar = {
   adresSatirlari: string[];
   adresTekSatir: string;
   haritaSorgusu: string;
+  postaKodu: string;
+  ilce: string;
+  il: string;
   calismaSaatleri: string;
   baro: string;
   sicilNo: string;
@@ -105,6 +117,9 @@ export async function ayarlariGetir(): Promise<Ayarlar> {
     adresSatirlari,
     adresTekSatir: adresSatirlari.join(", "),
     haritaSorgusu: sec(panel?.haritaSorgusu, varsayilanIletisim.haritaSorgusu),
+    postaKodu: sec(panel?.postaKodu, varsayilanIletisim.postaKodu),
+    ilce: sec(panel?.ilce, varsayilanIletisim.ilce),
+    il: sec(panel?.il, varsayilanIletisim.il),
     calismaSaatleri: sec(panel?.calismaSaatleri, varsayilanIletisim.calismaSaatleri),
     baro: sec(panel?.baro, site.bar),
     sicilNo: sec(panel?.sicilNo, ""),

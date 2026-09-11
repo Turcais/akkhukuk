@@ -61,6 +61,9 @@ export async function SiteKabugu({ children }: { children: React.ReactNode }) {
         eposta={ayarlar.eposta}
         telefon={ayarlar.telefonVar ? ayarlar.telefon : ""}
         adresSatirlari={ayarlar.adresSatirlari}
+        postaKodu={ayarlar.postaKodu}
+        ilce={ayarlar.ilce}
+        il={ayarlar.il}
         sosyal={ayarlar.sosyal.map((hesap) => hesap.adres)}
         alanBasliklari={alanlar.map((alan) => alan.baslik)}
         baro={ayarlar.baro}

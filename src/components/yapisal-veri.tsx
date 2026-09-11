@@ -37,6 +37,9 @@ export function BuroVerisi({
   eposta,
   telefon,
   adresSatirlari,
+  postaKodu,
+  ilce,
+  il,
   sosyal,
   alanBasliklari,
   baro,
@@ -46,14 +49,22 @@ export function BuroVerisi({
   eposta: string;
   telefon: string;
   adresSatirlari: string[];
+  postaKodu?: string;
+  ilce?: string;
+  il?: string;
   sosyal: string[];
   alanBasliklari: string[];
   baro?: string;
 }) {
+  /* Ilce, il ve posta kodu ayri alanlardan gelir: gorunen adres
+     satirlarini ayristirmaya calismak yerel aramada yanlis sehir
+     yazmak gibi sessiz hatalara aciktir. */
   const adres = {
     "@type": "PostalAddress",
-    streetAddress: adresSatirlari.slice(0, -1).join(", ") || adresSatirlari[0],
-    addressLocality: adresSatirlari[adresSatirlari.length - 1] ?? site.city,
+    streetAddress: adresSatirlari[0],
+    addressLocality: ilce || site.city,
+    addressRegion: il || site.city,
+    postalCode: postaKodu || undefined,
     addressCountry: "TR",
   };
 

@@ -117,7 +117,7 @@ export default async function Iletisim() {
             <div className="overflow-hidden border border-cizgi">
               <iframe
                 title="Büro konumu"
-                src={`https://maps.google.com/maps?q=${encodeURIComponent(ayarlar.haritaSorgusu)}&hl=tr&z=14&output=embed`}
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(ayarlar.haritaSorgusu)}&hl=tr&z=17&output=embed`}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="h-72 w-full border-0 grayscale-[0.35] dark:brightness-[0.72] dark:contrast-[1.08] dark:grayscale-[0.55]"

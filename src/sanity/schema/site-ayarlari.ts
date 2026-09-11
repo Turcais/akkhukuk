@@ -97,6 +97,27 @@ export const siteAyarlari = defineType({
       description: "Her satır ayrı bir madde olarak girilir.",
     }),
     defineField({
+      name: "postaKodu",
+      title: "Posta kodu",
+      type: "string",
+      group: "iletisim",
+      description: "Yapısal veride kullanılır (örn. 06520).",
+    }),
+    defineField({
+      name: "ilce",
+      title: "İlçe",
+      type: "string",
+      group: "iletisim",
+      description: "Yapısal veride kullanılır (örn. Çankaya).",
+    }),
+    defineField({
+      name: "il",
+      title: "İl",
+      type: "string",
+      group: "iletisim",
+      description: "Yapısal veride kullanılır (örn. Ankara).",
+    }),
+    defineField({
       name: "haritaSorgusu",
       title: "Harita araması",
       type: "string",

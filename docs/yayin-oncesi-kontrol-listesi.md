@@ -25,16 +25,24 @@ panelinden** girilir, dosyaya dokunmaya gerek yoktur.
 
 ## İletişim bilgileri
 
-Şu anda yer tutucu değerler kullanılıyor:
+Adres büronun bildirdiği gerçek adrestir. Kalanlar hâlâ yer tutucudur:
 
-| Alan | Yer tutucu | Yapılacak |
+| Alan | Durum | Yapılacak |
 |---|---|---|
+| Adres | `Ehlibeyt Mah. Ceyhun Atuf Kansu Cad. No: 109, 06520 Çankaya / Ankara` | Kat / daire numarası varsa eklensin |
 | Telefon | `+90 (312) 000 00 00` | Gerçek numara |
 | WhatsApp | `905000000000` | Gerçek numara (ülke koduyla, rakam) |
-| E-posta | `info@akkhukuk.com.tr` | Gerçek adres |
-| Adres | `Çankaya / Ankara` | Açık adres (bina, kat, ilçe) |
-| Harita | `Çankaya, Ankara` | Haritada tam olarak bulunacak adres metni |
+| E-posta | `info@akkhukuk.com.tr` | Büroda kullanımda olduğu teyit edilsin |
 | Alan adı | `www.akkhukuk.com.tr` | Gerçek alan adı (`NEXT_PUBLIC_SITE_URL`) |
+
+Telefon ve WhatsApp yer tutucu kaldığı sürece sitede **hiç gösterilmez**;
+uydurma bir numara siteyi eksik değil sahte gösterir. Panele gerçek numara
+girildiği anda üst menüdeki, iletişim sayfasındaki ve WhatsApp butonundaki
+bağlantılar kendiliğinden görünür.
+
+Yerel aramada doğru görünmek için posta kodu, ilçe ve il ayrı alanlarda
+tutulur (Site Ayarları → İletişim); yapısal veri bunları `PostalAddress`
+olarak yayımlar.
 
 Tamamı **Site Ayarları → İletişim** bölümünden girilir.
 

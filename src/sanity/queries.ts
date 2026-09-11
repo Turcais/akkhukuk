@@ -5,7 +5,7 @@ export const siteAyarlariSorgusu = groq`
   *[_type == "siteAyarlari"][0] {
     buroAdi, slogan, footerMetni, seoAciklama, baro, sicilNo,
     eposta, telefon, whatsapp, whatsappMesaji,
-    adresSatirlari, haritaSorgusu, calismaSaatleri,
+    adresSatirlari, postaKodu, ilce, il, haritaSorgusu, calismaSaatleri,
     logo, sosyal[]{ platform, adres }
   }
 `;
